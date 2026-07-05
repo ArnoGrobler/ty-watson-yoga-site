@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ty Watson Yoga</title>
+
+  <meta name="description" content="Ty Watson — yoga teacher based in Paris. Classes in person and online, private sessions, summer series.">
+  <meta property="og:title" content="Ty Watson">
+  <meta property="og:description" content="Ty Watson — yoga teacher based in Paris. Classes in person and online, private sessions, summer series.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ty Watson">
+
+  <link rel="icon" href="assets/strap.png" type="image/png">
+  <link rel="shortcut icon" href="assets/strap.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/strap.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ============================================================
+       WORK-IN-PROGRESS LOCK
+       Flip LOCKED to `true` before deploying to gate the site.
+       (Soft gate only — not real security. Password: wip)
+       ============================================================ -->
+  <script>
+    (function () {
+      var LOCKED = true;          /* ← set to true to lock the site */
+      var TTL = 10 * 60 * 1000;   /* unlock lasts 10 minutes */
+      try {
+        if (LOCKED) {
+          var t = parseInt(localStorage.getItem("tw-unlocked"), 10);
+          if (t && (Date.now() - t) < TTL) LOCKED = false;
+          else localStorage.removeItem("tw-unlocked");
+        }
+      } catch (e) {}
+      if (LOCKED) document.documentElement.classList.add("is-locked");
+    })();
+  </script>
+</head>
+
+<body class="body">
+  <div class="hero-section">
+
+    <div class="c_hero-container">
+
+      <!-- Logo + tagline -->
+      <div class="l-header-logo">
+        <a href="#teaching" class="c-logo w-inline-block" data-tab="teaching">
+          <span class="c-logo__wordmark">TY WATSON</span>
+        </a>
+      </div>
+      <p class="c-tagline">Yoga — Paris and online</p>
+
+      <!-- Info + tab navigation -->
+      <div class="c-wrapper-infos">
+        <nav class="c-tabs" aria-label="Sections">
+          <!-- Mobile: collapsed bar showing only the active tab + expand toggle -->
+          <div class="c-tabs__bar">
+            <button type="button" class="buttons tab c-tabs__current" data-toggle-tabs>TEACHING</button>
+            <button type="button" class="c-tabs__toggle" data-toggle-tabs aria-label="Show sections" aria-expanded="false">
+              <span class="c-tabs__toggle-icon"></span>
+            </button>
+          </div>
+          <!-- Full list (row on desktop, dropdown on mobile) -->
+          <div class="c-tabs__list">
+            <button class="buttons tab" data-tab="summer-series">SUMMER SERIES</button>
+            <button class="buttons tab is-active" data-tab="teaching">TEACHING</button>
+            <a class="buttons tab" href="mailto:tyrone13watson@gmail.com?subject=Private%20Session%20Request"
+               data-help="For online or in-person private sessions">BOOK A PRIVATE</a>
+            <button class="buttons tab" data-tab="about">ABOUT</button>
+          </div>
+        </nav>
+
+        <!-- ====================== PANELS ====================== -->
+        <div class="c-panels">
+
+          <!-- SUMMER SERIES -->
+          <section class="c-panel" id="panel-summer-series" hidden>
+           <div class="c-series-viewport" id="series-viewport">
+
+            <!-- Detail view -->
+            <div class="c-series-view c-series-view--detail">
+            <div class="c-summer">
+              <h2 class="c-infos__title">Summer Series 2026</h2>
+              <p class="c-summer__meta">Tuesdays at 6pm Paris (12pm Eastern)<br>July 21 – Aug 11, 2026</p>
+              <div class="c-pill-row">
+                <button type="button" class="c-pill c-pill--view" data-series-open>MORE IN THIS SERIES</button>
+                <span class="c-pill"><span class="c-pill__dot"></span>OPEN</span>
+              </div>
+
+              <blockquote class="c-quote">"This seasonal workshop makes me love my life and learning and humanity!" <a href="#" class="c-quote__more" data-open-modal="quotes-modal">see more</a></blockquote>
+
+              <p>In seasonal theory, summer corresponds to the element of Fire: visible, available and expressive. Summer asks us to move out into the world, and it demands our generosity and boundaries in equal measure. It gives us contact with our desires, with what is working and what isn't. Relationships, creativity, joy and exhaustion are revealed by summer's fiery nature.</p>
+
+              <p>This four-week Summer Series focuses on how to connect with the season as it happens. We'll explore summer through physical practice, breath work, and elemental theory, drawing on culture, literature, myth, and metaphor.</p>
+
+              <p class="c-summer__lead">This series includes</p>
+              <ul class="c-summer__list">
+                <li>Weekly summer practice and breath work (Tuesdays 6pm Paris)</li>
+                <li>Weekly "common room" conversations (following each practice)</li>
+                <li>Summer theory workshop (weekend date TBC)</li>
+                <li>One 60 min online private session</li>
+                <li>Reading and correspondence throughout the month</li>
+              </ul>
+
+              <p>Common rooms are communal, to gather after class and ask questions, swap ideas and share observations. Come for a few minutes or the whole hour. Every week there will be a prompt or question that structures our conversation.</p>
+
+              <p>The summer workshop is our broader seasonal map: the myths and metaphors of summer, and how to tune yourself more imaginatively to the season.</p>
+
+              <p>One online private session is included and scheduled during the month. This is for personal practice, clarifying theory, or refining your teaching.</p>
+
+              <p>Each season stands alone and you don't need previous seasons to join, but returning students will find threads that continue. This is for practitioners, teachers, and anyone interested in developing seasonal literacy.</p>
+
+              <p class="c-summer__price">Four weeks online · Jul 21 to Aug 11 · €400 · Limited space</p>
+
+              <p>Once registered, you will receive a payment link to confirm your spot.</p>
+
+              <a href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Summer%20Series%202026" class="buttons c-summer__register w-button">REGISTER FOR THE SUMMER SERIES 2026</a>
+            </div>
+            </div><!-- /detail -->
+
+            <!-- Archive view -->
+            <div class="c-series-view c-series-view--archive">
+             <div class="c-series-archive">
+              <div class="c-archive-back-row">
+                <button type="button" class="c-pill c-pill--view" data-series-close>Back</button>
+              </div>
+
+              <h2 class="c-infos__title">Upcoming</h2>
+              <div class="c-upcoming-grid">
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">SUMMER 2026</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Summer Series</p>
+                    <p class="c-upcoming__date">Jul 21 – Aug 11</p>
+                  </div>
+                  <span class="c-pill c-pill--sm"><span class="c-pill__dot"></span>OPEN</span>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">AUTUMN 2026</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Autumn Series</p>
+                    <p class="c-upcoming__date">Oct – Nov</p>
+                  </div>
+                  <span class="c-pill c-pill--sm c-pill--waitlist"><span class="c-pill__dot"></span>WAITLIST</span>
+                </div>
+              </div>
+
+              <h2 class="c-infos__title c-infos__title--spaced">Past</h2>
+              <div class="c-upcoming-grid">
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">SPRING 2026</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Spring Series</p>
+                    <p class="c-upcoming__date">Apr – May</p>
+                  </div>
+                  <span class="c-pill c-pill--sm c-pill--closed"><span class="c-pill__dot"></span>CLOSED</span>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">WINTER 2025</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Winter Series</p>
+                    <p class="c-upcoming__date">Jan – Feb</p>
+                  </div>
+                  <span class="c-pill c-pill--sm c-pill--closed"><span class="c-pill__dot"></span>CLOSED</span>
+                </div>
+              </div>
+             </div>
+            </div><!-- /archive -->
+
+           </div><!-- /viewport -->
+          </section>
+
+          <!-- TEACHING (default) -->
+          <section class="c-panel" id="panel-teaching">
+            <div class="c-infos">
+
+              <section class="c-teach-section">
+                <h2 class="c-infos__title">Upcoming</h2>
+                <div class="c-upcoming-grid">
+                  <div class="c-upcoming-block">
+                    <div class="c-upcoming__month">JULY</div>
+                    <div class="c-upcoming__rule"></div>
+                    <div class="c-upcoming__event">
+                      <p class="c-upcoming__title">Home Practice Immersion</p>
+                      <a href="https://www.thestudio.yoga/home-practice-immersion" target="_blank" rel="noopener" class="c-schedule-text__link">Online with The Studio</a>
+                    </div>
+                    <div class="c-upcoming__event">
+                      <p class="c-upcoming__title">Summer series</p>
+                      <a href="#summer-series" data-tab="summer-series" class="c-schedule-text__link">Online with Ty</a>
+                    </div>
+                  </div>
+                  <div class="c-upcoming-block">
+                    <div class="c-upcoming__month">OCT</div>
+                    <div class="c-upcoming__rule"></div>
+                    <div class="c-upcoming__event">
+                      <p class="c-upcoming__title">Autumn Series</p>
+                      <p class="c-upcoming__tba">TBA</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="c-teach-section">
+                <h2 class="c-infos__title">Online Classes</h2>
+                <div class="c-schedule-text">
+                  <div class="c-sched-entry">
+                    <p>MON <span class="c-schedule-text__sep">●</span> 12PM (ET) | 6PM (CET)</p>
+                    <p><a href="https://www.thestudio.yoga/classes" target="_blank" rel="noopener" class="c-schedule-text__link" data-help="ONLINE">THE STUDIO</a></p>
+                  </div>
+                  <div class="c-sched-entry">
+                    <p>TUE <span class="c-schedule-text__sep">●</span> 8AM (ET) | 2PM (CET)</p>
+                    <p><a href="https://www.skyting.com/" target="_blank" rel="noopener" class="c-schedule-text__link" data-help="ONLINE">SKY TING</a></p>
+                  </div>
+                  <div class="c-sched-entry">
+                    <p>WED <span class="c-schedule-text__sep">●</span> 12PM (ET) | 6PM (CET)</p>
+                    <p><a href="https://www.thestudio.yoga/classes" target="_blank" rel="noopener" class="c-schedule-text__link" data-help="ONLINE">THE STUDIO</a></p>
+                  </div>
+                </div>
+                <p class="c-schedule__note"><em>Find recorded class with Ty online on <a href="https://watch.thestudio.yoga/" target="_blank" rel="noopener">The Digital Studio</a> and on <a href="https://www.skyting.com/videos" target="_blank" rel="noopener">Sky Ting TV</a></em></p>
+              </section>
+
+              <section class="c-teach-section">
+                <h2 class="c-infos__title">CONTACT</h2>
+                <a href="mailto:tyrone13watson@gmail.com?subject=Hello%20Ty%20!" class="c-infos__link is--cap">TYRONE13WATSON@GMAIL.COM</a>
+              </section>
+            </div>
+          </section>
+
+          <!-- ABOUT -->
+          <section class="c-panel" id="panel-about" hidden>
+            <div class="c-about">
+              <p><a href="#" class="c-ty-link" data-preview="assets/ty.jpg">Ty</a> is a yoga teacher based in Paris. His work integrates clear thinking with grounded, embodied practice.</p>
+
+              <p>He has taught private sessions, classes, workshops, trainings and retreats internationally, in Los Angeles, Seattle, Boston, New York, Toronto, Berlin, Italy and Cape Town. He currently teaches in person in Paris and online with <a href="#">The Studio</a> and <a href="#">Skyting</a>.</p>
+
+              <p><a href="#" class="c-ty-link" data-preview="assets/ty.jpg">Ty</a> grounds heady, esoteric material with a practical physical practice that supports wellbeing, curiosity and self-reflection. Lensed through the <a href="#" class="c-help-link" data-help="Katonah Yoga® is a syncretic Hatha yoga practice developed by Nevine Michaan over 40 years. She and her teachers incorporate classical Hatha yoga with Taoist theory, geometry, magic, mythology, metaphor, and imagination — in a practical framework designed to potentiate personal and communal well-being. Framing the practice, maps of time and personal space are defined and refined. Themes using asana as origami, manipulating form for function, and developing a sense of personal measure are incorporated in Katonah Yoga practices.&#10;&#10;Katonah Yoga is organized around three principles of esoteric dialogue: all polarities are mediated by trinity; the universe has pattern, pattern belies intelligence; by virtue of repetition there is potential for insight. Disciplined techniques are organised for revelation through revolutions.">Katonah Yoga®</a> canon, his teaching blends techniques from Hatha yoga, Daoist philosophy and the theoretical components of Chinese Medicine.</p>
+
+              <p><a href="#" class="c-ty-link" data-preview="assets/ty.jpg">Ty</a> incorporates metaphor and wide-ranging cultural references into his teaching. He is passionate about how language helps us communicate, reconcile dilemmas and tell stories. He believes that a teacher's role is not to fix but to re-orient. He considers the cultivation and teaching of a practice part of living an artful life.</p>
+
+              <p><a href="#" class="c-ty-link" data-preview="assets/ty.jpg">Ty</a> is a certified <span class="c-help-link" data-help="Katonah Yoga® is a syncretic Hatha yoga practice developed by Nevine Michaan over 40 years. She and her teachers incorporate classical Hatha yoga with Taoist theory, geometry, magic, mythology, metaphor, and imagination — in a practical framework designed to potentiate personal and communal well-being. Framing the practice, maps of time and personal space are defined and refined. Themes using asana as origami, manipulating form for function, and developing a sense of personal measure are incorporated in Katonah Yoga practices.&#10;&#10;Katonah Yoga is organized around three principles of esoteric dialogue: all polarities are mediated by trinity; the universe has pattern, pattern belies intelligence; by virtue of repetition there is potential for insight. Disciplined techniques are organised for revelation through revolutions.">Katonah Yoga®</span> teacher, E-RYT200 and Yoga Alliance Continuing Education Provider. He lives in Paris with his husband and their <a href="#" class="c-ty-link" data-preview="assets/Zola.png">dog</a>.</p>
+
+              <p>He welcomes inquiries for private sessions, collaborations, and workshops. Contact him over email <a href="mailto:tyrone13watson@gmail.com">tyrone13watson@gmail.com</a>.</p>
+
+              <p class="c-about__muted"><em>For information regarding liability, terms and conditions, please visit: <a href="#" data-open-modal="legal-modal">tywatsonyoga.com/terms</a>. See more about Katonah Yoga® <a href="https://www.katonahyoga.com" target="_blank" rel="noopener">here</a></em></p>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="monograme">
+        <img src="assets/strap.png" alt="Ty Watson" class="monograme__strap">
+      </div>
+      <a href="https://www.instagram.com/tywtsn/" target="_blank" rel="noopener" class="link-block w-inline-block">
+        <p class="c-footer__link-insta">INSTAGRAM&nbsp;@TYWTSN</p>
+      </a>
+      <a href="https://tywatson.substack.com" target="_blank" rel="noopener" class="link-block w-inline-block">
+        <p class="c-footer__link-insta">SUBSTACK:&nbsp;SMALL ADJUSTMENTS</p>
+      </a>
+      <p class="credits">©2026 <a href="#" class="credits__legal" data-open-modal="legal-modal">Legal</a></p>
+    </div>
+
+  </div>
+
+  <!-- Legal modal -->
+  <div class="c-modal" id="legal-modal" hidden>
+    <div class="c-modal__overlay" data-close></div>
+    <div class="c-modal__dialog" role="dialog" aria-modal="true" aria-label="Legal">
+      <button class="c-modal__close" data-close aria-label="Close">×</button>
+      <h2 class="c-modal__title">Terms &amp; Conditions</h2>
+      <div class="c-modal__body">
+        <h3 class="c-modal__subtitle">Liability</h3>
+        <p>Yoga and movement involve physical activity and may carry a risk of injury. Participation is voluntary and participants assume responsibility for their own practice. The instructor cannot be held liable for injuries, loss, or damage to property except in cases of proven negligence.</p>
+        <p>By booking, participants confirm they are physically able to participate in yoga practice and will inform the instructor of any injuries, medical conditions, or pregnancy before the session.</p>
+        <p>Session are not a substitute for medical care, diagnosis, or treatment, and participants acknowledge that the instructor is not a medical professional. Participants agree to practice at their own pace and to stop immediately if they experience pain, dizziness, or discomfort.</p>
+        <p>For in-person sessions, participants understand that hands-on adjustments or physical guidance may be offered and accept responsibility for any risks associated with receiving physical guidance. Participants are responsible for providing a safe practice space free of hazards and assume responsibility for the safety and condition of that space.</p>
+        <p>For online sessions, participants are responsible for ensuring a safe practice space and a stable internet connection. The instructor is not liable for technical issues on the participant's side.</p>
+        <p>Retreat accommodation, meals, and facilities are provided by the retreat venue. The instructor provides yoga instruction only and is not responsible for accommodation services, travel arrangements, or venue operations. Participants are responsible for obtaining their own travel and health insurance for the duration of the retreat.</p>
+        <p>These terms apply to all private sessions, group classes, workshops, series, and in-person or online offerings.</p>
+
+        <h3 class="c-modal__subtitle">Refunds &amp; Cancellations</h3>
+        <p>All bookings are non-refundable. Sessions may be rescheduled with at least 24 hours' notice. Cancellations or rescheduling with less than 24 hours' notice, including no-shows, are charged in full.</p>
+        <p>For in-person sessions paid in cash, late-cancel or no-show fees will be charged to the card on file.</p>
+
+        <h3 class="c-modal__subtitle">Packages</h3>
+        <p>Packages are non-refundable, non-transferable, and may only be used by the original client. Packages are valid for four months from the date of purchase unless otherwise agreed in writing. Unused sessions expire at the end of the validity period.</p>
+        <p>Any session canceled or rescheduled within 24 hours is counted as used ("punched") and deducted from the package.</p>
+        <p>Packages may include private sessions, group classes, workshops, or seasonal series as specified at the time of purchase.</p>
+
+        <h3 class="c-modal__subtitle">Governing Law</h3>
+        <p>These Terms &amp; Conditions are governed by French law. Any dispute shall fall under the exclusive jurisdiction of the courts of Paris, France.</p>
+
+        <h3 class="c-modal__subtitle">Updates to Terms</h3>
+        <p>These Terms &amp; Conditions may be updated or amended at any time. Any changes will apply to future bookings from the date they are revised.</p>
+        <p>By booking, I confirm that I have read and agree to these Terms &amp; Conditions.</p>
+
+        <h2 class="c-modal__title c-modal__title--section">Privacy Policy</h2>
+        <h3 class="c-modal__subtitle">Website Hosting</h3>
+        <p>This website is hosted by Squarespace, Inc., located in the United States. Squarespace may process personal data such as contact information, booking details, and website usage data on servers located outside the European Union. Squarespace implements safeguards for international data transfers in accordance with applicable data protection regulations, including the General Data Protection Regulation (GDPR).</p>
+        <h3 class="c-modal__subtitle">Data protection (GDPR)</h3>
+        <p>Personal data collected through this website (such as contact forms or booking information) is used solely for the purpose of providing services and communicating with clients. Data is processed in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR).</p>
+
+        <h2 class="c-modal__title c-modal__title--section">Mentions Légales (Legal Notice)</h2>
+        <p>TY WATSON YOGA | SIRET : 10117884600016 | Adresse professionnelle disponible sur demande | Email : <a href="mailto:tyrone13watson@gmail.com">tyrone13watson@gmail.com</a> | TVA non applicable, art. 293 B du CGI. | Site hébergé par Squarespace, Inc. (États-Unis).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials modal -->
+  <div class="c-modal" id="quotes-modal" hidden>
+    <div class="c-modal__overlay" data-close></div>
+    <div class="c-modal__dialog" role="dialog" aria-modal="true" aria-label="Testimonials">
+      <button class="c-modal__close" data-close aria-label="Close">×</button>
+      <h2 class="c-modal__title">What people say</h2>
+      <div class="c-modal__body">
+        <blockquote class="c-quote">"For me, the most valuable part of the series was the depth with which we explored the spring season in the context of TCM. I had already studied this subject previously—yet Ty brought to light so many new aspects that I had never heard before. It was truly comprehensive and gave me a completely fresh perspective on the topic. Thanks to Ty's guidance and expertise, I gained a deep insight that goes far beyond the usual information one typically encounters on this subject."</blockquote>
+        <blockquote class="c-quote">"I have especially appreciated being able to explore and work with the seasons in the actual season we are in. It has really changed how I approach my work, life and practice."</blockquote>
+        <blockquote class="c-quote">"A seasons-oriented bookclub for yogis that blends a physical practice with philosophical teachings."</blockquote>
+        <blockquote class="c-quote">"Yoga for gabbing literatis."</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor-following help text -->
+  <div class="c-cursor-help" id="cursor-help" aria-hidden="true"></div>
+
+  <!-- Cursor-following image preview -->
+  <div class="c-img-preview" id="img-preview" aria-hidden="true"><img alt=""></div>
+
+  <!-- Work-in-progress lock screen (shown only when html.is-locked) -->
+  <div class="c-lock" id="site-lock">
+    <div class="c-lock__inner">
+      <span class="c-lock__wordmark">TY WATSON</span>
+      <p class="c-lock__msg">This site is currently undergoing some maintenance. To contact Ty about the Summer series or to schedule a private, please email <a href="mailto:tyrone13watson@gmail.com">tyrone13watson@gmail.com</a>.</p>
+      <form class="c-lock__form" id="lock-form">
+        <input type="password" id="lock-input" class="c-lock__input" placeholder="Password" autocomplete="off" aria-label="Password">
+        <button type="submit" class="c-lock__btn">Enter</button>
+      </form>
+      <p class="c-lock__err" id="lock-err" hidden>Incorrect password</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
