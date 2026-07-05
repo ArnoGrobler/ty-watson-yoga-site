@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Alumni — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=6">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=9">
 </head>
 <body class="al-body">
 
@@ -34,14 +34,32 @@
       <p class="al-index-sub">Click a tile to open it.</p>
     </header>
     <div class="al-grid">
-      <div class="al-tile">
+      <!-- Members list must match the summer-series page's allowlist (A=[...] there). -->
+      <div class="al-tile" data-members='["tyrone13watson@gmail.com"]' data-title="Summer Series 2026">
         <a class="al-tile__link" href="/alumni/summer-series-2026/">
           <span class="al-tile__emoji">☀️</span>
           <span class="al-tile__title">Summer Series 2026</span>
         </a>
+        <div class="al-tile__actions">
+          <button type="button" class="al-tile__btn"
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/summer-series-2026/';var b=this;function d(){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy link';},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">Copy link</button>
+          <button type="button" class="al-tile__btn"
+                  onclick="event.preventDefault();event.stopPropagation();var t=this.closest('.al-tile');var M=JSON.parse(t.getAttribute('data-members')||'[]');document.getElementById('members-title').textContent=t.getAttribute('data-title')+' — '+M.length+' signed up';var ul=document.getElementById('members-list');ul.innerHTML='';if(!M.length){var li=document.createElement('li');li.textContent='Nobody yet.';ul.appendChild(li);}M.forEach(function(e){var li=document.createElement('li');li.textContent=e;ul.appendChild(li);});document.getElementById('members-modal').style.display='flex';">Members</button>
+        </div>
       </div>
     </div>
   </main>
+
+  <!-- Members popup (shared by all tiles) -->
+  <div class="al-members" id="members-modal" style="display:none"
+       onclick="if(event.target===this)this.style.display='none';">
+    <div class="al-members__box">
+      <button type="button" class="al-members__close" aria-label="Close"
+              onclick="document.getElementById('members-modal').style.display='none';">&times;</button>
+      <h3 class="al-members__title" id="members-title">Members</h3>
+      <ul class="al-members__list" id="members-list"></ul>
+    </div>
+  </div>
 
 </body>
 </html>

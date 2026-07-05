@@ -58,6 +58,76 @@ img { max-width: 100%; }
 }
 .al-lock__err, .al-gate__err { color: #c0392b; font-size: 14px; margin-top: 14px; }
 
+/* ---------- Workshop page: photo backdrop + expanding glass panel ---------- */
+.al-body--photo { background: url("/assets/back.jpg") center / cover fixed no-repeat; }
+.al-stage { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.al-stage.expanded { align-items: flex-start; }
+
+.al-glass {
+  width: 100%; max-width: 440px; padding: 42px 36px;
+  background: rgba(255, 255, 255, .5);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  backdrop-filter: blur(18px) saturate(125%);
+  border: 1px solid rgba(255, 255, 255, .6); border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(51, 4, 17, .28);
+  transition: max-width .55s ease, padding .55s ease, background-color .55s ease, border-color .55s ease;
+}
+.al-glass.expanded {
+  max-width: 960px; padding: 40px;
+  background: rgba(28, 22, 28, .42);
+  border-color: rgba(255, 255, 255, .28);
+}
+
+/* Login (fades out on success) */
+.al-login { text-align: center; transition: opacity .3s ease; }
+.al-login__emoji { font-size: 44px; display: block; margin-bottom: 12px; }
+.al-login__title { font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: .01em; margin: 0 0 14px; color: var(--black); }
+.al-login__msg { font-weight: 300; font-size: 16px; line-height: 1.65; margin-bottom: 24px; color: var(--black); }
+.al-login__form { display: flex; gap: 10px; }
+.al-login__input {
+  flex: 1; min-width: 0; font-family: var(--body); font-size: 16px;
+  padding: 12px 16px; border: 0; border-radius: 999px; outline: none;
+  background: rgba(255, 255, 255, .25); color: var(--black);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.al-login__input::placeholder { color: rgba(51, 4, 17, .6); }
+.al-login__btn {
+  font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  font-size: 14px; padding: 12px 22px; border: 1px solid var(--black); border-radius: 999px;
+  background: var(--black); color: #fff; cursor: pointer; white-space: nowrap;
+}
+.al-login__err { color: #7a1420; font-weight: 700; font-size: 14px; margin-top: 14px; }
+
+/* Content (fades in inside the expanded panel) — white on glass */
+.al-content { color: #fff; transition: opacity .6s ease; }
+.al-content .al-header { margin-bottom: 3.5vh; }
+.al-content .al-header__title { color: #fff; }
+.al-content .al-updates,
+.al-content .al-zoom,
+.al-content .al-widget {
+  border-color: rgba(255, 255, 255, .22); background: rgba(0, 0, 0, .2);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.al-content .al-updates__label,
+.al-content .al-widget__title,
+.al-content .al-zoom__label { color: #fff; }
+.al-content .al-updates__body { color: rgba(255, 255, 255, .9); }
+.al-content .al-zoom__date { color: #fff; }
+.al-content .al-count__num { color: #fff; }
+.al-content .al-count__unit { color: rgba(255, 255, 255, .65); opacity: 1; }
+.al-content .al-session { border-bottom-color: rgba(255, 255, 255, .18); }
+.al-content .al-session__date { color: #fff; }
+.al-content .al-session__title { color: rgba(255, 255, 255, .85); }
+.al-content .al-session.is-next .al-session__date { color: #8fe6b0; }
+.al-content .al-session.is-next .al-session__title::after { color: #8fe6b0; }
+.al-content .al-file { border-color: rgba(255, 255, 255, .3); color: #fff; }
+.al-content .al-file:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, .25); background: rgba(255, 255, 255, .08); }
+.al-content .al-file__icon { color: #fff; }
+.al-content .al-book__title { color: #fff; }
+.al-content .al-book__author { color: rgba(255, 255, 255, .7); }
+.al-content .al-cal-btn { border-color: rgba(255, 255, 255, .6); color: #fff; background: transparent; }
+.al-content .al-cal-btn:hover { background: #fff; color: var(--black); }
+
 /* ---------- Index (grid of alumni pages) ---------- */
 .al-app { max-width: 1000px; margin: 0 auto; padding: 8vh 24px 12vh; }
 .al-index-header { text-align: center; margin-bottom: 6vh; }
@@ -75,39 +145,97 @@ img { max-width: 100%; }
 }
 .al-tile__emoji { font-size: 46px; line-height: 1; }
 .al-tile__title { font-weight: 700; font-size: 18px; }
-.al-tile__copy {
-  position: absolute; top: 10px; right: 10px; opacity: 0; transform: translateY(-4px);
-  transition: opacity .18s, transform .18s;
+.al-tile__actions {
+  position: absolute; top: 10px; right: 10px; display: flex; gap: 8px;
+  opacity: 0; transform: translateY(-4px); transition: opacity .18s, transform .18s;
+}
+.al-tile:hover .al-tile__actions, .al-tile__actions:focus-within { opacity: 1; transform: none; }
+.al-tile__btn {
   font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
   font-size: 11px; padding: 6px 12px; border: 1px solid var(--black); border-radius: 999px;
   background: var(--beige); color: var(--black); cursor: pointer;
 }
-.al-tile:hover .al-tile__copy, .al-tile__copy:focus { opacity: 1; transform: none; }
+.al-tile__btn:hover { background: var(--black); color: #fff; }
+
+/* Members popup */
+.al-members { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; background: rgba(51, 4, 17, .4); padding: 6vw; }
+.al-members__box { background: #fff; border: 1px solid var(--black); border-radius: 12px; max-width: 420px; width: 100%; padding: 28px 30px; position: relative; }
+.al-members__close { position: absolute; top: 10px; right: 14px; background: none; border: 0; font-size: 26px; line-height: 1; cursor: pointer; color: var(--black); }
+.al-members__title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 17px; letter-spacing: .02em; margin: 0 0 18px; padding-right: 24px; }
+.al-members__list { list-style: none; margin: 0; padding: 0; }
+.al-members__list li { padding: 10px 0; border-bottom: 1px dotted var(--line); font-weight: 300; font-size: 15px; word-break: break-all; }
+.al-members__list li:last-child { border-bottom: 0; }
 
 /* ---------- Alumni page ---------- */
-.al-header { display: flex; align-items: center; gap: 14px; margin-bottom: 5vh; }
+.al-header { display: flex; align-items: center; gap: 12px; margin-bottom: 5vh; }
 .al-header__emoji { font-size: 40px; line-height: 1; }
-.al-header__title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 30px; letter-spacing: .03em; margin: 0; }
+.al-header__title { font-family: var(--body); font-weight: 700; font-size: 32px; letter-spacing: .01em; line-height: 1; margin: 0; }
 
 .al-updates { border: 1px solid var(--black); border-radius: 10px; padding: 24px 28px; margin-bottom: 5vh; }
 .al-updates__label { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; margin: 0 0 10px; }
 .al-updates__body { font-weight: 300; font-size: 17px; line-height: 1.7; }
 
-.al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-.al-widget { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; }
+.al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.al-widget { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; display: flex; flex-direction: column; min-width: 0; }
 .al-widget--wide { grid-column: 1 / -1; }
 .al-widget__title { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; margin: 0 0 16px; }
+.al-widget__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.al-widget__head .al-widget__title { margin: 0; }
+.al-cal-btn {
+  font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  font-size: 11px; padding: 7px 14px; border: 1px solid var(--black); border-radius: 999px;
+  background: var(--beige); color: var(--black); cursor: pointer; white-space: nowrap;
+}
+.al-cal-btn:hover { background: var(--black); color: #fff; }
 
-.al-files { list-style: none; margin: 0; padding: 0; }
-.al-files li { padding: 10px 0; border-bottom: 1px dotted var(--line); }
-.al-files li:last-child { border-bottom: 0; }
-.al-files a { text-decoration: underline dotted; text-underline-offset: 3px; font-size: 16px; }
+/* Scroll caps: Materials after 4 docs, Listen after 2 links (heights measured 132px card / 152px embed) */
+.al-scroll { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.al-files.al-scroll { max-height: 280px; }
+.al-listen.al-scroll { max-height: 318px; }
+
+/* Materials — grid of file cards with an icon */
+.al-files { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; list-style: none; margin: 0; padding: 0; }
+.al-file {
+  display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+  padding: 20px 14px; border: 1px solid var(--line); border-radius: 10px;
+  text-decoration: none; color: var(--black); font-weight: 700; font-size: 14px; line-height: 1.3;
+  transition: box-shadow .2s, transform .2s;
+}
+.al-file:hover { box-shadow: 0 6px 18px rgba(51, 4, 17, .1); transform: translateY(-2px); }
+.al-file__icon { width: 34px; height: 42px; color: var(--black); }
+
+/* Next live call + countdown */
+.al-zoom {
+  border: 1px solid var(--black); border-radius: 10px; padding: 24px 28px; margin-bottom: 5vh;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px;
+}
+.al-zoom__info { display: flex; flex-direction: column; }
+.al-zoom__label { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; }
+.al-zoom__date { font-weight: 300; font-size: 17px; margin-top: 5px; }
+.al-countdown { display: flex; gap: 16px; margin-left: auto; }
+.al-count { display: flex; flex-direction: column; align-items: center; min-width: 46px; }
+.al-count__num { font-family: var(--body); font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; }
+.al-count__unit { text-transform: uppercase; letter-spacing: .08em; font-size: 10px; opacity: .6; margin-top: 7px; }
+.al-zoom__btn {
+  font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  font-size: 14px; padding: 13px 26px; border: 1px solid #2d8cff; border-radius: 999px;
+  background: #2d8cff; color: #fff; text-decoration: none; white-space: nowrap;
+}
+
+/* Schedule / itinerary */
+.al-schedule { list-style: none; margin: 0; padding: 0; }
+.al-session { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 18px; padding: 13px 0; border-bottom: 1px dotted var(--line); }
+.al-session:last-child { border-bottom: 0; }
+.al-session__date { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; min-width: 165px; }
+.al-session__title { font-weight: 300; font-size: 16px; }
+.al-session.is-next .al-session__date { color: #1f7a4d; }
+.al-session.is-next .al-session__title::after { content: " — next"; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; color: #1f7a4d; }
 
 .al-spotify { border: 0; border-radius: 12px; margin-bottom: 14px; display: block; }
 .al-spotify:last-child { margin-bottom: 0; }
 
-.al-books { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 22px; }
-.al-book { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; }
+.al-books { display: flex; gap: 22px; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+.al-book { flex: 0 0 120px; width: 120px; display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; }
 .al-book__cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px; box-shadow: 0 3px 12px rgba(0,0,0,.2); background: #eee; }
 .al-book__title { font-weight: 700; font-size: 14px; line-height: 1.3; margin-top: 10px; }
 .al-book__author { font-weight: 300; font-size: 13px; opacity: .7; margin-top: 2px; }
@@ -117,6 +245,12 @@ img { max-width: 100%; }
 @media (max-width: 640px) {
   .al-widgets { grid-template-columns: 1fr; }
   .al-widget--wide { grid-column: auto; }
-  .al-lock__form, .al-gate__form { flex-direction: column; }
+  .al-lock__form, .al-login__form { flex-direction: column; }
   .al-app { padding-top: 5vh; }
+  .al-stage { padding: 14px; }
+  .al-glass, .al-glass.expanded { padding: 28px 22px; }
+  .al-zoom { flex-direction: column; align-items: stretch; text-align: center; }
+  .al-countdown { margin-left: 0; justify-content: center; }
+  .al-zoom__btn { text-align: center; }
+  .al-session__date { min-width: 0; }
 }
