@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Alumni — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=2">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=3">
 </head>
 <body class="al-body">
 
@@ -15,10 +15,10 @@
     <div class="al-lock__inner">
       <span class="al-lock__wordmark">ALUMNI</span>
       <p class="al-lock__msg">Enter the password to continue.</p>
-      <form id="alumni-lock-form" class="al-lock__form">
+      <div class="al-lock__form">
         <input type="password" id="alumni-lock-input" class="al-lock__input" placeholder="Password" autocomplete="off" aria-label="Password">
-        <button type="submit" class="al-lock__btn">Enter</button>
-      </form>
+        <button type="button" id="alumni-lock-btn" class="al-lock__btn">Enter</button>
+      </div>
       <p class="al-lock__err" id="alumni-lock-err" hidden>Incorrect password</p>
     </div>
   </div>
@@ -32,7 +32,7 @@
     <div class="al-grid" id="alumni-grid"></div>
   </main>
 
-  <script src="/alumni/data.js?v=2"></script>
-  <script src="/alumni/index.js?v=2"></script>
+  <script src="/alumni/data.js?v=3"></script>
+  <script src="/alumni/index.js?v=3"></script>
 </body>
 </html>

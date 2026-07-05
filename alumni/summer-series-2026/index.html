@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Alumni — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=2">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=3">
 </head>
 <body class="al-body">
 
@@ -16,10 +16,10 @@
       <span class="al-gate__emoji" id="al-gate-emoji" aria-hidden="true">✦</span>
       <h1 class="al-gate__title" id="al-gate-title">Alumni</h1>
       <p class="al-gate__msg">Enter the email you registered with to access this page.</p>
-      <form id="al-gate-form" class="al-gate__form">
-        <input type="email" id="al-gate-input" class="al-gate__input" placeholder="you@email.com" autocomplete="email" aria-label="Email">
-        <button type="submit" class="al-gate__btn">Enter</button>
-      </form>
+      <div class="al-gate__form">
+        <input type="text" id="al-gate-input" class="al-gate__input" placeholder="you@email.com" autocomplete="email" aria-label="Email">
+        <button type="button" id="al-gate-btn" class="al-gate__btn">Enter</button>
+      </div>
       <p class="al-gate__err" id="al-gate-err" hidden>This email isn't on the list. Contact Ty if you think that's a mistake.</p>
     </div>
   </div>
@@ -27,7 +27,7 @@
   <!-- Page content (rendered by page.js from data.js) -->
   <main class="al-app" id="al-app" hidden></main>
 
-  <script src="/alumni/data.js?v=2"></script>
-  <script src="/alumni/page.js?v=2"></script>
+  <script src="/alumni/data.js?v=3"></script>
+  <script src="/alumni/page.js?v=3"></script>
 </body>
 </html>

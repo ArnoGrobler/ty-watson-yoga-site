@@ -66,9 +66,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     if (unlocked()) { showApp(); } else { showLock(); }
 
-    var form = document.getElementById("alumni-lock-form");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    function tryUnlock() {
       var v = (document.getElementById("alumni-lock-input").value || "").trim().toLowerCase();
       if (v === PW) {
         try { localStorage.setItem(KEY, String(Date.now())); } catch (err) {}
@@ -77,6 +75,13 @@
       } else {
         document.getElementById("alumni-lock-err").hidden = false;
       }
+    }
+
+    var btn = document.getElementById("alumni-lock-btn");
+    if (btn) btn.addEventListener("click", tryUnlock);
+    var input = document.getElementById("alumni-lock-input");
+    if (input) input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.keyCode === 13) { e.preventDefault(); tryUnlock(); }
     });
   });
 })();
