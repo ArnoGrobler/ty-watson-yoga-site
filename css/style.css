@@ -80,7 +80,7 @@ h2 {
   margin-top: 0;
   margin-bottom: 0;
   font-family: var(--body);
-  font-size: min(1.52vw, 21.89px);
+  font-size: min(1.52vw, 15.2px);
   font-weight: 700;
   line-height: 1.8em;
 }
@@ -89,7 +89,7 @@ p {
   margin-top: 0;
   margin-bottom: 0;
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   font-weight: 300;
   line-height: 1.6em;
 }
@@ -239,7 +239,7 @@ p {
   white-space: nowrap;
   width: 50vw;
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   text-decoration: none;
   position: relative;
   overflow: visible;
@@ -277,7 +277,7 @@ p {
   color: var(--black);
   font-family: "Notable", sans-serif;
   font-weight: 400;
-  font-size: min(4.42vw, 63.65px);
+  font-size: min(4.42vw, 44.2px);
   letter-spacing: .06em;
   text-transform: uppercase;
   line-height: 1;
@@ -289,7 +289,7 @@ p {
   text-align: center;
   color: var(--black);
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   letter-spacing: .1em;
   margin: 10px auto 0;
 }
@@ -327,7 +327,7 @@ p {
   margin-left: -1px;
   padding: 1vw 0;
   font-family: var(--body);
-  font-size: min(1.52vw, 21.89px);
+  font-size: min(1.52vw, 15.2px);
   font-weight: 700;
   line-height: 16px;
   transition: opacity .2s cubic-bezier(.645, .045, .355, 1);
@@ -340,8 +340,8 @@ p {
   padding: 1vw 0;
 }
 .buttons.is-50:hover { opacity: .8; }
-.buttons.is-50.is--nomargin-bottom { font-size: min(1.52vw, 21.89px); }
-.buttons.is--nomargin-bottom { font-size: min(1.52vw, 21.89px); }
+.buttons.is-50.is--nomargin-bottom { font-size: min(1.52vw, 15.2px); }
+.buttons.is--nomargin-bottom { font-size: min(1.52vw, 15.2px); }
 
 /* ---------- Infos block ---------- */
 .c-infos {
@@ -354,7 +354,7 @@ p {
 
 .c-infos__title {
   margin-top: 20px;
-  font-size: min(1.52vw, 21.89px);
+  font-size: min(1.52vw, 15.2px);
   font-weight: 700;
 }
 
@@ -362,14 +362,14 @@ p {
   color: var(--black);
   text-align: center;
   font-family: var(--body);
-  font-size: min(1.1vw, 15.84px);
+  font-size: min(1.1vw, 11px);
   font-weight: 300;
   text-decoration: none;
   display: block;
 }
 .c-infos__link.is--cap {
   text-transform: uppercase;
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
 }
 
 /* ---------- Footer ---------- */
@@ -396,7 +396,7 @@ p {
   justify-content: center;
   align-items: center;
   width: auto;
-  margin-bottom: 0;
+  margin-bottom: 12px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -406,7 +406,7 @@ p {
   color: var(--black);
   font-family: "Notable", sans-serif;
   font-weight: 400;
-  font-size: min(2.76vw, 39.74px);
+  font-size: min(2.76vw, 27.6px);
   letter-spacing: .06em;
   line-height: 1;
 }
@@ -443,7 +443,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   font-family: Inconsolata, monospace;
-  font-size: min(1.1vw, 15.84px);
+  font-size: min(1.1vw, 11px);
   font-weight: 700;
   line-height: 1.2;
   display: block;
@@ -453,7 +453,7 @@ p {
 /* ---------- Tab navigation ---------- */
 .c-tabs {
   width: 74vw;
-  max-width: 1120px;
+  max-width: 740px;
   margin: 3vh auto 5vh;
   position: relative;
 }
@@ -480,9 +480,9 @@ p {
   align-items: center;
   justify-content: center;
   margin-left: 0;
-  padding: .9vw .8vw;
+  padding: min(.9vw, 9px) min(.8vw, 8px);
   border-radius: 999px;
-  font-size: min(1.3vw, 18.72px);
+  font-size: min(1.3vw, 13px);
   white-space: nowrap;
 }
 
@@ -502,10 +502,10 @@ p {
   text-align: center;
   letter-spacing: .06em;
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   line-height: 1.8em;
   margin: 10px auto 0;
-  max-width: min(40vw, 576px);
+  max-width: min(40vw, 400px);
 }
 
 /* ---------- Upcoming — two square month blocks ---------- */
@@ -513,16 +513,16 @@ p {
   display: flex;
   justify-content: center;
   align-items: stretch;   /* blocks in a row share the tallest height */
-  gap: 1.4vw;
+  gap: min(1.4vw, 14px);
   width: 44vw;
-  max-width: 620px;
+  max-width: 440px;
   margin: 0 auto;
 }
 .c-upcoming-block {
   flex: 1 1 0;
   border: 1px solid var(--black);
   border-radius: 6px;
-  padding: 1.2vw 1.3vw;
+  padding: min(1.2vw, 12px) min(1.3vw, 13px);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -530,34 +530,34 @@ p {
 }
 .c-upcoming__month {
   text-transform: uppercase;
-  letter-spacing: .22em;
+  letter-spacing: normal;
   font-family: var(--body);
   font-weight: 700;
-  font-size: min(1.15vw, 16.56px);
+  font-size: min(1.15vw, 11.5px);
 }
 .c-upcoming__rule {
   border-top: 1px solid var(--black);
   opacity: .25;
-  margin: .6vw 0 .8vw;
+  margin: min(.6vw, 6px) 0 min(.8vw, 8px);
 }
-.c-upcoming__event { margin-bottom: .7vw; }
+.c-upcoming__event { margin-bottom: min(.7vw, 7px); }
 .c-upcoming__title {
   font-family: var(--body);
   font-weight: 700;
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   line-height: 1.35em;
 }
 .c-upcoming__tba,
 .c-upcoming-block .c-schedule-text__link {
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   line-height: 1.35em;
 }
 /* dates match the block title size (just not bold) */
 .c-upcoming__date {
   font-family: var(--body);
   font-weight: 300;
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   line-height: 1.35em;
 }
 /* status pill pinned to the bottom-left of an archive block, with a
@@ -578,7 +578,7 @@ p {
 .c-schedule-text p {
   color: var(--black);
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   line-height: 1.6em;
 }
 .c-schedule-text__link {
@@ -618,25 +618,25 @@ p {
 .c-schedule__note {
   text-align: center;
   font-family: var(--body);
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   font-style: italic;
   line-height: 1.6em;
   margin: 3vh auto 3vh;
-  max-width: min(60vw, 864px);
+  max-width: min(60vw, 600px);
 }
 .c-schedule__note em { font-style: italic; }
 .c-schedule__note a { color: var(--black); }
 
 /* ---------- About panel ---------- */
 .c-about {
-  max-width: min(42vw, 605px);
+  max-width: min(42vw, 420px);
   margin: 0 auto;
   text-align: justify;
 }
 .c-about p {
   color: var(--black);
   font-family: var(--body);
-  font-size: min(1.62vw, 23.33px);
+  font-size: min(1.62vw, 16.2px);
   font-weight: 300;
   line-height: 1.8em;
   margin-bottom: 1.4em;
@@ -681,7 +681,7 @@ p {
 }
 
 .c-series-archive {
-  max-width: min(46vw, 662px);
+  max-width: min(46vw, 460px);
   margin: 0 auto;
 }
 .c-series-archive .c-infos__title { margin-bottom: 3vh; }
@@ -720,7 +720,7 @@ p {
 }
 
 /* status pills inside archive blocks */
-.c-pill.c-pill--sm { font-size: min(0.83vw, 11.95px); padding: 5px 11px; }
+.c-pill.c-pill--sm { font-size: min(0.83vw, 8.3px); padding: 5px 11px; }
 .c-pill--waitlist .c-pill__dot { background: #e0a53a; box-shadow: none; animation: none; }
 .c-pill--closed  .c-pill__dot { background: #b3b3b3; box-shadow: none; animation: none; }
 .c-pill {
@@ -733,13 +733,15 @@ p {
   box-sizing: border-box;
   font-family: var(--body);
   font-weight: 700;
-  font-size: min(1.3vw, 18.72px);
+  font-size: min(1.3vw, 13px);
   line-height: 1;
   letter-spacing: .06em;
   text-transform: uppercase;
   padding: .9vw 1.4vw;
   border-radius: 999px;
   vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
 }
 .c-pill__dot {
   width: 7px;
@@ -774,10 +776,10 @@ p {
   border-left: 2px solid var(--black);
   margin: 2em auto;
   padding: .2em 0 .2em 1.2em;
-  max-width: min(42vw, 605px);
+  max-width: min(42vw, 420px);
   font-family: var(--body);
   font-style: italic;
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   font-weight: 300;
   line-height: 1.8em;
   color: var(--black);
@@ -788,7 +790,7 @@ p {
   color: var(--black);
   font-family: var(--body);
   font-style: normal;
-  font-size: min(1.38vw, 19.87px);
+  font-size: min(1.38vw, 13.8px);
   text-decoration: underline dotted;
   text-underline-offset: 2px;
   cursor: pointer;
@@ -800,18 +802,18 @@ p {
 
 /* ---------- Summer Series panel ---------- */
 .c-summer {
-  max-width: min(42vw, 605px);
+  max-width: min(42vw, 420px);
   margin: 0 auto;
   text-align: left;
 }
 .c-summer > .c-infos__title {
-  font-size: min(2.62vw, 37.73px);
+  font-size: min(2.62vw, 26.2px);
   line-height: 1.2em;
 }
 .c-summer p {
   color: var(--black);
   font-family: var(--body);
-  font-size: min(1.62vw, 23.33px);
+  font-size: min(1.62vw, 16.2px);
   font-weight: 300;
   line-height: 1.8em;
   margin-bottom: 1.4em;
@@ -843,7 +845,7 @@ p {
   position: relative;
   color: var(--black);
   font-family: var(--body);
-  font-size: min(1.62vw, 23.33px);
+  font-size: min(1.62vw, 16.2px);
   font-weight: 300;
   line-height: 1.7em;
   padding-left: 1.4em;
@@ -869,6 +871,7 @@ p {
   text-align: center;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 999px;   /* pill shape, matching the other buttons */
 }
 
 /* ---------- Cursor-following help text ---------- */
@@ -1037,16 +1040,16 @@ p {
 
 /* Landscape phone / small tablet */
 @media screen and (max-width: 767px) {
-  h2 { font-size: min(2.76vw, 39.74px); }
-  p, .p { font-size: min(2.48vw, 35.71px); }
+  h2 { font-size: min(2.76vw, 27.6px); }
+  p, .p { font-size: min(2.48vw, 24.8px); }
   .logo { width: 40vw; }
   .monograme { margin-bottom: 4px; }
-  .credits { margin-bottom: 0; font-size: min(2.21vw, 31.82px); display: block; }
+  .credits { margin-bottom: 0; font-size: min(2.21vw, 22.1px); display: block; }
   .c-buttons-bottom { width: 70vw; }
   .c-buttons-top { width: 70vw; margin-top: 5vh; }
   .buttons,
   .buttons.is-50.is--nomargin-bottom,
-  .buttons.is--nomargin-bottom { font-size: min(2.76vw, 39.74px); }
+  .buttons.is--nomargin-bottom { font-size: min(2.76vw, 27.6px); }
 
   /* switch to mobile background illustrations */
   .c-background-illu__1,
@@ -1059,22 +1062,22 @@ p {
 
   .c-logo { width: 40vw; margin-top: 32px; }
   .c-infinite-marquee__loop-1,
-  .c-infinite-marquee__loop-2 { width: 100vw; min-width: 100vw; font-size: min(2.62vw, 37.73px); }
-  .c-infinite-marquee__loop-3 { font-size: min(2.62vw, 37.73px); display: none; }
-  .c-infos__title { font-size: min(2.76vw, 39.74px); }
-  .c-infos__link.is--cap { font-size: min(2.62vw, 37.73px); }
+  .c-infinite-marquee__loop-2 { width: 100vw; min-width: 100vw; font-size: min(2.62vw, 26.2px); }
+  .c-infinite-marquee__loop-3 { font-size: min(2.62vw, 26.2px); display: none; }
+  .c-infos__title { font-size: min(2.76vw, 27.6px); }
+  .c-infos__link.is--cap { font-size: min(2.62vw, 26.2px); }
   .image-11 { max-width: 65px; }
   .link-block { margin-bottom: 0; }
 }
 
 /* Portrait phone */
 @media screen and (max-width: 767px) {
-  h2 { margin-bottom: 0; padding-bottom: 0; font-size: min(4vw, 57.6px); line-height: 1.8em; }
-  p { letter-spacing: .06em; font-size: min(4vw, 57.6px); line-height: 5vw; }
+  h2 { margin-bottom: 0; padding-bottom: 0; font-size: min(4vw, 40px); line-height: 1.8em; }
+  p { letter-spacing: .06em; font-size: min(4vw, 40px); line-height: 5vw; }
   .body { max-width: 100vw; overflow: visible; }
   .footer { z-index: auto; padding-top: 2vh; }
   .monograme { max-width: 65px; }
-  .credits { display: block; margin-top: 0; font-size: min(4.14vw, 59.62px); }
+  .credits { display: block; margin-top: 0; font-size: min(4.14vw, 41.4px); }
 
   .c-buttons-bottom { width: 80vw; margin-bottom: 4vh; display: block; }
   .c-buttons-top { width: 80vw; margin-top: 1vh; display: block; }
@@ -1083,14 +1086,14 @@ p {
     margin-left: 0;
     padding-top: 3vw;
     padding-bottom: 3vw;
-    font-size: min(4vw, 57.6px);
+    font-size: min(4vw, 40px);
     line-height: 25px;
   }
   .buttons.is-50 {
     width: 100%;
     padding-top: 4vw;
     padding-bottom: 4vw;
-    font-size: min(4vw, 57.6px);
+    font-size: min(4vw, 40px);
     line-height: 2em;
   }
   .buttons.is-50.is--nomargin-bottom,
@@ -1099,20 +1102,20 @@ p {
     border-radius: 0;
     padding-top: 4vw;
     padding-bottom: 4vw;
-    font-size: min(4vw, 57.6px);
+    font-size: min(4vw, 40px);
   }
 
   .c-logo { width: 75vw; margin-top: 24px; }
-  .c-infinite-marquee__loop-1 { width: 180vw; min-width: 180vw; font-size: min(4vw, 57.6px); }
+  .c-infinite-marquee__loop-1 { width: 180vw; min-width: 180vw; font-size: min(4vw, 40px); }
   .c-infinite-marquee__loop-2 {
     width: 180vw; min-width: 180vw;
     margin-left: 0; margin-right: 0;
-    font-size: min(4vw, 57.6px); display: block; left: 0; right: 0;
+    font-size: min(4vw, 40px); display: block; left: 0; right: 0;
   }
   .c-infinite-marquee__loop-3 { display: none; }
   .c-infos { margin-bottom: 2vh; }
-  .c-infos__title { margin-top: 10px; font-size: min(4vw, 57.6px); }
-  .c-infos__link.is--cap { font-size: min(4vw, 57.6px); }
+  .c-infos__title { margin-top: 10px; font-size: min(4vw, 40px); }
+  .c-infos__link.is--cap { font-size: min(4vw, 40px); }
   .c-wrapper-infos { margin-bottom: 1vh; }
   .c-footer__link-insta { width: 100%; }
   .link-block { width: 100%; margin-bottom: 0; }
@@ -1151,15 +1154,15 @@ p {
 
 
 @media screen and (max-width: 767px) {
-  .c-logo__wordmark { font-size: min(9.5vw, 136.8px); }
-  .monograme__wordmark { font-size: min(5.52vw, 79.49px); }
+  .c-logo__wordmark { font-size: min(9.5vw, 95px); }
+  .monograme__wordmark { font-size: min(5.52vw, 55.2px); }
   .c-tabs { width: 90vw; flex-wrap: wrap; }
-  .tab { flex: 1 1 45%; font-size: min(2.76vw, 39.74px); }
+  .tab { flex: 1 1 45%; font-size: min(2.76vw, 27.6px); }
 }
 
 @media screen and (max-width: 767px) {
-  .c-logo__wordmark { font-size: min(9.5vw, 136.8px); letter-spacing: .04em; }
-  .monograme__wordmark { font-size: min(9.66vw, 139.1px); }
+  .c-logo__wordmark { font-size: min(9.5vw, 95px); letter-spacing: .04em; }
+  .monograme__wordmark { font-size: min(9.66vw, 96.6px); }
 
   /* stack tabs 2-up */
   .c-tabs {
@@ -1173,7 +1176,7 @@ p {
     margin-left: -1px;
     margin-top: -1px;
     padding: 4vw 1vw;
-    font-size: min(3.59vw, 51.7px);
+    font-size: min(3.59vw, 35.9px);
     line-height: 1.3em;
   }
 
@@ -1184,61 +1187,61 @@ p {
     gap: 4vw;
   }
   .c-class-card { padding: 5vw 6vw; }
-  .c-class-card__day { font-size: min(4.14vw, 59.62px); }
+  .c-class-card__day { font-size: min(4.14vw, 41.4px); }
   .c-class-card__rule { margin: 3vw 0; }
-  .c-class-card__time { font-size: min(5.8vw, 83.52px); margin-bottom: 2vw; }
-  .c-class-card__link { font-size: min(4.97vw, 71.57px); }
-  .c-infos__heading { font-size: min(7.59vw, 109.3px); }
-  .c-infos__subtitle { font-size: min(4.14vw, 59.62px); margin-bottom: 4vh; }
-  .c-schedule__note { font-size: min(4vw, 57.6px); max-width: 82vw; }
-  .panel-text { font-size: min(4vw, 57.6px); max-width: 82vw; }
+  .c-class-card__time { font-size: min(5.8vw, 58px); margin-bottom: 2vw; }
+  .c-class-card__link { font-size: min(4.97vw, 49.7px); }
+  .c-infos__heading { font-size: min(7.59vw, 75.9px); }
+  .c-infos__subtitle { font-size: min(4.14vw, 41.4px); margin-bottom: 4vh; }
+  .c-schedule__note { font-size: min(4vw, 40px); max-width: 82vw; }
+  .panel-text { font-size: min(4vw, 40px); max-width: 82vw; }
 }
 
 /* ---------- Responsive — tagline / about / schedule / modal ---------- */
 
 
 @media screen and (max-width: 767px) {
-  .c-tagline { font-size: min(2.76vw, 39.74px); }
-  .c-schedule-text p { font-size: min(2.62vw, 37.73px); }
-  .c-schedule__note { font-size: min(4vw, 57.6px); }
+  .c-tagline { font-size: min(2.76vw, 27.6px); }
+  .c-schedule-text p { font-size: min(2.62vw, 26.2px); }
+  .c-schedule__note { font-size: min(4vw, 40px); }
   .c-about { max-width: 70vw; }
-  .c-about p { font-size: min(2.62vw, 37.73px); }
+  .c-about p { font-size: min(2.62vw, 26.2px); }
 }
 
 @media screen and (max-width: 767px) {
-  .c-tagline { font-size: min(4vw, 57.6px); margin-top: 8px; margin-bottom: 3vh; }
-  .c-schedule-text p { font-size: min(4vw, 57.6px); line-height: 1.7em; }
-  .c-schedule__note { font-size: min(4vw, 57.6px); max-width: 82vw; }
+  .c-tagline { font-size: min(4vw, 40px); margin-top: 8px; margin-bottom: 3vh; }
+  .c-schedule-text p { font-size: min(4vw, 40px); line-height: 1.7em; }
+  .c-schedule__note { font-size: min(4vw, 40px); max-width: 82vw; }
   .c-about { max-width: 84vw; text-align: left; }
-  .c-about p { font-size: min(4vw, 57.6px); line-height: 1.8em; }
+  .c-about p { font-size: min(4vw, 40px); line-height: 1.8em; }
   .c-modal__dialog { padding: 32px 24px 34px; }
 }
 
 /* ---------- Responsive — Summer Series ---------- */
 @media screen and (max-width: 767px) {
   .c-summer { max-width: 70vw; }
-  .c-summer p, .c-summer__list li { font-size: min(2.62vw, 37.73px); }
+  .c-summer p, .c-summer__list li { font-size: min(2.62vw, 26.2px); }
 }
 @media screen and (max-width: 767px) {
   .c-summer { max-width: 84vw; }
-  .c-summer p, .c-summer__list li { font-size: min(4vw, 57.6px); line-height: 1.8em; }
+  .c-summer p, .c-summer__list li { font-size: min(4vw, 40px); line-height: 1.8em; }
 }
 
 /* ---------- Responsive — pill & quote ---------- */
 @media screen and (max-width: 767px) {
-  .c-pill { font-size: min(2.35vw, 33.84px); }
-  .c-quote { max-width: 70vw; font-size: min(2.62vw, 37.73px); }
-  .c-quote__more { font-size: min(2.62vw, 37.73px); }
+  .c-pill { font-size: min(2.35vw, 23.5px); }
+  .c-quote { max-width: 70vw; font-size: min(2.62vw, 26.2px); }
+  .c-quote__more { font-size: min(2.62vw, 26.2px); }
 }
 @media screen and (max-width: 767px) {
-  .c-pill { font-size: min(3.45vw, 49.68px); padding: 7px 14px; }
-  .c-quote { max-width: 84vw; font-size: min(4vw, 57.6px); }
-  .c-quote__more { font-size: min(4vw, 57.6px); }
+  .c-pill { font-size: min(3.45vw, 34.5px); padding: 7px 14px; }
+  .c-quote { max-width: 84vw; font-size: min(4vw, 40px); }
+  .c-quote__more { font-size: min(4vw, 40px); }
 }
 
 /* ---------- Responsive — Summer Series title ---------- */
-@media screen and (max-width: 767px) { .c-summer > .c-infos__title { font-size: min(5.8vw, 83.52px); } }
-@media screen and (max-width: 767px) { .c-summer > .c-infos__title { font-size: min(7.59vw, 109.3px); } }
+@media screen and (max-width: 767px) { .c-summer > .c-infos__title { font-size: min(5.8vw, 58px); } }
+@media screen and (max-width: 767px) { .c-summer > .c-infos__title { font-size: min(7.59vw, 75.9px); } }
 
 /* ============================================================
    Mobile — collapsed tab bar with expand toggle
@@ -1257,7 +1260,7 @@ p {
     margin: 0;
     height: 50px;
     padding: 0 4vw;   /* centre label within the pill */
-    font-size: min(4.69vw, 67.54px);
+    font-size: min(4.69vw, 46.9px);
   }
 
   .c-tabs__toggle {
@@ -1322,7 +1325,7 @@ p {
     margin: 0;
     height: 50px;
     padding: 0 4vw;
-    font-size: min(4.69vw, 67.54px);
+    font-size: min(4.69vw, 46.9px);
   }
   /* the active tab lives in the bar, so hide it from the dropdown */
   .c-tabs__list .tab.is-active { display: none; }
@@ -1333,11 +1336,11 @@ p {
   /* keep the two squares side by side even on phones */
   .c-upcoming-grid { flex-direction: row; gap: 3vw; width: 88vw; }
   .c-upcoming-block { padding: 3.2vw; }
-  .c-upcoming__month { font-size: min(3.31vw, 47.66px); }
+  .c-upcoming__month { font-size: min(3.31vw, 33.1px); }
   .c-upcoming__title,
-  .c-upcoming__date { font-size: min(3.73vw, 53.71px); }
+  .c-upcoming__date { font-size: min(3.73vw, 37.3px); }
   .c-upcoming__tba,
-  .c-upcoming-block .c-schedule-text__link { font-size: min(3.45vw, 49.68px); }
+  .c-upcoming-block .c-schedule-text__link { font-size: min(3.45vw, 34.5px); }
   .c-upcoming__rule { margin: 2.4vw 0; }
   .c-upcoming__event { margin-bottom: 3vw; }
 }
@@ -1345,7 +1348,7 @@ p {
 /* ---------- Responsive — series archive ---------- */
 @media screen and (max-width: 767px) {
   .c-series-archive { max-width: 88vw; }
-  .c-pill.c-pill--sm { font-size: min(2.76vw, 39.74px); padding: 4px 9px; gap: 5px; }
+  .c-pill.c-pill--sm { font-size: min(2.76vw, 27.6px); padding: 4px 9px; gap: 5px; }
   .c-pill--sm .c-pill__dot { width: 5px; height: 5px; }
 }
 
@@ -1373,7 +1376,7 @@ html.is-locked .c-lock {
   display: block;
   font-family: "Notable", sans-serif;
   color: var(--black);
-  font-size: min(3.2vw, 46px);
+  font-size: min(3.2vw, 32px);
   letter-spacing: .06em;
   text-transform: uppercase;
   margin-bottom: 4vh;
@@ -1382,7 +1385,7 @@ html.is-locked .c-lock {
   font-family: var(--body);
   font-weight: 300;
   color: var(--black);
-  font-size: min(1.4vw, 20px);
+  font-size: min(1.4vw, 14px);
   line-height: 1.8em;
   margin-bottom: 4vh;
 }
