@@ -6,33 +6,42 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Alumni — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=3">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=6">
 </head>
 <body class="al-body">
 
-  <!-- Password gate (password in alumni/data.js → ALUMNI_PASSWORD) -->
-  <div class="al-lock" id="alumni-lock" hidden>
+  <!-- Gate — password "wip". All logic is inline for reliability. -->
+  <div class="al-lock" id="gate">
     <div class="al-lock__inner">
       <span class="al-lock__wordmark">ALUMNI</span>
       <p class="al-lock__msg">Enter the password to continue.</p>
       <div class="al-lock__form">
-        <input type="password" id="alumni-lock-input" class="al-lock__input" placeholder="Password" autocomplete="off" aria-label="Password">
-        <button type="button" id="alumni-lock-btn" class="al-lock__btn">Enter</button>
+        <input type="text" id="pw" class="al-lock__input" placeholder="Password"
+               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+               data-1p-ignore="true" data-lpignore="true" aria-label="Password"
+               onkeydown="if(event.key==='Enter'){if((this.value||'').trim().toLowerCase()==='wip'){document.getElementById('gate').style.display='none';document.getElementById('grid').style.display='block';}else{document.getElementById('pwerr').style.display='block';}}">
+        <button type="button" class="al-lock__btn"
+                onclick="if((document.getElementById('pw').value||'').trim().toLowerCase()==='wip'){document.getElementById('gate').style.display='none';document.getElementById('grid').style.display='block';}else{document.getElementById('pwerr').style.display='block';}">Enter</button>
       </div>
-      <p class="al-lock__err" id="alumni-lock-err" hidden>Incorrect password</p>
+      <p class="al-lock__err" id="pwerr" style="display:none">Incorrect password</p>
     </div>
   </div>
 
-  <!-- Grid of alumni pages -->
-  <main class="al-app" id="alumni-app" hidden>
+  <!-- Grid -->
+  <main class="al-app" id="grid" style="display:none">
     <header class="al-index-header">
       <h1 class="al-index-title">Alumni Pages</h1>
-      <p class="al-index-sub">Hover a tile to copy its link, or click to open.</p>
+      <p class="al-index-sub">Click a tile to open it.</p>
     </header>
-    <div class="al-grid" id="alumni-grid"></div>
+    <div class="al-grid">
+      <div class="al-tile">
+        <a class="al-tile__link" href="/alumni/summer-series-2026/">
+          <span class="al-tile__emoji">☀️</span>
+          <span class="al-tile__title">Summer Series 2026</span>
+        </a>
+      </div>
+    </div>
   </main>
 
-  <script src="/alumni/data.js?v=3"></script>
-  <script src="/alumni/index.js?v=3"></script>
 </body>
 </html>

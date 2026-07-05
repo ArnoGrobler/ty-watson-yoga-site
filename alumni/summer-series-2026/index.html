@@ -4,30 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Alumni — Ty Watson Yoga</title>
+  <title>Summer Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=3">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=6">
 </head>
 <body class="al-body">
 
-  <!-- Email allowlist gate (emails in alumni/data.js → this page's acl[]) -->
-  <div class="al-gate" id="al-gate" hidden>
+  <!-- Email gate. Allowed emails are in the onclick array below (plus master "wip").
+       To grant access: add the lowercase email to the A=[...] list. -->
+  <div class="al-gate" id="gate">
     <div class="al-gate__inner">
-      <span class="al-gate__emoji" id="al-gate-emoji" aria-hidden="true">✦</span>
-      <h1 class="al-gate__title" id="al-gate-title">Alumni</h1>
+      <span class="al-gate__emoji" aria-hidden="true">☀️</span>
+      <h1 class="al-gate__title">Summer Series 2026</h1>
       <p class="al-gate__msg">Enter the email you registered with to access this page.</p>
       <div class="al-gate__form">
-        <input type="text" id="al-gate-input" class="al-gate__input" placeholder="you@email.com" autocomplete="email" aria-label="Email">
-        <button type="button" id="al-gate-btn" class="al-gate__btn">Enter</button>
+        <input type="text" id="email" class="al-gate__input" placeholder="you@email.com"
+               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+               data-1p-ignore="true" data-lpignore="true" aria-label="Email"
+               onkeydown="if(event.key==='Enter'){this.parentNode.querySelector('.al-gate__btn').click();}">
+        <button type="button" class="al-gate__btn"
+                onclick="var A=['tyrone13watson@gmail.com'],e=(document.getElementById('email').value||'').trim().toLowerCase();if(e==='wip'||A.indexOf(e)>=0){document.getElementById('gate').style.display='none';document.getElementById('content').style.display='block';}else{document.getElementById('gerr').style.display='block';}">Enter</button>
       </div>
-      <p class="al-gate__err" id="al-gate-err" hidden>This email isn't on the list. Contact Ty if you think that's a mistake.</p>
+      <p class="al-gate__err" id="gerr" style="display:none">This email isn't on the list. Contact Ty if you think that's a mistake.</p>
     </div>
   </div>
 
-  <!-- Page content (rendered by page.js from data.js) -->
-  <main class="al-app" id="al-app" hidden></main>
+  <!-- Page content -->
+  <main class="al-app" id="content" style="display:none">
+    <header class="al-header">
+      <span class="al-header__emoji">☀️</span>
+      <h1 class="al-header__title">Summer Series 2026</h1>
+    </header>
 
-  <script src="/alumni/data.js?v=3"></script>
-  <script src="/alumni/page.js?v=3"></script>
+    <section class="al-updates">
+      <h2 class="al-updates__label">Ty's latest updates</h2>
+      <div class="al-updates__body">Welcome to the Summer Series 2026 alumni space. I'll post new practices, reflections, and reading here through the season — check back for updates.</div>
+    </section>
+
+    <div class="al-widgets">
+      <section class="al-widget">
+        <h3 class="al-widget__title">Materials</h3>
+        <ul class="al-files">
+          <li><a href="#" target="_blank" rel="noopener">Summer Series — Practice Notes</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Breathwork Guide</a></li>
+        </ul>
+      </section>
+
+      <section class="al-widget">
+        <h3 class="al-widget__title">Listen</h3>
+        <iframe class="al-spotify" src="https://open.spotify.com/embed/episode/1otpHd3tcgrwbPtOM5uooz" width="100%" height="152" allowtransparency="true" allow="encrypted-media; clipboard-write; autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe class="al-spotify" src="https://open.spotify.com/embed/episode/0dJlS89KlskcdytX079iOM" width="100%" height="152" allowtransparency="true" allow="encrypted-media; clipboard-write; autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </section>
+
+      <section class="al-widget al-widget--wide">
+        <h3 class="al-widget__title">Reading</h3>
+        <div class="al-books">
+          <a class="al-book" href="https://openlibrary.org/isbn/9780805210316" target="_blank" rel="noopener">
+            <img class="al-book__cover" src="https://covers.openlibrary.org/b/isbn/9780805210316-L.jpg" alt="Light on Yoga" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span class="al-book__title">Light on Yoga</span>
+            <span class="al-book__author">B.K.S. Iyengar</span>
+          </a>
+          <a class="al-book" href="https://openlibrary.org/isbn/9780679724346" target="_blank" rel="noopener">
+            <img class="al-book__cover" src="https://covers.openlibrary.org/b/isbn/9780679724346-L.jpg" alt="Tao Te Ching" loading="lazy" onerror="this.style.visibility='hidden'">
+            <span class="al-book__title">Tao Te Ching</span>
+            <span class="al-book__author">Lao Tzu</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
 </body>
 </html>

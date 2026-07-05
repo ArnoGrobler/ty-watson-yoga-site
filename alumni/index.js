@@ -66,15 +66,15 @@
   document.addEventListener("DOMContentLoaded", function () {
     if (unlocked()) { showApp(); } else { showLock(); }
 
+    function doUnlock() {
+      try { localStorage.setItem(KEY, String(Date.now())); } catch (err) {}
+      showApp();
+      window.scrollTo(0, 0);
+    }
     function tryUnlock() {
-      var v = (document.getElementById("alumni-lock-input").value || "").trim().toLowerCase();
-      if (v === PW) {
-        try { localStorage.setItem(KEY, String(Date.now())); } catch (err) {}
-        showApp();
-        window.scrollTo(0, 0);
-      } else {
-        document.getElementById("alumni-lock-err").hidden = false;
-      }
+      var v = (document.getElementById("alumni-lock-input").value || "").replace(/\s+/g, "").toLowerCase();
+      if (v === PW) { doUnlock(); }
+      else { document.getElementById("alumni-lock-err").hidden = false; }
     }
 
     var btn = document.getElementById("alumni-lock-btn");
@@ -82,6 +82,18 @@
     var input = document.getElementById("alumni-lock-input");
     if (input) input.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.keyCode === 13) { e.preventDefault(); tryUnlock(); }
+    });
+
+    /* Bulletproof fallback: just type the password anywhere on the page.
+       This bypasses the input field entirely, so browser extensions,
+       password managers, or autofill can't interfere. */
+    var buf = "";
+    document.addEventListener("keydown", function (e) {
+      if (!document.getElementById("alumni-app").hidden) return; // already open
+      if (e.key && e.key.length === 1) {
+        buf = (buf + e.key).slice(-12).toLowerCase();
+        if (buf.indexOf(PW) !== -1) { buf = ""; doUnlock(); }
+      }
     });
   });
 })();
