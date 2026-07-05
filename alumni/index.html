@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Alumni — Ty Watson Yoga</title>
+  <link rel="icon" href="../assets/strap.png" type="image/png">
+  <link rel="stylesheet" href="alumni.css">
+</head>
+<body class="al-body">
+
+  <!-- Password gate (password in alumni/data.js → ALUMNI_PASSWORD) -->
+  <div class="al-lock" id="alumni-lock" hidden>
+    <div class="al-lock__inner">
+      <span class="al-lock__wordmark">ALUMNI</span>
+      <p class="al-lock__msg">Enter the password to continue.</p>
+      <form id="alumni-lock-form" class="al-lock__form">
+        <input type="password" id="alumni-lock-input" class="al-lock__input" placeholder="Password" autocomplete="off" aria-label="Password">
+        <button type="submit" class="al-lock__btn">Enter</button>
+      </form>
+      <p class="al-lock__err" id="alumni-lock-err" hidden>Incorrect password</p>
+    </div>
+  </div>
+
+  <!-- Grid of alumni pages -->
+  <main class="al-app" id="alumni-app" hidden>
+    <header class="al-index-header">
+      <h1 class="al-index-title">Alumni Pages</h1>
+      <p class="al-index-sub">Hover a tile to copy its link, or click to open.</p>
+    </header>
+    <div class="al-grid" id="alumni-grid"></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

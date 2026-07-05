@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Alumni — Ty Watson Yoga</title>
+  <link rel="icon" href="../../assets/strap.png" type="image/png">
+  <link rel="stylesheet" href="../alumni.css">
+</head>
+<body class="al-body">
+
+  <!-- Email allowlist gate (emails in alumni/data.js → this page's acl[]) -->
+  <div class="al-gate" id="al-gate" hidden>
+    <div class="al-gate__inner">
+      <span class="al-gate__emoji" id="al-gate-emoji" aria-hidden="true">✦</span>
+      <h1 class="al-gate__title" id="al-gate-title">Alumni</h1>
+      <p class="al-gate__msg">Enter the email you registered with to access this page.</p>
+      <form id="al-gate-form" class="al-gate__form">
+        <input type="email" id="al-gate-input" class="al-gate__input" placeholder="you@email.com" autocomplete="email" aria-label="Email">
+        <button type="submit" class="al-gate__btn">Enter</button>
+      </form>
+      <p class="al-gate__err" id="al-gate-err" hidden>This email isn't on the list. Contact Ty if you think that's a mistake.</p>
+    </div>
+  </div>
+
+  <!-- Page content (rendered by page.js from data.js) -->
+  <main class="al-app" id="al-app" hidden></main>
+
+  <script src="../data.js"></script>
+  <script src="../page.js"></script>
+</body>
+</html>

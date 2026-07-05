@@ -1,0 +1,122 @@
+/* ============================================================
+   Ty Watson Yoga — Alumni area styles (shared)
+   ============================================================ */
+@font-face {
+  font-family: "Rokkitt";
+  src: url("../fonts/rokkitt.ttf") format("truetype");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: url("../fonts/rokkitt-italic.ttf") format("truetype");
+  font-weight: 100 900; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Notable";
+  src: url("../fonts/notable.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+:root {
+  --black: #330411;
+  --beige: #ffffff;
+  --body: "Rokkitt", serif;
+  --line: rgba(51, 4, 17, .16);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+.al-body {
+  background: var(--beige);
+  color: var(--black);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--black); }
+img { max-width: 100%; }
+
+/* ---------- Password / email gates (shared look) ---------- */
+.al-lock, .al-gate {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--beige); padding: 6vw; z-index: 50;
+}
+.al-lock__inner, .al-gate__inner { max-width: 440px; width: 100%; text-align: center; }
+.al-lock__wordmark { font-family: "Notable", sans-serif; font-size: 30px; letter-spacing: .08em; display: block; margin-bottom: 20px; }
+.al-gate__emoji { font-size: 44px; display: block; margin-bottom: 12px; }
+.al-gate__title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 26px; margin: 0 0 14px; letter-spacing: .03em; }
+.al-lock__msg, .al-gate__msg { font-weight: 300; font-size: 16px; line-height: 1.65; margin-bottom: 24px; }
+.al-lock__form, .al-gate__form { display: flex; gap: 10px; }
+.al-lock__input, .al-gate__input {
+  flex: 1; min-width: 0; font-family: var(--body); font-size: 16px;
+  padding: 12px 16px; border: 1px solid var(--black); border-radius: 999px;
+  background: #fff; color: var(--black); outline: none;
+}
+.al-lock__btn, .al-gate__btn {
+  font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  font-size: 14px; padding: 12px 22px; border: 1px solid var(--black); border-radius: 999px;
+  background: var(--black); color: #fff; cursor: pointer; white-space: nowrap;
+}
+.al-lock__err, .al-gate__err { color: #c0392b; font-size: 14px; margin-top: 14px; }
+
+/* ---------- Index (grid of alumni pages) ---------- */
+.al-app { max-width: 1000px; margin: 0 auto; padding: 8vh 24px 12vh; }
+.al-index-header { text-align: center; margin-bottom: 6vh; }
+.al-index-title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 34px; margin: 0 0 8px; letter-spacing: .04em; }
+.al-index-sub { font-weight: 300; opacity: .7; margin: 0; }
+.al-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.al-tile {
+  position: relative; border: 1px solid var(--black); border-radius: 10px;
+  overflow: hidden; aspect-ratio: 1 / 1; transition: box-shadow .2s;
+}
+.al-tile:hover { box-shadow: 0 8px 24px rgba(51, 4, 17, .12); }
+.al-tile__link {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; height: 100%; text-decoration: none; padding: 20px; text-align: center;
+}
+.al-tile__emoji { font-size: 46px; line-height: 1; }
+.al-tile__title { font-weight: 700; font-size: 18px; }
+.al-tile__copy {
+  position: absolute; top: 10px; right: 10px; opacity: 0; transform: translateY(-4px);
+  transition: opacity .18s, transform .18s;
+  font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  font-size: 11px; padding: 6px 12px; border: 1px solid var(--black); border-radius: 999px;
+  background: var(--beige); color: var(--black); cursor: pointer;
+}
+.al-tile:hover .al-tile__copy, .al-tile__copy:focus { opacity: 1; transform: none; }
+
+/* ---------- Alumni page ---------- */
+.al-header { display: flex; align-items: center; gap: 14px; margin-bottom: 5vh; }
+.al-header__emoji { font-size: 40px; line-height: 1; }
+.al-header__title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 30px; letter-spacing: .03em; margin: 0; }
+
+.al-updates { border: 1px solid var(--black); border-radius: 10px; padding: 24px 28px; margin-bottom: 5vh; }
+.al-updates__label { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; margin: 0 0 10px; }
+.al-updates__body { font-weight: 300; font-size: 17px; line-height: 1.7; }
+
+.al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.al-widget { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; }
+.al-widget--wide { grid-column: 1 / -1; }
+.al-widget__title { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; margin: 0 0 16px; }
+
+.al-files { list-style: none; margin: 0; padding: 0; }
+.al-files li { padding: 10px 0; border-bottom: 1px dotted var(--line); }
+.al-files li:last-child { border-bottom: 0; }
+.al-files a { text-decoration: underline dotted; text-underline-offset: 3px; font-size: 16px; }
+
+.al-spotify { border: 0; border-radius: 12px; margin-bottom: 14px; display: block; }
+.al-spotify:last-child { margin-bottom: 0; }
+
+.al-books { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 22px; }
+.al-book { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; }
+.al-book__cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px; box-shadow: 0 3px 12px rgba(0,0,0,.2); background: #eee; }
+.al-book__title { font-weight: 700; font-size: 14px; line-height: 1.3; margin-top: 10px; }
+.al-book__author { font-weight: 300; font-size: 13px; opacity: .7; margin-top: 2px; }
+
+.al-empty { opacity: .6; font-weight: 300; }
+
+@media (max-width: 640px) {
+  .al-widgets { grid-template-columns: 1fr; }
+  .al-widget--wide { grid-column: auto; }
+  .al-lock__form, .al-gate__form { flex-direction: column; }
+  .al-app { padding-top: 5vh; }
+}
