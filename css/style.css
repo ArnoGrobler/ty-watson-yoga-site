@@ -569,6 +569,15 @@ p {
 .c-series-view--archive .c-upcoming__event:last-of-type {
   margin-bottom: 2vw;   /* minimum breathing room above the pill */
 }
+/* "more details" trigger, pushed to sit just above the archive pill */
+.c-upcoming__more {
+  margin-top: auto;
+  margin-bottom: min(1.6vw, 16px);
+  font-family: var(--body);
+  font-size: min(1.25vw, 12.5px);
+  line-height: 1.4em;
+}
+.c-upcoming-block .c-upcoming__more + .c-pill { margin-top: 0; }
 
 /* ---------- Classes schedule (simple centred text) ---------- */
 .c-schedule-text {
@@ -1341,6 +1350,7 @@ p {
   .c-upcoming__date { font-size: min(3.73vw, 37.3px); }
   .c-upcoming__tba,
   .c-upcoming-block .c-schedule-text__link { font-size: min(3.45vw, 34.5px); }
+  .c-upcoming__more { font-size: min(3.4vw, 34px); margin-bottom: min(3.6vw, 36px); }
   .c-upcoming__rule { margin: 2.4vw 0; }
   .c-upcoming__event { margin-bottom: 3vw; }
 }
