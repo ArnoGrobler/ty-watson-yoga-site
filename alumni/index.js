@@ -32,13 +32,14 @@
     grid.innerHTML = "";
 
     list.forEach(function (a) {
-      var url = new URL(a.slug + "/", window.location.href).href;
+      var path = "/alumni/" + a.slug + "/";
+      var url = window.location.origin + path;
       var tile = document.createElement("div");
       tile.className = "al-tile";
 
       var link = document.createElement("a");
       link.className = "al-tile__link";
-      link.href = a.slug + "/";
+      link.href = path;
       link.innerHTML = '<span class="al-tile__emoji">' + (a.emoji || "📄") +
         '</span><span class="al-tile__title">' + a.title + "</span>";
 
