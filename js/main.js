@@ -260,7 +260,10 @@
       var v = (document.getElementById("lock-input").value || "").trim().toLowerCase();
       if (v === "wip") {
         try { localStorage.setItem("tw-unlocked", String(Date.now())); } catch (err) {}
+        var input = document.getElementById("lock-input");
+        if (input) input.blur();            // dismiss the mobile keyboard
         document.documentElement.classList.remove("is-locked");
+        window.scrollTo(0, 0);              // start at the top, not scrolled down
       } else {
         var err = document.getElementById("lock-err");
         if (err) err.hidden = false;

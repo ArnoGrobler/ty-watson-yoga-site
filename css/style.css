@@ -1057,7 +1057,7 @@ p {
   .c-background-illu__3-mobile { width: 80vw; display: block; }
   .l-background { display: flex; }
 
-  .c-logo { width: 40vw; }
+  .c-logo { width: 40vw; margin-top: 32px; }
   .c-infinite-marquee__loop-1,
   .c-infinite-marquee__loop-2 { width: 100vw; min-width: 100vw; font-size: min(2.62vw, 37.73px); }
   .c-infinite-marquee__loop-3 { font-size: min(2.62vw, 37.73px); display: none; }
@@ -1102,7 +1102,7 @@ p {
     font-size: min(4vw, 57.6px);
   }
 
-  .c-logo { width: 75vw; }
+  .c-logo { width: 75vw; margin-top: 24px; }
   .c-infinite-marquee__loop-1 { width: 180vw; min-width: 180vw; font-size: min(4vw, 57.6px); }
   .c-infinite-marquee__loop-2 {
     width: 180vw; min-width: 180vw;
