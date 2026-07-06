@@ -845,6 +845,9 @@ p {
   margin-bottom: .6em !important;
 }
 
+/* bold lead-in phrases within body paragraphs */
+.c-summer p strong { font-weight: 700; }
+
 .c-summer__list {
   list-style: none;
   margin: 0 0 1.6em;
