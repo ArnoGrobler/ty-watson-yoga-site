@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Summer Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=26">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=28">
 </head>
 <body class="al-body al-body--photo">
 
@@ -31,6 +31,7 @@
       <div class="al-content" id="content" hidden>
         <header class="al-header">
           <h1 class="al-header__title">Summer Series 2026</h1>
+          <span class="al-header__by">Ty Watson</span>
         </header>
 
         <section class="al-updates">
@@ -72,13 +73,13 @@
             <h3 class="al-widget__title">Materials</h3>
             <ul class="al-files al-scroll">
               <li>
-                <a class="al-file" href="#" target="_blank" rel="noopener">
+                <a class="al-file" href="files/practice-notes.pdf" download="Summer Series — Practice Notes.pdf">
                   <svg class="al-file__icon" viewBox="0 0 24 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 1h11l6 6v21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"/><path d="M15 1v6h6"/></svg>
                   <span>Summer Series — Practice Notes</span>
                 </a>
               </li>
               <li>
-                <a class="al-file" href="#" target="_blank" rel="noopener">
+                <a class="al-file" href="files/breathwork-guide.pdf" download="Breathwork Guide.pdf">
                   <svg class="al-file__icon" viewBox="0 0 24 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 1h11l6 6v21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"/><path d="M15 1v6h6"/></svg>
                   <span>Breathwork Guide</span>
                 </a>
@@ -126,11 +127,24 @@
   </div>
 
   <script>
+  var AL_KEY = "al-ss2026-ok";
+
+  /* Show the content immediately (no login), used when arriving from the dashboard. */
+  function alRevealInstant() {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("stage").classList.add("expanded");
+    document.getElementById("glass").classList.add("expanded");
+    var content = document.getElementById("content");
+    content.hidden = false;
+    content.style.opacity = "1";
+  }
+
   /* Login → expand the glass panel and fade the widgets in. */
   function alEnter() {
     var A = ["tyrone13watson@gmail.com"];
     var e = (document.getElementById("email").value || "").trim().toLowerCase();
     if (!(e === "wip" || A.indexOf(e) >= 0)) { document.getElementById("gerr").style.display = "block"; return; }
+    try { sessionStorage.setItem(AL_KEY, "1"); } catch (x) {}
     var stage = document.getElementById("stage"), glass = document.getElementById("glass"),
         login = document.getElementById("login"), content = document.getElementById("content");
     login.style.opacity = "0";
@@ -144,6 +158,31 @@
       window.scrollTo(0, 0);
     }, 320);
   }
+
+  /* Skip the gate when arriving from the (already password-protected) alumni dashboard,
+     or when this tab already unlocked the page earlier. */
+  (function () {
+    function fromDashboard() {
+      try { if (sessionStorage.getItem("al-from-dash") === "1") { sessionStorage.removeItem("al-from-dash"); return true; } } catch (x) {}
+      var r = document.referrer || "";
+      if (r) {
+        try {
+          var u = new URL(r);
+          if (u.origin === location.origin) {
+            var p = u.pathname.replace(/index\.html$/, "");
+            if (p === "/alumni/" || p === "/alumni") return true;
+          }
+        } catch (x) {}
+      }
+      return false;
+    }
+    var ok = false;
+    try { ok = sessionStorage.getItem(AL_KEY) === "1"; } catch (x) {}
+    if (ok || fromDashboard()) {
+      try { sessionStorage.setItem(AL_KEY, "1"); } catch (x) {}
+      alRevealInstant();
+    }
+  })();
 
   /* Countdown to the next session (reads dates from the Schedule list). */
   (function () {
