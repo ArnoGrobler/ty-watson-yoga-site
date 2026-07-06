@@ -208,8 +208,8 @@
           current.li.classList.add("is-next");
           dateEl.textContent = current.li.querySelector(".al-session__date").textContent;
         } else {
-          dateEl.textContent = "To be announced";
-          if (cdEl) cdEl.style.display = "none";
+          var zw = document.querySelector(".al-zoom");
+          if (zw) zw.style.display = "none"; // whole widget hides when the series is over
           return;
         }
       }

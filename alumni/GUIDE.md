@@ -11,9 +11,11 @@ edit + deploys**. Ty never has to touch code.
 ## What exists today
 
 - **`/alumni` — the dashboard.** Password `wip`. Shows a grid of tiles, one per
-  workshop. Each tile has, on hover, a **Copy link** button (to send students)
-  and a **Members** button (shows who has access). Clicking a tile opens that
-  workshop *without* asking for a password (the dashboard is already gated).
+  workshop. Each tile is a landscape card showing that workshop's background
+  image with the title bottom-left; on hover the image blurs and two buttons
+  appear bottom-right — a round **copy-link icon** (to send students) and a
+  **Members** button (shows who has access). Clicking a tile opens that workshop
+  *without* asking for a password (the dashboard is already gated).
 
 - **`/alumni/<slug>/` — a workshop page.** A frosted glass panel over a
   background painting. A student enters the email Ty registered → the login
@@ -68,7 +70,7 @@ If new: ask him to drop the image in the **`assets/` folder** (tell him the full
 path: `assets/`), or to send it and you'll place it there. Note the filename.
 
 ### Step 3 — Workshop basics
-> "What's the **title**? And pick an **emoji** for its dashboard tile."
+> "What's the **title**?"
 
 ### Step 4 — Walk every widget, ask for this workshop's details
 Go through the widgets **of the template he chose**, one at a time, and collect:
@@ -121,13 +123,24 @@ Once you have the details:
    inside `alEnter()` in that page's inline script. Master password `wip` always
    works too.
 6. **Add the dashboard tile** in `alumni/index.html`, next to the existing tiles
-   inside `.al-grid`. Copy an existing tile block and update:
+   inside `.al-grid`. Copy an existing tile block and update. The tile is a
+   **landscape rectangle** (3:2) showing the **workshop's own background image**,
+   with the **title bottom-left** and, on hover, the image blurs and two buttons
+   appear bottom-right: a round **copy-icon** button and a **Members** pill.
+   Update these fields on the copied block:
    - `data-members='["email1","email2"]'` — **must match** the page's `A=[...]` list
    - `data-title="<Title>"`
+   - `.al-tile__bg` inline `background-image:url('/assets/<image>')` — use the
+     **same image as that workshop's background** (default `back.jpg`)
    - the link `href="/alumni/<slug>/"` (keep the `onclick` that sets
      `sessionStorage 'al-from-dash'`)
-   - the emoji and title text
-   - the **Copy link** button's URL (it hardcodes `/alumni/<slug>/`)
+   - the `.al-tile__title` text
+   - the copy button's URL (it hardcodes `/alumni/<slug>/`). Leave the two SVGs
+     (copy icon + check icon) as-is — the check shows briefly after copying.
+   - the **status indicator** `.al-tile__status` modifier — `--open` (green),
+     `--waitlist` (orange), or `--past` (grey) — and its label text. It sits
+     top-right as a coloured dot and expands to show the label on hover. Ask Ty
+     which status the workshop is (open for signups / waitlist / past).
 7. **Cache-bust:** bump the `alumni.css?v=N` number on any page whose CSS you
    changed (and match it across pages so it stays consistent).
 8. Verify in the preview, then **ask Ty before committing/deploying** (see below).

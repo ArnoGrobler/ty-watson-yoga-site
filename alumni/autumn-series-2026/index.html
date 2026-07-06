@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Autumn Series 2026 — Ty Watson Yoga</title>
+  <link rel="icon" href="/assets/strap.png" type="image/png">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=32">
+</head>
+<body class="al-body" style="background:url('/assets/autumn.png') center/cover fixed no-repeat;">
+
+  <div class="al-stage" id="stage">
+    <div class="al-glass" id="glass">
+
+      <!-- LOGIN. Allowed emails are in the A=[...] array in alEnter() below (plus master "wip"). -->
+      <div class="al-login" id="login">
+        <h1 class="al-login__title">Autumn Series 2026</h1>
+        <p class="al-login__msg">Enter the email you registered with to access this page.</p>
+        <div class="al-login__form">
+          <input type="text" id="email" class="al-login__input" placeholder="you@email.com"
+                 autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+                 data-1p-ignore="true" data-lpignore="true" aria-label="Email"
+                 onkeydown="if(event.key==='Enter'){alEnter();}">
+          <button type="button" class="al-login__btn" onclick="alEnter()">Enter</button>
+        </div>
+        <p class="al-login__err" id="gerr" style="display:none">This email isn't on the list. Contact Ty if you think that's a mistake.</p>
+      </div>
+
+      <!-- CONTENT — revealed inside the expanded glass panel after login. -->
+      <div class="al-content" id="content" hidden>
+        <header class="al-header">
+          <h1 class="al-header__title">Autumn Series 2026</h1>
+          <span class="al-header__by">Ty Watson</span>
+        </header>
+
+        <section class="al-updates">
+          <h2 class="al-updates__label">Notice board</h2>
+          <div class="al-updates__body">Welcome to the Autumn Series 2026 alumni space. I'll post new practices, reflections, and reading here through the season — check back for updates.</div>
+        </section>
+
+        <!-- Next live call + countdown. Replace ZOOM_URL with the real link (it stays the same every week). -->
+        <section class="al-zoom">
+          <div class="al-zoom__info">
+            <span class="al-zoom__label">Next live call</span>
+            <span class="al-zoom__date" id="zoomDate">—</span>
+          </div>
+          <div class="al-countdown" id="countdown" aria-live="polite">
+            <div class="al-count"><span class="al-count__num" id="cd-d">0</span><span class="al-count__unit">days</span></div>
+            <div class="al-count"><span class="al-count__num" id="cd-h">00</span><span class="al-count__unit">hrs</span></div>
+            <div class="al-count"><span class="al-count__num" id="cd-m">00</span><span class="al-count__unit">min</span></div>
+            <div class="al-count"><span class="al-count__num" id="cd-s">00</span><span class="al-count__unit">sec</span></div>
+          </div>
+          <a class="al-zoom__btn" href="https://zoom.us/j/0000000000" target="_blank" rel="noopener">Join Zoom</a>
+        </section>
+
+        <div class="al-widgets">
+          <!-- Schedule / itinerary. The countdown + calendar file both read these dates. -->
+          <section class="al-widget al-widget--wide">
+            <div class="al-widget__head">
+              <h3 class="al-widget__title">Schedule</h3>
+              <button type="button" class="al-cal-btn" onclick="alDownloadICS()">Add to calendar</button>
+            </div>
+            <ol class="al-schedule">
+              <li class="al-session" data-when="2026-10-04T10:00:00-04:00"><span class="al-session__date">Sun 4 Oct · 10:00 AM ET</span><span class="al-session__title">Week 1 — Foundations</span></li>
+              <li class="al-session" data-when="2026-10-11T10:00:00-04:00"><span class="al-session__date">Sun 11 Oct · 10:00 AM ET</span><span class="al-session__title">Week 2 — Breath &amp; Bandha</span></li>
+              <li class="al-session" data-when="2026-10-18T10:00:00-04:00"><span class="al-session__date">Sun 18 Oct · 10:00 AM ET</span><span class="al-session__title">Week 3 — Backbends</span></li>
+              <li class="al-session" data-when="2026-10-25T10:00:00-04:00"><span class="al-session__date">Sun 25 Oct · 10:00 AM ET</span><span class="al-session__title">Week 4 — Integration</span></li>
+            </ol>
+          </section>
+
+          <section class="al-widget">
+            <h3 class="al-widget__title">Materials</h3>
+            <ul class="al-files al-scroll">
+              <li>
+                <a class="al-file" href="files/practice-notes.pdf" download="Summer Series — Practice Notes.pdf">
+                  <svg class="al-file__icon" viewBox="0 0 24 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 1h11l6 6v21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"/><path d="M15 1v6h6"/></svg>
+                  <span>Summer Series — Practice Notes</span>
+                </a>
+              </li>
+              <li>
+                <a class="al-file" href="files/breathwork-guide.pdf" download="Breathwork Guide.pdf">
+                  <svg class="al-file__icon" viewBox="0 0 24 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 1h11l6 6v21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"/><path d="M15 1v6h6"/></svg>
+                  <span>Breathwork Guide</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <section class="al-widget">
+            <h3 class="al-widget__title">Listen</h3>
+            <div class="al-listen al-scroll">
+              <iframe class="al-spotify" src="https://open.spotify.com/embed/episode/1otpHd3tcgrwbPtOM5uooz" width="100%" height="152" allowtransparency="true" allow="encrypted-media; clipboard-write; autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              <iframe class="al-spotify" src="https://open.spotify.com/embed/episode/0dJlS89KlskcdytX079iOM" width="100%" height="152" allowtransparency="true" allow="encrypted-media; clipboard-write; autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </section>
+
+          <section class="al-widget al-widget--wide">
+            <h3 class="al-widget__title">Reading</h3>
+            <div class="al-books">
+              <a class="al-book" href="https://openlibrary.org/isbn/9780141439518" target="_blank" rel="noopener">
+                <img class="al-book__cover" src="https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg" alt="Pride and Prejudice" loading="lazy" onerror="this.style.visibility='hidden'">
+                <span class="al-book__title">Pride and Prejudice</span>
+                <span class="al-book__author">Jane Austen</span>
+              </a>
+              <a class="al-book" href="https://openlibrary.org/isbn/9780142437247" target="_blank" rel="noopener">
+                <img class="al-book__cover" src="https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg" alt="Moby-Dick" loading="lazy" onerror="this.style.visibility='hidden'">
+                <span class="al-book__title">Moby-Dick</span>
+                <span class="al-book__author">Herman Melville</span>
+              </a>
+              <a class="al-book" href="https://openlibrary.org/isbn/9780140268867" target="_blank" rel="noopener">
+                <img class="al-book__cover" src="https://covers.openlibrary.org/b/isbn/9780140268867-L.jpg" alt="The Odyssey" loading="lazy" onerror="this.style.visibility='hidden'">
+                <span class="al-book__title">The Odyssey</span>
+                <span class="al-book__author">Homer</span>
+              </a>
+              <a class="al-book" href="https://openlibrary.org/isbn/9780140449136" target="_blank" rel="noopener">
+                <img class="al-book__cover" src="https://covers.openlibrary.org/b/isbn/9780140449136-L.jpg" alt="Crime and Punishment" loading="lazy" onerror="this.style.visibility='hidden'">
+                <span class="al-book__title">Crime and Punishment</span>
+                <span class="al-book__author">Fyodor Dostoevsky</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  var AL_KEY = "al-autumn2026-ok";
+
+  /* Show the content immediately (no login), used when arriving from the dashboard. */
+  function alRevealInstant() {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("stage").classList.add("expanded");
+    document.getElementById("glass").classList.add("expanded");
+    var content = document.getElementById("content");
+    content.hidden = false;
+    content.style.opacity = "1";
+  }
+
+  /* Login → expand the glass panel and fade the widgets in. */
+  function alEnter() {
+    var A = ["tyrone13watson@gmail.com"];
+    var e = (document.getElementById("email").value || "").trim().toLowerCase();
+    if (!(e === "wip" || A.indexOf(e) >= 0)) { document.getElementById("gerr").style.display = "block"; return; }
+    try { sessionStorage.setItem(AL_KEY, "1"); } catch (x) {}
+    var stage = document.getElementById("stage"), glass = document.getElementById("glass"),
+        login = document.getElementById("login"), content = document.getElementById("content");
+    login.style.opacity = "0";
+    setTimeout(function () {
+      login.style.display = "none";
+      stage.classList.add("expanded");
+      glass.classList.add("expanded");
+      content.hidden = false;
+      content.style.opacity = "0";
+      requestAnimationFrame(function () { requestAnimationFrame(function () { content.style.opacity = "1"; }); });
+      window.scrollTo(0, 0);
+    }, 320);
+  }
+
+  /* Skip the gate when arriving from the (already password-protected) alumni dashboard,
+     or when this tab already unlocked the page earlier. */
+  (function () {
+    function fromDashboard() {
+      try { if (sessionStorage.getItem("al-from-dash") === "1") { sessionStorage.removeItem("al-from-dash"); return true; } } catch (x) {}
+      var r = document.referrer || "";
+      if (r) {
+        try {
+          var u = new URL(r);
+          if (u.origin === location.origin) {
+            var p = u.pathname.replace(/index\.html$/, "");
+            if (p === "/alumni/" || p === "/alumni") return true;
+          }
+        } catch (x) {}
+      }
+      return false;
+    }
+    var ok = false;
+    try { ok = sessionStorage.getItem(AL_KEY) === "1"; } catch (x) {}
+    if (ok || fromDashboard()) {
+      try { sessionStorage.setItem(AL_KEY, "1"); } catch (x) {}
+      alRevealInstant();
+    }
+  })();
+
+  /* Countdown to the next session (reads dates from the Schedule list). */
+  (function () {
+    var sessions = [].slice.call(document.querySelectorAll(".al-session[data-when]"));
+    var dEl = document.getElementById("cd-d"), hEl = document.getElementById("cd-h"),
+        mEl = document.getElementById("cd-m"), sEl = document.getElementById("cd-s");
+    var dateEl = document.getElementById("zoomDate"), cdEl = document.getElementById("countdown");
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    var current = null;
+    function pickNext() {
+      var now = new Date(), next = null;
+      sessions.forEach(function (li) {
+        li.classList.remove("is-next");
+        var t = new Date(li.getAttribute("data-when"));
+        if (t > now && (!next || t < next.t)) next = { t: t, li: li };
+      });
+      return next;
+    }
+    function tick() {
+      if (!current) {
+        current = pickNext();
+        if (current) {
+          current.li.classList.add("is-next");
+          dateEl.textContent = current.li.querySelector(".al-session__date").textContent;
+        } else {
+          var zw = document.querySelector(".al-zoom");
+          if (zw) zw.style.display = "none"; // whole widget hides when the series is over
+          return;
+        }
+      }
+      var diff = current.t - new Date();
+      if (diff <= 0) { current = null; return; }
+      var s = Math.floor(diff / 1000);
+      var d = Math.floor(s / 86400); s -= d * 86400;
+      var h = Math.floor(s / 3600); s -= h * 3600;
+      var m = Math.floor(s / 60); s -= m * 60;
+      dEl.textContent = d; hEl.textContent = pad(h); mEl.textContent = pad(m); sEl.textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  /* Build & download an .ics of the whole schedule, with the Zoom link on every event. */
+  function alDownloadICS() {
+    var CAL_TITLE = "Autumn Series 2026";
+    var zoomEl = document.querySelector(".al-zoom__btn");
+    var zoom = zoomEl ? zoomEl.getAttribute("href") : "";
+    var sessions = [].slice.call(document.querySelectorAll(".al-session[data-when]"));
+    function p(n) { return (n < 10 ? "0" : "") + n; }
+    function utc(d) {
+      return d.getUTCFullYear() + p(d.getUTCMonth() + 1) + p(d.getUTCDate()) + "T" +
+             p(d.getUTCHours()) + p(d.getUTCMinutes()) + p(d.getUTCSeconds()) + "Z";
+    }
+    function esc(s) { return String(s == null ? "" : s).replace(/[\\;,]/g, function (c) { return "\\" + c; }).replace(/\n/g, "\\n"); }
+    var stamp = utc(new Date());
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Ty Watson Yoga//" + CAL_TITLE + "//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH"];
+    sessions.forEach(function (li, i) {
+      var start = new Date(li.getAttribute("data-when"));
+      var mins = parseInt(li.getAttribute("data-mins"), 10) || 60;
+      var end = new Date(start.getTime() + mins * 60000);
+      var title = (li.querySelector(".al-session__title").textContent || "").trim();
+      lines.push(
+        "BEGIN:VEVENT",
+        "UID:autumn-series-2026-" + i + "@tywatsonyoga.com",
+        "DTSTAMP:" + stamp,
+        "DTSTART:" + utc(start),
+        "DTEND:" + utc(end),
+        "SUMMARY:" + esc(CAL_TITLE + " — " + title),
+        "LOCATION:" + esc(zoom),
+        "URL:" + esc(zoom),
+        "DESCRIPTION:" + esc("Join the live call on Zoom: " + zoom),
+        "END:VEVENT"
+      );
+    });
+    lines.push("END:VCALENDAR");
+    var blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "autumn-series-2026.ics";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+  }
+  </script>
+</body>
+</html>

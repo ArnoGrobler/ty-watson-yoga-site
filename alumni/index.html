@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Alumni — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=27">
+  <link rel="stylesheet" href="/alumni/alumni.css?v=33">
 </head>
 <body class="al-body">
 
@@ -34,18 +34,61 @@
       <p class="al-index-sub">Click a tile to open it.</p>
     </header>
     <div class="al-grid">
-      <!-- Members list must match the summer-series page's allowlist (A=[...] there). -->
-      <div class="al-tile" data-members='["tyrone13watson@gmail.com"]' data-title="Summer Series 2026">
+      <!-- Members list must match the summer-series page's allowlist (A=[...] there).
+           Tile background = that workshop's background image. -->
+      <div class="al-tile" style="order:2" data-members='["tyrone13watson@gmail.com"]' data-title="Summer Series 2026">
+        <div class="al-tile__status al-tile__status--open"><span class="al-tile__dot"></span><span class="al-tile__status-label">Open</span></div>
         <a class="al-tile__link" href="/alumni/summer-series-2026/"
            onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
-          <span class="al-tile__emoji">☀️</span>
+          <div class="al-tile__bg" style="background-image:url('/assets/back.jpg')"></div>
           <span class="al-tile__title">Summer Series 2026</span>
         </a>
         <div class="al-tile__actions">
+          <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/summer-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+            <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          </button>
           <button type="button" class="al-tile__btn"
-                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/summer-series-2026/';var b=this;function d(){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy link';},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">Copy link</button>
+                  onclick="event.preventDefault();event.stopPropagation();var t=this.closest('.al-tile');var M=JSON.parse(t.getAttribute('data-members')||'[]');document.getElementById('members-title').textContent=t.getAttribute('data-title')+' — '+M.length+' signed up';var ul=document.getElementById('members-list');ul.innerHTML='';if(!M.length){var li=document.createElement('li');li.textContent='Nobody yet.';ul.appendChild(li);}M.forEach(function(e){var li=document.createElement('li');li.textContent=e;ul.appendChild(li);});var mm=document.getElementById('members-modal');mm.setAttribute('data-emails',M.map(encodeURIComponent).join(','));document.getElementById('members-email-all').style.display=M.length?'':'none';mm.style.display='flex';">Members</button>
+        </div>
+      </div>
+
+      <!-- Spring Series 2026 — demo copy (background venus.jpg) -->
+      <div class="al-tile" style="order:3" data-members='["tyrone13watson@gmail.com"]' data-title="Spring Series 2026">
+        <div class="al-tile__status al-tile__status--past"><span class="al-tile__dot"></span><span class="al-tile__status-label">Past</span></div>
+        <a class="al-tile__link" href="/alumni/spring-series-2026/"
+           onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
+          <div class="al-tile__bg" style="background-image:url('/assets/venus.jpg')"></div>
+          <span class="al-tile__title">Spring Series 2026</span>
+        </a>
+        <div class="al-tile__actions">
+          <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/spring-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+            <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          </button>
           <button type="button" class="al-tile__btn"
-                  onclick="event.preventDefault();event.stopPropagation();var t=this.closest('.al-tile');var M=JSON.parse(t.getAttribute('data-members')||'[]');document.getElementById('members-title').textContent=t.getAttribute('data-title')+' — '+M.length+' signed up';var ul=document.getElementById('members-list');ul.innerHTML='';if(!M.length){var li=document.createElement('li');li.textContent='Nobody yet.';ul.appendChild(li);}M.forEach(function(e){var li=document.createElement('li');li.textContent=e;ul.appendChild(li);});document.getElementById('members-modal').style.display='flex';">Members</button>
+                  onclick="event.preventDefault();event.stopPropagation();var t=this.closest('.al-tile');var M=JSON.parse(t.getAttribute('data-members')||'[]');document.getElementById('members-title').textContent=t.getAttribute('data-title')+' — '+M.length+' signed up';var ul=document.getElementById('members-list');ul.innerHTML='';if(!M.length){var li=document.createElement('li');li.textContent='Nobody yet.';ul.appendChild(li);}M.forEach(function(e){var li=document.createElement('li');li.textContent=e;ul.appendChild(li);});var mm=document.getElementById('members-modal');mm.setAttribute('data-emails',M.map(encodeURIComponent).join(','));document.getElementById('members-email-all').style.display=M.length?'':'none';mm.style.display='flex';">Members</button>
+        </div>
+      </div>
+
+      <!-- Autumn Series 2026 — demo copy (background autumn.png), future schedule -->
+      <div class="al-tile" style="order:1" data-members='["tyrone13watson@gmail.com"]' data-title="Autumn Series 2026">
+        <div class="al-tile__status al-tile__status--waitlist"><span class="al-tile__dot"></span><span class="al-tile__status-label">Waitlist</span></div>
+        <a class="al-tile__link" href="/alumni/autumn-series-2026/"
+           onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
+          <div class="al-tile__bg" style="background-image:url('/assets/autumn.png')"></div>
+          <span class="al-tile__title">Autumn Series 2026</span>
+        </a>
+        <div class="al-tile__actions">
+          <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/autumn-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+            <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          </button>
+          <button type="button" class="al-tile__btn"
+                  onclick="event.preventDefault();event.stopPropagation();var t=this.closest('.al-tile');var M=JSON.parse(t.getAttribute('data-members')||'[]');document.getElementById('members-title').textContent=t.getAttribute('data-title')+' — '+M.length+' signed up';var ul=document.getElementById('members-list');ul.innerHTML='';if(!M.length){var li=document.createElement('li');li.textContent='Nobody yet.';ul.appendChild(li);}M.forEach(function(e){var li=document.createElement('li');li.textContent=e;ul.appendChild(li);});var mm=document.getElementById('members-modal');mm.setAttribute('data-emails',M.map(encodeURIComponent).join(','));document.getElementById('members-email-all').style.display=M.length?'':'none';mm.style.display='flex';">Members</button>
         </div>
       </div>
     </div>
@@ -59,6 +102,8 @@
               onclick="document.getElementById('members-modal').style.display='none';">&times;</button>
       <h3 class="al-members__title" id="members-title">Members</h3>
       <ul class="al-members__list" id="members-list"></ul>
+      <button type="button" class="al-members__email" id="members-email-all"
+              onclick="var e=document.getElementById('members-modal').getAttribute('data-emails')||'';if(e){window.location.href='mailto:?bcc='+e;}">Email all (BCC)</button>
     </div>
   </div>
 

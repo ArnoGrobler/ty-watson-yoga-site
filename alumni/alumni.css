@@ -135,35 +135,69 @@ img { max-width: 100%; }
 .al-index-header { text-align: center; margin-bottom: 6vh; }
 .al-index-title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 34px; margin: 0 0 8px; letter-spacing: .04em; }
 .al-index-sub { font-weight: 300; opacity: .7; margin: 0; }
-.al-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.al-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 .al-tile {
-  position: relative; border: 1px solid var(--black); border-radius: 10px;
-  overflow: hidden; aspect-ratio: 1 / 1; transition: box-shadow .2s;
+  position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2;
+  border: 1px solid rgba(51, 4, 17, .15); transition: box-shadow .2s;
 }
-.al-tile:hover { box-shadow: 0 8px 24px rgba(51, 4, 17, .12); }
-.al-tile__link {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 14px; height: 100%; text-decoration: none; padding: 20px; text-align: center;
+.al-tile:hover { box-shadow: 0 10px 28px rgba(51, 4, 17, .2); }
+.al-tile__link { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 18px; text-decoration: none; }
+.al-tile__bg { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; transition: filter .25s ease, transform .25s ease; }
+.al-tile:hover .al-tile__bg { filter: blur(4px); transform: scale(1.05); }
+.al-tile__link::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0) 60%); }
+.al-tile__title { position: relative; z-index: 2; color: #fff; font-weight: 700; font-size: 19px; text-shadow: 0 1px 8px rgba(0,0,0,.45); transition: filter .25s ease; }
+.al-tile:hover .al-tile__title { filter: blur(4px); }
+
+/* Status indicator top-right: circle that expands into a labelled pill on hover */
+.al-tile__status {
+  position: absolute; top: 12px; right: 12px; z-index: 4; pointer-events: none;
+  display: flex; align-items: center; padding: 6px; border-radius: 999px;
+  background: rgba(0, 0, 0, .4); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
-.al-tile__emoji { font-size: 46px; line-height: 1; }
-.al-tile__title { font-weight: 700; font-size: 18px; }
+.al-tile__dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.al-tile__status-label {
+  max-width: 0; overflow: hidden; opacity: 0; white-space: nowrap;
+  color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  transition: max-width .25s ease, opacity .2s ease, margin-left .25s ease;
+}
+.al-tile:hover .al-tile__status-label, .al-tile:focus-within .al-tile__status-label {
+  max-width: 90px; opacity: 1; margin-left: 7px;
+}
+.al-tile__status--open .al-tile__dot { background: #3ecf6b; }
+.al-tile__status--waitlist .al-tile__dot { background: #f5a623; }
+.al-tile__status--past .al-tile__dot { background: #9aa0a6; }
+
+/* Actions bottom-right, glass over the image */
 .al-tile__actions {
-  position: absolute; top: 10px; right: 10px; display: flex; gap: 8px;
-  opacity: 0; transform: translateY(-4px); transition: opacity .18s, transform .18s;
+  position: absolute; bottom: 14px; right: 14px; z-index: 3; display: flex; align-items: center; gap: 8px;
+  opacity: 0; transform: translateY(4px); transition: opacity .18s, transform .18s;
 }
 .al-tile:hover .al-tile__actions, .al-tile__actions:focus-within { opacity: 1; transform: none; }
-.al-tile__btn {
-  font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
-  font-size: 11px; padding: 6px 12px; border: 1px solid var(--black); border-radius: 999px;
-  background: var(--beige); color: var(--black); cursor: pointer;
+.al-tile__btn, .al-tile__copy {
+  font-family: var(--body); cursor: pointer; color: #fff;
+  border: 1px solid rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .18);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
-.al-tile__btn:hover { background: var(--black); color: #fff; }
+.al-tile__btn { font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: 11px; padding: 7px 14px; border-radius: 999px; }
+.al-tile__copy { width: 34px; height: 34px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.al-tile__copy svg { width: 16px; height: 16px; }
+.al-tile__btn:hover, .al-tile__copy:hover { background: #fff; color: var(--black); }
+.al-tile__ic-check { display: none; }
+.al-tile__copy.is-copied .al-tile__ic-copy { display: none; }
+.al-tile__copy.is-copied .al-tile__ic-check { display: block; }
 
-/* Members popup */
-.al-members { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; background: rgba(51, 4, 17, .4); padding: 6vw; }
-.al-members__box { background: #fff; border: 1px solid var(--black); border-radius: 12px; max-width: 420px; width: 100%; padding: 28px 30px; position: relative; }
+/* Members popup — overlay matches the site's other modals */
+.al-members { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 6vw; background: rgba(0, 0, 0, .3); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.al-members__box { background: var(--beige); border: 1px solid var(--black); border-radius: 4px; max-width: 420px; width: 100%; padding: 28px 30px; position: relative; }
+.al-members__email {
+  margin-top: 20px; width: 100%; font-family: var(--body); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; font-size: 13px; padding: 12px 18px;
+  border: 1px solid var(--black); border-radius: 999px; background: var(--black); color: #fff;
+  cursor: pointer; text-align: center;
+}
+.al-members__email:hover { background: var(--beige); color: var(--black); }
 .al-members__close { position: absolute; top: 10px; right: 14px; background: none; border: 0; font-size: 26px; line-height: 1; cursor: pointer; color: var(--black); }
-.al-members__title { font-family: "Notable", sans-serif; font-weight: 400; font-size: 17px; letter-spacing: .02em; margin: 0 0 18px; padding-right: 24px; }
+.al-members__title { font-family: var(--body); font-weight: 700; font-size: 18px; letter-spacing: .01em; margin: 0 0 18px; padding-right: 24px; }
 .al-members__list { list-style: none; margin: 0; padding: 0; }
 .al-members__list li { padding: 10px 0; border-bottom: 1px dotted var(--line); font-weight: 300; font-size: 15px; word-break: break-all; }
 .al-members__list li:last-child { border-bottom: 0; }
