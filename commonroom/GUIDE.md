@@ -1,4 +1,4 @@
-# Alumni area — how it works & how Claude extends it
+# Common Room area — how it works & how Claude extends it
 
 Written so **Ty describes what he wants in plain language and Claude makes the
 edit + deploys**. Ty never has to touch code.
@@ -10,26 +10,26 @@ edit + deploys**. Ty never has to touch code.
 
 ## What exists today
 
-- **`/alumni` — the dashboard.** Password `wip`. Shows a grid of tiles, one per
+- **`/commonroom` — the dashboard.** Password `wip`. Shows a grid of tiles, one per
   workshop. Each tile is a landscape card showing that workshop's background
   image with the title bottom-left; on hover the image blurs and two buttons
   appear bottom-right — a round **copy-link icon** (to send students) and a
   **Members** button (shows who has access). Clicking a tile opens that workshop
   *without* asking for a password (the dashboard is already gated).
 
-- **`/alumni/<slug>/` — a workshop page.** A frosted glass panel over a
+- **`/commonroom/<slug>/` — a workshop page.** A frosted glass panel over a
   background painting. A student enters the email Ty registered → the login
   fades out, the panel expands, and the widgets fade in (white text on the
   glass). Arriving from the dashboard skips the login entirely.
 
 - **Everything is self-contained inline HTML/CSS/JS** — no build step and no
   shared data file. Each workshop page holds its own content and its own email
-  allowlist. Shared look lives in `alumni/alumni.css`.
+  allowlist. Shared look lives in `commonroom/commonroom.css`.
 
 - The default background is **Botticelli — *La Primavera* (Le Printemps)** at
   `assets/back.jpg`.
 
-**Legacy/unused:** `alumni/data.js`, `alumni/page.js`, `alumni/index.js` are
+**Legacy/unused:** `commonroom/data.js`, `commonroom/page.js`, `commonroom/index.js` are
 from an earlier version and are **not used** by any page. Ignore them (or delete
 on request). Do not wire new work through them.
 
@@ -88,14 +88,14 @@ If a widget needs an asset you don't have, **help him get it and tell him where
 to put it**:
 
 - **Files (Materials):** ask him to place them in
-  `alumni/<slug>/files/` (create the folder), or paste share links
+  `commonroom/<slug>/files/` (create the folder), or paste share links
   (Google Drive/Dropbox). Files committed to that folder download cleanly;
   external links may open instead of download.
 - **Spotify:** he can "Share → Copy link"; you only need the part after
   `open.spotify.com/` (e.g. `episode/<id>`).
 - **Book covers:** covers load automatically from the **ISBN-13** — just ask for
   the ISBN. If a cover doesn't exist on Open Library, ask him for an image file
-  to drop in `alumni/<slug>/files/`.
+  to drop in `commonroom/<slug>/files/`.
 
 ### Step 6 — Student access (emails)
 > "Do you already have the **emails of the students who signed up**, or will you
@@ -108,13 +108,13 @@ emails are fine to start; the page still works, students just can't get in yet.
 ### Step 7 — Build it
 Once you have the details:
 
-1. **Create the folder** `alumni/<slug>/` and copy the chosen template's
+1. **Create the folder** `commonroom/<slug>/` and copy the chosen template's
    `index.html` into it. `<slug>` is lowercase-with-dashes and becomes the URL.
 2. Fill in the content: title + `.al-header__by` (keep "Ty Watson"), notice
    board text, `.al-zoom__btn` Zoom link, the `.al-session` rows (set both the
    visible date text **and** the `data-when` ISO+offset), Spotify iframes,
    book `<a class="al-book">` blocks (ISBN in the cover URL).
-3. **Materials:** create `alumni/<slug>/files/`, add the files, and point each
+3. **Materials:** create `commonroom/<slug>/files/`, add the files, and point each
    `.al-file` at `files/<name>` with a `download="Friendly Name.ext"` attribute.
 4. **Background:** default uses `.al-body--photo` (→ `assets/back.jpg`). For a
    new image, set it inline on the body instead:
@@ -122,7 +122,7 @@ Once you have the details:
 5. **Allowlist:** put the student emails (lowercase) in the `A = [ ... ]` array
    inside `alEnter()` in that page's inline script. Master password `wip` always
    works too.
-6. **Add the dashboard tile** in `alumni/index.html`, next to the existing tiles
+6. **Add the dashboard tile** in `commonroom/index.html`, next to the existing tiles
    inside `.al-grid`. Copy an existing tile block and update. The tile is a
    **landscape rectangle** (3:2) showing the **workshop's own background image**,
    with the **title bottom-left** and, on hover, the image blurs and two buttons
@@ -132,10 +132,10 @@ Once you have the details:
    - `data-title="<Title>"`
    - `.al-tile__bg` inline `background-image:url('/assets/<image>')` — use the
      **same image as that workshop's background** (default `back.jpg`)
-   - the link `href="/alumni/<slug>/"` (keep the `onclick` that sets
+   - the link `href="/commonroom/<slug>/"` (keep the `onclick` that sets
      `sessionStorage 'al-from-dash'`)
    - the `.al-tile__title` text
-   - the copy button's URL (it hardcodes `/alumni/<slug>/`). Leave the two SVGs
+   - the copy button's URL (it hardcodes `/commonroom/<slug>/`). Leave the two SVGs
      (copy icon + check icon) as-is — the check shows briefly after copying.
    - the **status indicator** `.al-tile__status` modifier — `--open` (green),
      `--waitlist` (orange), or `--past` (grey) — and its label text. It sits
@@ -155,7 +155,7 @@ Once you have the details:
   `data-members`.)
 - **"Update the notice / add a file / add a podcast / add a book / change a date."**
   Edit that widget in the workshop page's `index.html`.
-- **"Change the /alumni password."** It's inline in `alumni/index.html`
+- **"Change the /commonroom password."** It's inline in `commonroom/index.html`
   (currently `wip`, checked in the Enter button + input `onkeydown`).
 
 ## Deploying

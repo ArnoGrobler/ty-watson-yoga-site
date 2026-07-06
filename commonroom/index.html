@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Alumni — Ty Watson Yoga</title>
+  <title>The Common Room — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/alumni/alumni.css?v=33">
+  <link rel="stylesheet" href="/commonroom/alumni.css?v=33">
 </head>
 <body class="al-body">
 
   <!-- Gate — password "wip". All logic is inline for reliability. -->
   <div class="al-lock" id="gate">
     <div class="al-lock__inner">
-      <span class="al-lock__wordmark">ALUMNI</span>
+      <span class="al-lock__wordmark">THE COMMON ROOM</span>
       <p class="al-lock__msg">Enter the password to continue.</p>
       <div class="al-lock__form">
         <input type="text" id="pw" class="al-lock__input" placeholder="Password"
@@ -30,7 +30,7 @@
   <!-- Grid -->
   <main class="al-app" id="grid" style="display:none">
     <header class="al-index-header">
-      <h1 class="al-index-title">Alumni Pages</h1>
+      <h1 class="al-index-title">The Common Room</h1>
       <p class="al-index-sub">Click a tile to open it.</p>
     </header>
     <div class="al-grid">
@@ -38,14 +38,14 @@
            Tile background = that workshop's background image. -->
       <div class="al-tile" style="order:2" data-members='["tyrone13watson@gmail.com"]' data-title="Summer Series 2026">
         <div class="al-tile__status al-tile__status--open"><span class="al-tile__dot"></span><span class="al-tile__status-label">Open</span></div>
-        <a class="al-tile__link" href="/alumni/summer-series-2026/"
+        <a class="al-tile__link" href="/commonroom/summer-series-2026/"
            onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
-          <div class="al-tile__bg" style="background-image:url('/assets/back.jpg')"></div>
+          <div class="al-tile__bg" style="background-image:url('/assets/venus.jpg')"></div>
           <span class="al-tile__title">Summer Series 2026</span>
         </a>
         <div class="al-tile__actions">
           <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
-                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/summer-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/commonroom/summer-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
             <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
           </button>
@@ -57,14 +57,14 @@
       <!-- Spring Series 2026 — demo copy (background venus.jpg) -->
       <div class="al-tile" style="order:3" data-members='["tyrone13watson@gmail.com"]' data-title="Spring Series 2026">
         <div class="al-tile__status al-tile__status--past"><span class="al-tile__dot"></span><span class="al-tile__status-label">Past</span></div>
-        <a class="al-tile__link" href="/alumni/spring-series-2026/"
+        <a class="al-tile__link" href="/commonroom/spring-series-2026/"
            onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
-          <div class="al-tile__bg" style="background-image:url('/assets/venus.jpg')"></div>
+          <div class="al-tile__bg" style="background-image:url('/assets/back.jpg')"></div>
           <span class="al-tile__title">Spring Series 2026</span>
         </a>
         <div class="al-tile__actions">
           <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
-                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/spring-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/commonroom/spring-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
             <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
           </button>
@@ -76,14 +76,32 @@
       <!-- Autumn Series 2026 — demo copy (background autumn.png), future schedule -->
       <div class="al-tile" style="order:1" data-members='["tyrone13watson@gmail.com"]' data-title="Autumn Series 2026">
         <div class="al-tile__status al-tile__status--waitlist"><span class="al-tile__dot"></span><span class="al-tile__status-label">Waitlist</span></div>
-        <a class="al-tile__link" href="/alumni/autumn-series-2026/"
+        <a class="al-tile__link" href="/commonroom/autumn-series-2026/"
            onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
-          <div class="al-tile__bg" style="background-image:url('/assets/autumn.png')"></div>
+          <div class="al-tile__bg" style="background-image:url('/assets/pallas.jpg');background-position:center 30%"></div>
           <span class="al-tile__title">Autumn Series 2026</span>
         </a>
         <div class="al-tile__actions">
           <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
-                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/alumni/autumn-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/commonroom/autumn-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
+            <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          </button>
+          <button type="button" class="al-tile__btn"
+                  onclick="event.preventDefault();event.stopPropagation();var t=this.closest('.al-tile');var M=JSON.parse(t.getAttribute('data-members')||'[]');document.getElementById('members-title').textContent=t.getAttribute('data-title')+' — '+M.length+' signed up';var ul=document.getElementById('members-list');ul.innerHTML='';if(!M.length){var li=document.createElement('li');li.textContent='Nobody yet.';ul.appendChild(li);}M.forEach(function(e){var li=document.createElement('li');li.textContent=e;ul.appendChild(li);});var mm=document.getElementById('members-modal');mm.setAttribute('data-emails',M.map(encodeURIComponent).join(','));document.getElementById('members-email-all').style.display=M.length?'':'none';mm.style.display='flex';">Members</button>
+        </div>
+      </div>
+
+      <div class="al-tile" style="order:4" data-members='["tyrone13watson@gmail.com"]' data-title="Winter Series 2026">
+        <div class="al-tile__status al-tile__status--past"><span class="al-tile__dot"></span><span class="al-tile__status-label">Past</span></div>
+        <a class="al-tile__link" href="/commonroom/winter-series-2026/"
+           onclick="try{sessionStorage.setItem('al-from-dash','1');}catch(e){}">
+          <div class="al-tile__bg" style="background-image:url('/assets/winter.jpg');background-position:center 30%"></div>
+          <span class="al-tile__title">Winter Series 2026</span>
+        </a>
+        <div class="al-tile__actions">
+          <button type="button" class="al-tile__copy" aria-label="Copy link" title="Copy link"
+                  onclick="event.preventDefault();event.stopPropagation();var u=location.origin+'/commonroom/winter-series-2026/';var b=this;function d(){b.classList.add('is-copied');setTimeout(function(){b.classList.remove('is-copied');},1500);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(d,function(){window.prompt('Copy this link:',u);});}else{window.prompt('Copy this link:',u);}">
             <svg class="al-tile__ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <svg class="al-tile__ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
           </button>
