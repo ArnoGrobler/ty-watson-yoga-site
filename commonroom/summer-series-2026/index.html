@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Summer Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/commonroom/alumni.css?v=44">
+  <link rel="stylesheet" href="/commonroom/alumni.css?v=48">
 </head>
 <body class="al-body" style="background:url('/assets/venus.jpg') center/cover fixed no-repeat;">
 
@@ -75,7 +75,7 @@
             </ol>
           </section>
 
-          <section class="al-widget al-widget--wide">
+          <section class="al-widget al-widget--wide al-book-private">
             <h3 class="al-widget__title">Private session</h3>
             <p class="al-cta__text">Schedule your private session in Ty's calendar. If you can't find the date or time that you're looking for, <a href="mailto:tyrone13watson@gmail.com">email him</a> instead.</p>
             <a class="al-cta__btn" href="https://calendar.app.google/3t65kz62Fo7Psr4u5" target="_blank" rel="noopener">Book a private session</a>
@@ -280,6 +280,21 @@
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
   }
+
+  /* Bookshelf scroll cue: fade the right edge only while there's more to scroll. */
+  (function () {
+    var el = document.querySelector(".al-books");
+    if (!el) return;
+    function update() {
+      var scrollable = el.scrollWidth > el.clientWidth + 2;
+      var atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+      el.classList.toggle("al-books--fade", scrollable && !atEnd);
+    }
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    if (window.ResizeObserver) { new ResizeObserver(update).observe(el); }
+    update();
+  })();
   </script>
 </body>
 </html>

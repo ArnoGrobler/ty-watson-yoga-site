@@ -214,7 +214,7 @@ img { max-width: 100%; }
 .al-note { margin-top: 18px; padding: 16px 18px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); }
 .al-note__label { display: block; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; font-weight: 700; opacity: .65; margin: 0 0 8px; }
 .al-note__lead { font-weight: 300; font-size: 13px; line-height: 1.55; margin: 0; opacity: .7; text-transform: uppercase; letter-spacing: .04em; }
-.al-note__prompt { font-style: italic; font-size: 19px; line-height: 1.6; margin: 12px 0 0; }
+.al-note__prompt { font-style: italic; font-size: 17px; line-height: 1.6; margin: 12px 0 0; }
 .al-content .al-note__label, .al-content .al-note__lead, .al-content .al-note__prompt { color: #fff; }
 
 .al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
@@ -273,6 +273,11 @@ img { max-width: 100%; }
 .al-cta__btn:hover { background: #fff; color: var(--black); }
 .al-content .al-cta__text { color: #fff; }
 .al-content .al-cta__text a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+/* highlighted "Next live call" tile */
+.al-content .al-zoom { border-color: rgba(45,140,255,.55); box-shadow: 0 8px 30px rgba(45,140,255,.18); }
+/* Private session booking button — solid, compact, right-aligned like Join Zoom */
+.al-book-private .al-cta__btn { background: #2d8cff; border-color: #2d8cff; color: #fff; display: block; width: fit-content; margin-left: auto; white-space: nowrap; }
+.al-book-private .al-cta__btn:hover { background: #1f7ef0; border-color: #1f7ef0; color: #fff; }
 
 /* Schedule / itinerary */
 .al-schedule { list-style: none; margin: 0; padding: 0; }
@@ -287,6 +292,8 @@ img { max-width: 100%; }
 .al-spotify:last-child { margin-bottom: 0; }
 
 .al-books { display: flex; gap: 22px; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+/* right-edge fade cue: shown only while there's more to scroll (toggled in JS) */
+.al-books--fade { -webkit-mask-image: linear-gradient(to right, #000 78%, transparent 100%); mask-image: linear-gradient(to right, #000 78%, transparent 100%); }
 .al-book { flex: 0 0 120px; width: 120px; display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; }
 .al-book__cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px; box-shadow: 0 3px 12px rgba(0,0,0,.2); background: #eee; }
 .al-book__title { font-weight: 700; font-size: 14px; line-height: 1.3; margin-top: 10px; }
