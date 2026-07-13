@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Summer Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/commonroom/alumni.css?v=48">
+  <link rel="stylesheet" href="/commonroom/alumni.css?v=50">
 </head>
 <body class="al-body" style="background:url('/assets/venus.jpg') center/cover fixed no-repeat;">
 
@@ -38,7 +38,7 @@
           <h2 class="al-updates__label">Notice board</h2>
           <div class="al-updates__body">Welcome to the Summer Series 2026. I'll post new practices, reflections, and reading here through the season — check back for updates.</div>
           <div class="al-note">
-            <span class="al-note__label">Pinned · Week 1</span>
+            <span class="al-note__label"><span class="al-note__badge">Pinned</span>Week 1</span>
             <p class="al-note__lead">Something to think about, discuss with someone or journal about over the next week:</p>
             <p class="al-note__prompt">Where were you six months ago, during winter? Fire illuminates. What can you see now that you couldn't see then?</p>
           </div>
@@ -52,9 +52,10 @@
           </div>
           <div class="al-countdown" id="countdown" aria-live="polite">
             <div class="al-count"><span class="al-count__num" id="cd-d">0</span><span class="al-count__unit">days</span></div>
+            <span class="al-count__sep">:</span>
             <div class="al-count"><span class="al-count__num" id="cd-h">00</span><span class="al-count__unit">hrs</span></div>
+            <span class="al-count__sep">:</span>
             <div class="al-count"><span class="al-count__num" id="cd-m">00</span><span class="al-count__unit">min</span></div>
-            <div class="al-count"><span class="al-count__num" id="cd-s">00</span><span class="al-count__unit">sec</span></div>
           </div>
           <a class="al-zoom__btn" href="https://us06web.zoom.us/j/83741344873?pwd=jNtJ6y75Xy7XYhsBHNpZrbzk6agJ0Q.1" target="_blank" rel="noopener">Join Zoom</a>
         </section>
@@ -199,7 +200,7 @@
   (function () {
     var sessions = [].slice.call(document.querySelectorAll(".al-session[data-when]"));
     var dEl = document.getElementById("cd-d"), hEl = document.getElementById("cd-h"),
-        mEl = document.getElementById("cd-m"), sEl = document.getElementById("cd-s");
+        mEl = document.getElementById("cd-m");
     var dateEl = document.getElementById("zoomDate"), cdEl = document.getElementById("countdown");
     function pad(n) { return (n < 10 ? "0" : "") + n; }
     var current = null;
@@ -233,7 +234,7 @@
       var d = Math.floor(s / 86400); s -= d * 86400;
       var h = Math.floor(s / 3600); s -= h * 3600;
       var m = Math.floor(s / 60); s -= m * 60;
-      dEl.textContent = d; hEl.textContent = pad(h); mEl.textContent = pad(m); sEl.textContent = pad(s);
+      dEl.textContent = d; hEl.textContent = pad(h); mEl.textContent = pad(m);
     }
     tick();
     setInterval(tick, 1000);
