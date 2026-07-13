@@ -272,6 +272,7 @@ img { max-width: 100%; }
 .al-cta__btn { display: inline-block; font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; padding: 13px 30px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(255,255,255,.6); color: #fff; background: transparent; transition: background .2s ease, color .2s ease; }
 .al-cta__btn:hover { background: #fff; color: var(--black); }
 .al-content .al-cta__text { color: #fff; }
+.al-content .al-cta__text a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 
 /* Schedule / itinerary */
 .al-schedule { list-style: none; margin: 0; padding: 0; }
