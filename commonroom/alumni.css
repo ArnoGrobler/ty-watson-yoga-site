@@ -210,6 +210,12 @@ img { max-width: 100%; }
 .al-updates { border: 1px solid var(--black); border-radius: 10px; padding: 24px 28px; margin-bottom: 5vh; }
 .al-updates__label { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; margin: 0 0 10px; }
 .al-updates__body { font-weight: 300; font-size: 17px; line-height: 1.7; }
+/* pinned note inside the notice board */
+.al-note { margin-top: 18px; padding: 16px 18px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); }
+.al-note__label { display: block; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; font-weight: 700; opacity: .65; margin: 0 0 8px; }
+.al-note__lead { font-weight: 300; font-size: 13px; line-height: 1.55; margin: 0; opacity: .7; text-transform: uppercase; letter-spacing: .04em; }
+.al-note__prompt { font-style: italic; font-size: 19px; line-height: 1.6; margin: 12px 0 0; }
+.al-content .al-note__label, .al-content .al-note__lead, .al-content .al-note__prompt { color: #fff; }
 
 .al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
 .al-widget { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; display: flex; flex-direction: column; min-width: 0; }
@@ -260,6 +266,13 @@ img { max-width: 100%; }
   background: #2d8cff; color: #fff; text-decoration: none; white-space: nowrap;
 }
 
+/* pre-register CTA card */
+.al-cta { text-align: center; }
+.al-cta__text { font-weight: 300; font-size: 18px; line-height: 1.6; margin: 0 0 18px; }
+.al-cta__btn { display: inline-block; font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; padding: 13px 30px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(255,255,255,.6); color: #fff; background: transparent; transition: background .2s ease, color .2s ease; }
+.al-cta__btn:hover { background: #fff; color: var(--black); }
+.al-content .al-cta__text { color: #fff; }
+
 /* Schedule / itinerary */
 .al-schedule { list-style: none; margin: 0; padding: 0; }
 .al-session { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 18px; padding: 13px 0; border-bottom: 1px dotted var(--line); }
@@ -277,6 +290,15 @@ img { max-width: 100%; }
 .al-book__cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px; box-shadow: 0 3px 12px rgba(0,0,0,.2); background: #eee; }
 .al-book__title { font-weight: 700; font-size: 14px; line-height: 1.3; margin-top: 10px; }
 .al-book__author { font-weight: 300; font-size: 13px; opacity: .7; margin-top: 2px; }
+
+/* Dispatches — podcast / short-article links */
+.al-dispatches { display: flex; flex-direction: column; gap: 12px; }
+.al-dispatch { display: block; text-decoration: none; padding: 14px 16px; border: 1px solid rgba(255,255,255,.22); border-radius: 12px; transition: background .2s ease, border-color .2s ease; }
+.al-dispatch:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+.al-dispatch__kicker { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; opacity: .6; margin-bottom: 6px; }
+.al-dispatch__title { display: block; font-weight: 700; font-size: 16px; line-height: 1.3; }
+.al-dispatch__by { display: block; font-size: 13px; opacity: .7; margin-top: 4px; }
+.al-content .al-dispatch, .al-content .al-dispatch__title, .al-content .al-dispatch__kicker, .al-content .al-dispatch__by { color: #fff; }
 
 .al-empty { opacity: .6; font-weight: 300; }
 
