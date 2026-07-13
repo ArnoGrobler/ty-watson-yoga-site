@@ -101,9 +101,9 @@ img { max-width: 100%; }
 
 /* Content (fades in inside the expanded panel) — white on glass */
 .al-content { color: #fff; transition: opacity .6s ease; }
-.al-content .al-header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 3.5vh; }
+.al-content .al-header { flex-direction: column; align-items: center; text-align: center; gap: 6px; margin-bottom: 3.5vh; }
 .al-content .al-header__title { color: #fff; }
-.al-content .al-header__by { font-size: 14px; font-weight: 500; letter-spacing: .04em; color: rgba(255, 255, 255, .72); }
+.al-content .al-header__by { font-family: "Notable", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 13px; letter-spacing: .06em; color: rgba(255, 255, 255, .7); }
 .al-content .al-updates,
 .al-content .al-zoom,
 .al-content .al-widget {
@@ -205,15 +205,15 @@ img { max-width: 100%; }
 /* ---------- Alumni page ---------- */
 .al-header { display: flex; align-items: center; gap: 12px; margin-bottom: 5vh; }
 .al-header__emoji { font-size: 40px; line-height: 1; }
-.al-header__title { font-family: var(--body); font-weight: 700; font-size: 32px; letter-spacing: .01em; line-height: 1; margin: 0; }
+.al-header__title { font-family: "Notable", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 28px; letter-spacing: .04em; line-height: 1.12; margin: 0; }
 
 .al-updates { border: 1px solid var(--black); border-radius: 10px; padding: 24px 28px; margin-bottom: 5vh; }
 .al-updates__label { text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 700; margin: 0 0 10px; }
 .al-updates__body { font-weight: 300; font-size: 17px; line-height: 1.7; }
 /* pinned note inside the notice board — warm highlight to draw the eye */
-.al-note { margin-top: 20px; padding: 18px 20px; border-radius: 12px; background: rgba(224,165,58,.10); border: 1px solid rgba(224,165,58,.28); border-left: 3px solid #e0a53a; }
+.al-note { margin-top: 20px; padding: 18px 20px; border-radius: 12px; background: rgba(207,128,152,.10); border: 1px solid rgba(207,128,152,.30); border-left: 3px solid #cf8098; }
 .al-note__label { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
-.al-note__badge { background: #e0a53a; color: #2a1b06; padding: 4px 10px; border-radius: 999px; font-size: 10px; letter-spacing: .1em; }
+.al-note__badge { background: #cf8098; color: #2a0f18; padding: 4px 10px; border-radius: 999px; font-size: 10px; letter-spacing: .1em; }
 .al-note__lead { font-weight: 300; font-size: 13px; line-height: 1.55; margin: 0; opacity: .7; text-transform: uppercase; letter-spacing: .04em; }
 .al-note__prompt { font-style: italic; font-size: 17px; line-height: 1.6; margin: 12px 0 0; }
 .al-content .al-note__lead, .al-content .al-note__prompt { color: #fff; }
@@ -277,6 +277,10 @@ img { max-width: 100%; }
 .al-cta__btn:hover { background: #fff; color: var(--black); }
 .al-content .al-cta__text { color: #fff; }
 .al-content .al-cta__text a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+/* pre-register (Autumn) tile — warm gold highlight to catch the eye */
+.al-content .al-cta { border-color: rgba(224,165,58,.5); box-shadow: 0 8px 30px rgba(224,165,58,.16); }
+.al-cta .al-cta__btn { background: #e0a53a; border-color: #e0a53a; color: #2a1b06; }
+.al-cta .al-cta__btn:hover { background: #cf9528; border-color: #cf9528; color: #2a1b06; }
 /* highlighted "Next live call" tile */
 .al-content .al-zoom { border-color: rgba(45,140,255,.55); box-shadow: 0 8px 30px rgba(45,140,255,.18); }
 /* Private session booking button — solid, compact, right-aligned like Join Zoom */
