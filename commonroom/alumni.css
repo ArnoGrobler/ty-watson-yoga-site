@@ -219,6 +219,12 @@ img { max-width: 100%; }
 .al-note__prompt { font-style: italic; font-size: 17px; line-height: 1.6; margin: 12px 0 0; }
 .al-content .al-note__lead, .al-content .al-note__prompt { color: #fff; }
 .al-content .al-note__label { color: rgba(255,255,255,.8); }
+.al-note__list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.al-note__item { display: flex; flex-direction: column; gap: 5px; }
+.al-note__item + .al-note__item { padding-top: 16px; border-top: 1px solid rgba(207,128,152,.22); }
+.al-note__k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #d98aa2; }
+.al-note__t { font-size: 15px; line-height: 1.55; margin: 0; }
+.al-content .al-note__t { color: #fff; }
 
 .al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
 .al-widget { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; display: flex; flex-direction: column; min-width: 0; }
