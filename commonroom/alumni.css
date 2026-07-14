@@ -82,7 +82,8 @@ img { max-width: 100%; }
 /* Login (fades out on success) */
 .al-login { text-align: center; transition: opacity .3s ease; }
 .al-login__emoji { font-size: 44px; display: block; margin-bottom: 12px; }
-.al-login__title { font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: .01em; margin: 0 0 14px; color: var(--black); }
+.al-login__title { font-family: "Notable", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 28px; letter-spacing: .04em; line-height: 1.12; margin: 0 0 6px; color: var(--black); }
+.al-login__by { font-family: "Notable", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 13px; letter-spacing: .06em; color: rgba(51, 4, 17, .6); margin: 0 0 18px; }
 .al-login__msg { font-weight: 300; font-size: 16px; line-height: 1.65; margin-bottom: 24px; color: var(--black); }
 .al-login__form { display: flex; gap: 10px; }
 .al-login__input {
@@ -308,7 +309,21 @@ img { max-width: 100%; }
 .al-book__author { font-weight: 400; font-size: 14px; opacity: .85; margin-top: 3px; }
 
 /* Dispatches — podcast / short-article links */
-.al-dispatches { display: flex; flex-direction: column; gap: 12px; }
+.al-dispatches { display: flex; flex-direction: column; gap: 24px; }
+/* week grouping */
+.al-week__head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.al-week__label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.al-week__lock { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; opacity: .75; }
+.al-week__lock svg { width: 12px; height: 12px; }
+.al-week--locked .al-dispatch { pointer-events: none; position: relative; overflow: hidden; }
+.al-week--locked .al-dispatch > span { filter: blur(5px); }
+.al-week--locked .al-dispatch::after {
+  content: ""; position: absolute; inset: 0; border-radius: 12px;
+  background: rgba(40, 35, 42, .35);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.al-content .al-week__label, .al-content .al-week__lock { color: #fff; }
+.al-week .al-dispatch + .al-dispatch { margin-top: 12px; }
 .al-dispatch { display: block; text-decoration: none; padding: 14px 16px; border: 1px solid rgba(255,255,255,.22); border-radius: 12px; transition: background .2s ease, border-color .2s ease; }
 .al-dispatch:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
 .al-dispatch__kicker { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; opacity: .6; margin-bottom: 6px; }
