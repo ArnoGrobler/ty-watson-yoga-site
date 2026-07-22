@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Summer Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/commonroom/alumni.css?v=67">
+  <link rel="stylesheet" href="/commonroom/alumni.css?v=69">
 </head>
 <body class="al-body" style="background:url('/assets/venus.jpg') center/cover fixed no-repeat;">
 
@@ -39,7 +39,24 @@
           <h2 class="al-updates__label">Notice board</h2>
           <div class="al-updates__body">Welcome to the Summer Series 2026. I'll post new practices, reflections, and reading here through the season — check back for updates.</div>
           <div class="al-note">
-            <span class="al-note__label"><span class="al-note__badge">Pinned</span>Week 1</span>
+            <span class="al-note__label"><span class="al-note__badge">Pinned</span>Week 2</span>
+            <ul class="al-note__list">
+              <li class="al-note__item">
+                <span class="al-note__k">Reflect</span>
+                <p class="al-note__t"><em>Where do you feel yourself skipping out on making real contact? Is there something this coming week that you can give your undivided attention to?</em></p>
+              </li>
+              <li class="al-note__item">
+                <span class="al-note__k">Listen</span>
+                <p class="al-note__t">Two podcasts are up in the dispatch. This week's conversation with Michael Pollan, and last week's with David Whyte.</p>
+              </li>
+              <li class="al-note__item">
+                <span class="al-note__k">Read</span>
+                <p class="al-note__t"><em>The Boundary Paradox</em> is an article about psychological and metaphorical boundaries, in the dispatches below. Or pull something off the bookshelf!</p>
+              </li>
+            </ul>
+          </div>
+          <details class="al-note-past">
+            <summary>Week 1</summary>
             <ul class="al-note__list">
               <li class="al-note__item">
                 <span class="al-note__k">Reflect</span>
@@ -47,14 +64,14 @@
               </li>
               <li class="al-note__item">
                 <span class="al-note__k">Listen</span>
-                <p class="al-note__t">This week's dispatch — <em>Seeking Language Large Enough</em>.</p>
+                <p class="al-note__t">Last week's dispatch — <em>Seeking Language Large Enough</em>.</p>
               </li>
               <li class="al-note__item">
                 <span class="al-note__k">Read</span>
                 <p class="al-note__t">Check the bookshelf for this summer's reading list.</p>
               </li>
             </ul>
-          </div>
+          </details>
         </section>
 
         <!-- Next live call + countdown. Replace ZOOM_URL with the real link (it stays the same every week). -->
@@ -106,8 +123,8 @@
                   <span class="al-dispatch__by">David Whyte, with Krista Tippett</span>
                 </a>
               </div>
-              <div class="al-week al-week--locked">
-                <div class="al-week__head"><span class="al-week__label">Week 2</span><span class="al-week__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Locked</span></div>
+              <div class="al-week">
+                <div class="al-week__head"><span class="al-week__label">Week 2</span></div>
                 <a class="al-dispatch" href="https://onbeing.org/programs/michael-pollan-the-mystery-of-consciousness/" target="_blank" rel="noopener">
                   <span class="al-dispatch__kicker">On Being · Podcast</span>
                   <span class="al-dispatch__title">The Mystery of Consciousness</span>
@@ -249,6 +266,7 @@
       sessions.forEach(function (li) {
         li.classList.remove("is-next");
         var t = new Date(li.getAttribute("data-when"));
+        li.classList.toggle("is-past", t < now);
         if (t > now && (!next || t < next.t)) next = { t: t, li: li };
       });
       return next;

@@ -121,6 +121,7 @@ img { max-width: 100%; }
 .al-content .al-session { border-bottom-color: rgba(255, 255, 255, .18); }
 .al-content .al-session__date { color: #fff; }
 .al-content .al-session__title { color: rgba(255, 255, 255, .85); }
+.al-content .al-session.is-past { opacity: .4; }
 .al-content .al-session.is-next .al-session__date { color: #8fe6b0; }
 .al-content .al-session.is-next .al-session__title::after { color: #8fe6b0; }
 .al-content .al-file { border-color: rgba(255, 255, 255, .3); color: #fff; }
@@ -225,6 +226,14 @@ img { max-width: 100%; }
 .al-note__k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #d98aa2; }
 .al-note__t { font-size: 15px; line-height: 1.55; margin: 0; }
 .al-content .al-note__t { color: #fff; }
+/* minimized past-week note (collapsible) */
+.al-note-past { margin-top: 16px; }
+.al-note-past > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14); }
+.al-note-past > summary::-webkit-details-marker { display: none; }
+.al-note-past > summary::after { content: "▸"; margin-left: auto; font-size: 11px; opacity: .7; }
+.al-note-past[open] > summary::after { content: "▾"; }
+.al-content .al-note-past > summary { color: rgba(255,255,255,.6); }
+.al-note-past .al-note__list { margin-top: 14px; }
 
 .al-widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
 .al-widget { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; display: flex; flex-direction: column; min-width: 0; }
