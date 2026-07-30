@@ -280,6 +280,10 @@ img { max-width: 100%; }
 .al-content .al-count__sep { color: rgba(255, 255, 255, .45); }
 .al-count__num { font-family: var(--body); font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; }
 .al-count__unit { text-transform: uppercase; letter-spacing: .08em; font-size: 10px; opacity: .6; margin-top: 7px; }
+/* "Live now" badge — shown in place of the countdown once a call is in progress */
+.al-live { display: inline-flex; align-items: center; gap: 9px; margin-left: auto; font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 15px; color: #8fe6b0; white-space: nowrap; }
+.al-live__dot { width: 10px; height: 10px; border-radius: 50%; background: #8fe6b0; box-shadow: 0 0 0 0 rgba(143,230,176,.6); animation: al-live-pulse 1.6s ease-out infinite; }
+@keyframes al-live-pulse { 0% { box-shadow: 0 0 0 0 rgba(143,230,176,.55); } 70% { box-shadow: 0 0 0 9px rgba(143,230,176,0); } 100% { box-shadow: 0 0 0 0 rgba(143,230,176,0); } }
 .al-zoom__btn {
   font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
   font-size: 14px; padding: 13px 26px; border: 1px solid #2d8cff; border-radius: 999px;

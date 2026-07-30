@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Summer Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/commonroom/alumni.css?v=69">
+  <link rel="stylesheet" href="/commonroom/alumni.css?v=71">
 </head>
 <body class="al-body" style="background:url('/assets/venus.jpg') center/cover fixed no-repeat;">
 
@@ -39,7 +39,28 @@
           <h2 class="al-updates__label">Notice board</h2>
           <div class="al-updates__body">Welcome to the Summer Series 2026. I'll post new practices, reflections, and reading here through the season — check back for updates.</div>
           <div class="al-note">
-            <span class="al-note__label"><span class="al-note__badge">Pinned</span>Week 2</span>
+            <span class="al-note__label"><span class="al-note__badge">Pinned</span>Week 3</span>
+            <ul class="al-note__list">
+              <li class="al-note__item">
+                <span class="al-note__k">Reflect</span>
+                <p class="al-note__t"><em>What is an object, ritual or routine that helps you cross a threshold — like getting ready for bed, settling in after travel, or a difficult day at work?</em></p>
+              </li>
+              <li class="al-note__item">
+                <span class="al-note__k">Listen</span>
+                <p class="al-note__t">A podcast about presence and beauty, with John O'Donohue — a modern-day mystic, Irish poet, author, priest, and Hegelian philosopher.</p>
+              </li>
+              <li class="al-note__item">
+                <span class="al-note__k">Read</span>
+                <p class="al-note__t">Anything off the bookshelf.</p>
+              </li>
+              <li class="al-note__item">
+                <span class="al-note__k">This weekend</span>
+                <p class="al-note__t">Our theory workshop is this Saturday at 4pm CET.</p>
+              </li>
+            </ul>
+          </div>
+          <details class="al-note-past">
+            <summary>Week 2</summary>
             <ul class="al-note__list">
               <li class="al-note__item">
                 <span class="al-note__k">Reflect</span>
@@ -58,7 +79,7 @@
                 <p class="al-note__t"><em>The Boundary Paradox</em> (below) is a slightly longer article about boundaries. I found it so interesting, and towards the end it gets very clear and practical.</p>
               </li>
             </ul>
-          </div>
+          </details>
           <details class="al-note-past">
             <summary>Week 1</summary>
             <ul class="al-note__list">
@@ -143,8 +164,8 @@
                   <span class="al-dispatch__title">The Importance of Soft Toys</span>
                 </a>
               </div>
-              <div class="al-week al-week--locked">
-                <div class="al-week__head"><span class="al-week__label">Week 3</span><span class="al-week__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Locked</span></div>
+              <div class="al-week">
+                <div class="al-week__head"><span class="al-week__label">Week 3</span></div>
                 <a class="al-dispatch" href="https://onbeing.org/programs/john-odonohue-the-inner-landscape-of-beauty/" target="_blank" rel="noopener">
                   <span class="al-dispatch__kicker">On Being · Podcast</span>
                   <span class="al-dispatch__title">The Inner Landscape of Beauty</span>
@@ -261,23 +282,39 @@
     }
   })();
 
-  /* Countdown to the next session (reads dates from the Schedule list). */
+  /* Countdown to the next session (reads dates from the Schedule list).
+     A call stays selected — with its Join Zoom link live — until it actually
+     ENDS (start + data-mins), so latecomers can still join once it has begun.
+     While the call is in progress the countdown is replaced by a "Live now" badge. */
   (function () {
     var sessions = [].slice.call(document.querySelectorAll(".al-session[data-when]"));
     var dEl = document.getElementById("cd-d"), hEl = document.getElementById("cd-h"),
         mEl = document.getElementById("cd-m");
     var dateEl = document.getElementById("zoomDate"), cdEl = document.getElementById("countdown");
     function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function endOf(li) {
+      var start = new Date(li.getAttribute("data-when"));
+      var mins = parseInt(li.getAttribute("data-mins"), 10) || 60;
+      return new Date(start.getTime() + mins * 60000);
+    }
+    // "Live now" badge, shown in place of the countdown while a call is running.
+    var liveEl = document.createElement("div");
+    liveEl.className = "al-live";
+    liveEl.innerHTML = '<span class="al-live__dot"></span>Live now';
+    liveEl.style.display = "none";
+    if (cdEl && cdEl.parentNode) cdEl.parentNode.insertBefore(liveEl, cdEl);
     var current = null;
     function pickNext() {
-      var now = new Date(), next = null;
+      var now = new Date(), pick = null;
       sessions.forEach(function (li) {
         li.classList.remove("is-next");
-        var t = new Date(li.getAttribute("data-when"));
-        li.classList.toggle("is-past", t < now);
-        if (t > now && (!next || t < next.t)) next = { t: t, li: li };
+        var start = new Date(li.getAttribute("data-when")), end = endOf(li);
+        // A session counts as "past" only once it has finished.
+        li.classList.toggle("is-past", end < now);
+        // Pick the earliest session that hasn't ended yet (this includes one in progress).
+        if (end > now && (!pick || start < pick.t)) pick = { t: start, end: end, li: li };
       });
-      return next;
+      return pick;
     }
     function tick() {
       if (!current) {
@@ -294,9 +331,17 @@
           return;
         }
       }
-      var diff = current.t - new Date();
-      if (diff <= 0) { current = null; return; }
-      var s = Math.floor(diff / 1000);
+      var now = new Date();
+      if (now >= current.end) { current = null; return; } // call has finished → roll to the next one
+      if (now >= current.t) {
+        // Call is in progress — swap the countdown for the Live now badge, keep Join Zoom.
+        cdEl.style.display = "none";
+        liveEl.style.display = "";
+        return;
+      }
+      cdEl.style.display = "";
+      liveEl.style.display = "none";
+      var s = Math.floor((current.t - now) / 1000);
       var d = Math.floor(s / 86400); s -= d * 86400;
       var h = Math.floor(s / 3600); s -= h * 3600;
       var m = Math.floor(s / 60); s -= m * 60;
