@@ -226,6 +226,7 @@ img { max-width: 100%; }
 .al-note__k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #d98aa2; }
 .al-note__t { font-size: 15px; line-height: 1.55; margin: 0; }
 .al-content .al-note__t { color: #fff; }
+.al-content .al-note__t a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 /* minimized past-week note (collapsible) */
 .al-note-past { margin-top: 16px; }
 .al-note-past > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14); }
