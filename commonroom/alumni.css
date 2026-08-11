@@ -304,6 +304,9 @@ img { max-width: 100%; }
 .al-cta .al-cta__btn:hover { background: #cf9528; border-color: #cf9528; color: #2a1b06; }
 /* highlighted "Next live call" tile */
 .al-content .al-zoom { border-color: rgba(45,140,255,.55); box-shadow: 0 8px 30px rgba(45,140,255,.18); }
+/* Review button inside the notice — rose accent, matches the End of Summer notice */
+.al-content .al-note__btn { align-self: flex-start; margin-top: 14px; padding: 11px 24px; font-size: 13px; background: #cf8098; border-color: #cf8098; color: #2a0d16; }
+.al-content .al-note__btn:hover { background: #c06e88; border-color: #c06e88; color: #2a0d16; }
 /* Private session booking button — solid, compact, right-aligned like Join Zoom */
 .al-book-private .al-cta__btn { background: #2d8cff; border-color: #2d8cff; color: #fff; display: block; width: fit-content; margin-left: auto; white-space: nowrap; }
 .al-book-private .al-cta__btn:hover { background: #1f7ef0; border-color: #1f7ef0; color: #fff; }
