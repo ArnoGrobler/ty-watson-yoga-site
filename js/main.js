@@ -41,9 +41,9 @@
     if (current && activeLabel) current.textContent = activeLabel;
     closeTabs();
 
-    // Summer series always opens on the detail view; size the slider now
-    // that the panel is visible.
-    if (name === "summer-series") {
+    // The seasonal series tab always opens on the detail view; size the slider
+    // now that the panel is visible.
+    if (name === "autumn-series") {
       var vp = document.getElementById("series-viewport");
       if (vp) {
         vp.classList.remove("is-archive");
