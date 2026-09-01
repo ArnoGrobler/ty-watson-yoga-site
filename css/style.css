@@ -533,7 +533,7 @@ p {
   letter-spacing: normal;
   font-family: var(--body);
   font-weight: 700;
-  font-size: min(1.15vw, 11.5px);
+  font-size: min(1.45vw, 14px);
 }
 .c-upcoming__rule {
   border-top: 1px solid var(--black);
@@ -544,20 +544,20 @@ p {
 .c-upcoming__title {
   font-family: var(--body);
   font-weight: 700;
-  font-size: min(1.38vw, 13.8px);
+  font-size: min(1.72vw, 17px);
   line-height: 1.35em;
 }
 .c-upcoming__tba,
 .c-upcoming-block .c-schedule-text__link {
   font-family: var(--body);
-  font-size: min(1.38vw, 13.8px);
+  font-size: min(1.62vw, 16px);
   line-height: 1.35em;
 }
 /* dates match the block title size (just not bold) */
 .c-upcoming__date {
   font-family: var(--body);
   font-weight: 300;
-  font-size: min(1.38vw, 13.8px);
+  font-size: min(1.62vw, 16px);
   line-height: 1.35em;
 }
 /* status pill pinned to the bottom-left of an archive block, with a
@@ -574,7 +574,7 @@ p {
   margin-top: auto;
   margin-bottom: min(1.6vw, 16px);
   font-family: var(--body);
-  font-size: min(1.25vw, 12.5px);
+  font-size: min(1.5vw, 15px);
   line-height: 1.4em;
 }
 .c-upcoming-block .c-upcoming__more + .c-pill { margin-top: 0; }
@@ -587,7 +587,7 @@ p {
 .c-schedule-text p {
   color: var(--black);
   font-family: var(--body);
-  font-size: min(1.38vw, 13.8px);
+  font-size: min(1.72vw, 17px);
   line-height: 1.6em;
 }
 .c-schedule-text__link {
