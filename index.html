@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/strap.png" type="image/png">
   <link rel="shortcut icon" href="assets/strap.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/strap.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 
   <!-- ============================================================
        WORK-IN-PROGRESS LOCK
@@ -84,7 +84,7 @@
               <p class="c-summer__meta">Online, Tuesdays at 6pm Paris (12pm Eastern)<br>Oct 20 – Nov 10, 2026</p>
               <div class="c-pill-row">
                 <button type="button" class="c-pill c-pill--view" data-series-open>MORE IN THIS SERIES</button>
-                <a href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026" class="c-pill"><span class="c-pill__dot"></span>OPEN</a>
+                <a href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026" class="c-pill" data-reg-open><span class="c-pill__dot"></span>OPEN</a>
               </div>
 
               <blockquote class="c-quote">"This seasonal workshop makes me love my life and learning and humanity!" <a href="#" class="c-quote__more" data-open-modal="quotes-modal">see more</a></blockquote>
@@ -116,8 +116,27 @@
 
               <p>Once you register, you'll receive a payment link to confirm your spot.</p>
 
-              <a href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026" class="buttons c-summer__register w-button">REGISTER BY EMAIL</a>
-              <p style="text-align:center;opacity:.55;margin-top:16px">Opens your email app — or write to <a class="c-help-link" href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026">tyrone13watson@gmail.com</a></p>
+              <div class="c-reg" id="reg">
+                <a href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026" class="buttons c-summer__register w-button" data-reg-open>REGISTER FOR THE AUTUMN SERIES 2026</a>
+
+                <form id="reg-form" class="c-reg-form" action="https://formsubmit.co/ajax/tyrone13watson@gmail.com" method="POST">
+                  <input class="c-reg-input" type="text" name="name" placeholder="Your name" required autocomplete="name">
+                  <input class="c-reg-input" type="email" name="email" placeholder="Your email" required autocomplete="email">
+                  <textarea class="c-reg-input" name="message" rows="3" placeholder="Anything you'd like me to know (optional)"></textarea>
+                  <input type="hidden" name="_subject" value="New Autumn Series 2026 registration">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input class="c-reg-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                  <button type="submit" class="buttons c-summer__register w-button c-reg-submit">Send registration</button>
+                  <p class="c-reg-error" id="reg-error" hidden>Something went wrong sending that. Please email <a class="c-help-link" href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026">tyrone13watson@gmail.com</a> instead.</p>
+                </form>
+
+                <div class="c-reg-done" id="reg-done">
+                  <p><strong>Thanks — you're registered.</strong><br>I'll be in touch soon with the payment link to confirm your spot.</p>
+                </div>
+
+                <p class="c-reg-fallback">Prefer to email? Write to <a class="c-help-link" href="mailto:tyrone13watson@gmail.com?subject=Register%20for%20the%20Autumn%20Series%202026">tyrone13watson@gmail.com</a></p>
+              </div>
             </div>
             </div><!-- /detail -->
 
@@ -372,6 +391,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

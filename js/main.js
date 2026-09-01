@@ -82,6 +82,54 @@
     window.addEventListener("resize", seriesSetHeight);
   }
 
+  /* ---------------- Inline registration form ---------------- */
+  function initRegForm() {
+    var reg = document.getElementById("reg");
+    var form = document.getElementById("reg-form");
+    if (!reg || !form) return;
+
+    // "Register" button and the OPEN pill both reveal the form in place.
+    document.querySelectorAll("[data-reg-open]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        reg.classList.add("is-open");
+        seriesSetHeight();                 // grow the slider to fit the form
+        form.scrollIntoView({ behavior: "smooth", block: "center" });
+        var first = form.querySelector("input[name='name']");
+        if (first) setTimeout(function () { first.focus(); }, 350);
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var honey = form.querySelector("[name='_honey']");
+      if (honey && honey.value) return;    // silently drop bots
+      var btn = form.querySelector("button[type='submit']");
+      var err = document.getElementById("reg-error");
+      if (err) err.hidden = true;
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+      fetch(form.getAttribute("action"), {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(form)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && (data.success === "true" || data.success === true)) {
+            reg.classList.add("is-done");
+            seriesSetHeight();
+          } else {
+            throw new Error("not confirmed");
+          }
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = "Send registration"; }
+          if (err) err.hidden = false;
+        });
+    });
+  }
+
   /* ---------------- Mobile collapsed tab bar ---------------- */
   function closeTabs() {
     var nav = document.querySelector(".c-tabs");
@@ -287,6 +335,7 @@
     initLock();
     initTabBar();
     initSeries();
+    initRegForm();
     initCursorHelp();
     initImagePreview();
     initModals();

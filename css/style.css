@@ -886,6 +886,30 @@ p {
   border-radius: 999px;   /* pill shape, matching the other buttons */
 }
 
+/* ---------- Inline registration form ---------- */
+.c-reg-form,
+.c-reg-done { display: none; }
+.c-reg.is-open .c-reg-form { display: block; }
+.c-reg.is-open [data-reg-open] { display: none; }
+.c-reg.is-done [data-reg-open],
+.c-reg.is-done .c-reg-form { display: none; }
+.c-reg.is-done .c-reg-done { display: block; }
+.c-reg-form { margin-top: 1.5em; }
+.c-reg-input {
+  display: block; width: 100%; box-sizing: border-box;
+  font-family: var(--body); font-size: 16px; line-height: 1.5; color: var(--black);
+  background: #fff; border: 1px solid var(--black); border-radius: 8px;
+  padding: 13px 15px; margin-bottom: 12px; outline: none;
+}
+.c-reg-input::placeholder { color: rgba(51, 4, 17, .5); }
+.c-reg-input:focus { box-shadow: 0 0 0 2px rgba(51, 4, 17, .18); }
+textarea.c-reg-input { resize: vertical; min-height: 84px; }
+.c-reg-submit { margin-top: .4em; }
+.c-reg-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.c-reg-error { color: #c0392b; text-align: center; font-size: 15px; margin-top: 12px; }
+.c-reg-done { text-align: center; line-height: 1.6; padding: 6px 0; }
+.c-reg-fallback { text-align: center; opacity: .55; margin-top: 16px; }
+
 /* ---------- Cursor-following help text ---------- */
 .c-cursor-help {
   position: fixed;
