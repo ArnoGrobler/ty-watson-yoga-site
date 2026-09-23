@@ -88,17 +88,44 @@
     var form = document.getElementById("reg-form");
     if (!reg || !form) return;
 
+    function openReg() {
+      reg.classList.add("is-open");
+      seriesSetHeight();                   // grow the slider to fit the form
+      form.scrollIntoView({ behavior: "smooth", block: "center" });
+      var first = form.querySelector("input[name='name']");
+      if (first) setTimeout(function () { first.focus(); }, 350);
+    }
+
     // "Register" button and the OPEN pill both reveal the form in place.
     document.querySelectorAll("[data-reg-open]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        reg.classList.add("is-open");
-        seriesSetHeight();                 // grow the slider to fit the form
-        form.scrollIntoView({ behavior: "smooth", block: "center" });
-        var first = form.querySelector("input[name='name']");
-        if (first) setTimeout(function () { first.focus(); }, 350);
+        openReg();
       });
     });
+
+    // An outside link (the Substack button, a newsletter) can land straight on
+    // the open form: tywatsonyoga.com/?register=1
+    // The seasonal tab is derived from the panel the form sits in, so this
+    // keeps working when the season is renamed.
+    if (/(^|&)register=1(&|$)/.test(location.search.slice(1))) {
+      var panel = reg.closest(".c-panel");
+      if (panel) activate(panel.id.replace(/^panel-/, ""));
+      reg.classList.add("is-open");
+
+      // The display fonts land after first paint and reflow the page, which
+      // throws away any scroll done before then. So re-measure and re-scroll
+      // at each point the layout can still change. Jump rather than smooth
+      // scroll: this is a landing, not a click. No autofocus either, since on
+      // a phone the keyboard would shove the form straight back off screen.
+      var settle = function () {
+        seriesSetHeight();
+        form.scrollIntoView({ block: "center" });
+      };
+      requestAnimationFrame(settle);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+      window.addEventListener("load", settle);
+    }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
