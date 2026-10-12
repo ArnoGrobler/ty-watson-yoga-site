@@ -317,8 +317,12 @@ img { max-width: 100%; }
 .al-session:last-child { border-bottom: 0; }
 .al-session__date { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; min-width: 165px; }
 .al-session__title { font-weight: 300; font-size: 16px; }
+/* Small secondary line under a session: the same call in other time zones. */
+.al-session__zones { flex-basis: 100%; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, .6); }
+/* Eastern time that differs from usual because Europe and North America change clocks on different dates. */
+.al-session__shift { color: #f2c46d; font-weight: 700; }
 .al-session.is-next .al-session__date { color: #1f7a4d; }
-.al-session.is-next .al-session__title::after { content: " — next"; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; color: #1f7a4d; }
+.al-session.is-next .al-session__title::after { content: "Next"; display: inline-block; margin-left: 12px; vertical-align: 1px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: 11px; color: #1f7a4d; }
 
 .al-spotify { border: 0; border-radius: 12px; margin-bottom: 14px; display: block; }
 .al-spotify:last-child { margin-bottom: 0; }
