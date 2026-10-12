@@ -170,11 +170,40 @@
     content.style.opacity = "1";
   }
 
-  /* Login → expand the glass panel and fade the widgets in. */
+  /* Registered emails are stored as SHA-256 fingerprints of AL_SALT + the
+     lowercased email, never as plain addresses, so students' emails don't
+     appear in the page or in the public repo. To add someone, fingerprint
+     their email the same way and append it to AL_ALLOW. "wip" is the
+     preview key. */
+  var AL_SALT = "tywatsonyoga:autumn-2026:";
+  var AL_ALLOW = [
+    "eaad6f3b6b4301f42bea389a27a1a7c77fd0bbf1b60999f31ad4b6b57d2b63ef",
+    "f5d960cfd220b1a2a64c60e25a8aa0eab306730da113bb899107c1cb912e760a",
+    "0e2cf63345a4ade081acf1f757c8f14882148b1ab0a731c77941bab4bfa0bfbf",
+    "bffb7c8ab735d7afa5fd3ce048b1988f3ad3568120865383987623deb65b88bb",
+    "6c6c84c026a721b81f23df1003e3e45e0949b15fb47fc1a6174f3fe2de250897",
+    "77203cdf2d22bcfe8e7b3269149e1538a1705a0c91cfb6d343bc8d691fe6445d"
+  ];
+  function alHash(s) {
+    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(AL_SALT + s)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+        return ("0" + b.toString(16)).slice(-2);
+      }).join("");
+    });
+  }
+
   function alEnter() {
-    var A = ["tyrone13watson@gmail.com"];
     var e = (document.getElementById("email").value || "").trim().toLowerCase();
-    if (!(e === "wip" || A.indexOf(e) >= 0)) { document.getElementById("gerr").style.display = "block"; return; }
+    var err = document.getElementById("gerr");
+    if (e === "wip") return alOpen();
+    if (!e || !(window.crypto && crypto.subtle)) { err.style.display = "block"; return; }
+    alHash(e).then(function (h) {
+      if (AL_ALLOW.indexOf(h) >= 0) alOpen(); else err.style.display = "block";
+    });
+  }
+
+  /* Login → expand the glass panel and fade the widgets in. */
+  function alOpen() {
     try { sessionStorage.setItem(AL_KEY, "1"); } catch (x) {}
     var stage = document.getElementById("stage"), glass = document.getElementById("glass"),
         login = document.getElementById("login"), content = document.getElementById("content");
