@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Autumn Series 2026 — Ty Watson Yoga</title>
   <link rel="icon" href="/assets/strap.png" type="image/png">
-  <link rel="stylesheet" href="/commonroom/alumni.css?v=79">
+  <link rel="stylesheet" href="/commonroom/alumni.css?v=83">
 </head>
 <body class="al-body" style="background:url('/assets/pallas.jpg') center/cover fixed no-repeat;">
 
@@ -48,30 +48,14 @@
           </div>
         </section>
 
-        <!-- Next live call + countdown. Replace ZOOM_URL with the real link (it stays the same every week). -->
-        <section class="al-zoom">
-          <div class="al-zoom__info">
-            <span class="al-zoom__label">Next live call</span>
-            <span class="al-zoom__date" id="zoomDate">—</span>
-          </div>
-          <div class="al-countdown" id="countdown" aria-live="polite">
-            <div class="al-count"><span class="al-count__num" id="cd-d">0</span><span class="al-count__unit">days</span></div>
-            <span class="al-count__sep">:</span>
-            <div class="al-count"><span class="al-count__num" id="cd-h">00</span><span class="al-count__unit">hrs</span></div>
-            <span class="al-count__sep">:</span>
-            <div class="al-count"><span class="al-count__num" id="cd-m">00</span><span class="al-count__unit">min</span></div>
-          </div>
-          <a class="al-zoom__btn" href="https://us06web.zoom.us/j/81056288523?pwd=xvO2jApC6lwhPRopDzrPoKIJr8ky6h.1" target="_blank" rel="noopener">Join Zoom</a>
-        </section>
-
         <div class="al-widgets">
-          <!-- Schedule / itinerary. The countdown + calendar file both read these dates. -->
+          <!-- Schedule / itinerary. The Next / Join Zoom button and the calendar file both read these dates. -->
           <section class="al-widget al-widget--wide">
             <div class="al-widget__head">
               <h3 class="al-widget__title">Schedule</h3>
               <button type="button" class="al-cal-btn" onclick="alDownloadICS()">Add to calendar</button>
             </div>
-            <ol class="al-schedule">
+            <ol class="al-schedule al-schedule--live">
               <li class="al-session" data-when="2026-10-20T18:00:00+02:00" data-mins="120" data-zoom="https://us06web.zoom.us/j/81056288523?pwd=xvO2jApC6lwhPRopDzrPoKIJr8ky6h.1"><span class="al-session__date">Tue 20 Oct · 6–8pm Paris</span><span class="al-session__title">Week 1</span><span class="al-session__zones">12–2pm Eastern · 5–7pm London</span></li>
               <li class="al-session" data-when="2026-10-27T18:00:00+01:00" data-mins="120" data-zoom="https://us06web.zoom.us/j/81056288523?pwd=xvO2jApC6lwhPRopDzrPoKIJr8ky6h.1"><span class="al-session__date">Tue 27 Oct · 6–8pm Paris</span><span class="al-session__title">Week 2</span><span class="al-session__zones"><span class="al-session__shift">1–3pm Eastern</span> · 5–7pm London</span></li>
               <li class="al-session" data-when="2026-10-31T16:00:00+01:00" data-mins="120" data-zoom="https://us06web.zoom.us/j/85785819411?pwd=ovadVxG217sk10g0Ql6HeHePNB4YWj.1"><span class="al-session__date">Sat 31 Oct · 4–6pm Paris</span><span class="al-session__title">Theory workshop</span><span class="al-session__zones"><span class="al-session__shift">11am–1pm Eastern</span> · 3–5pm London</span></li>
@@ -244,73 +228,57 @@
     }
   })();
 
-  /* Countdown to the next session (reads dates from the Schedule list).
-     A call stays selected — with its Join Zoom link live — until it actually
-     ENDS (start + data-mins), so latecomers can still join once it has begun.
-     While the call is in progress the countdown is replaced by a "Live now" badge. */
+  /* The next session in the Schedule carries a "Join Zoom" button. It stays
+     greyed out until JOIN_EARLY_MIN minutes before the call, then links to
+     that session's data-zoom until the call ends, so latecomers can still
+     get in. Then it rolls on to the following session.
+     Add ?now=2026-10-20T17:50:00%2B02:00 to the URL to preview a moment. */
   (function () {
+    var JOIN_EARLY_MIN = 30;
     var sessions = [].slice.call(document.querySelectorAll(".al-session[data-when]"));
-    var dEl = document.getElementById("cd-d"), hEl = document.getElementById("cd-h"),
-        mEl = document.getElementById("cd-m");
-    var dateEl = document.getElementById("zoomDate"), cdEl = document.getElementById("countdown");
-    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    var m = location.search.match(/[?&]now=([^&]+)/);
+    var offset = m ? new Date(decodeURIComponent(m[1])).getTime() - Date.now() : 0;
+    function now() { return new Date(Date.now() + (offset || 0)); }
+    function startOf(li) { return new Date(li.getAttribute("data-when")); }
     function endOf(li) {
-      var start = new Date(li.getAttribute("data-when"));
       var mins = parseInt(li.getAttribute("data-mins"), 10) || 60;
-      return new Date(start.getTime() + mins * 60000);
+      return new Date(startOf(li).getTime() + mins * 60000);
     }
-    // "Live now" badge, shown in place of the countdown while a call is running.
-    var liveEl = document.createElement("div");
-    liveEl.className = "al-live";
-    liveEl.innerHTML = '<span class="al-live__dot"></span>Live now';
-    liveEl.style.display = "none";
-    if (cdEl && cdEl.parentNode) cdEl.parentNode.insertBefore(liveEl, cdEl);
-    var current = null;
-    function pickNext() {
-      var now = new Date(), pick = null;
+    var shown = "";
+    function render() {
+      var t = now(), next = null;
+      sessions.forEach(function (li) {
+        li.classList.toggle("is-past", endOf(li) < t);
+        if (endOf(li) > t && (!next || startOf(li) < startOf(next))) next = li;
+      });
+      var open = next && t >= new Date(startOf(next).getTime() - JOIN_EARLY_MIN * 60000);
+      var state = next ? sessions.indexOf(next) + (open ? ":open" : ":waiting") : "done";
+      if (state === shown) return;
+      shown = state;
       sessions.forEach(function (li) {
         li.classList.remove("is-next");
-        var start = new Date(li.getAttribute("data-when")), end = endOf(li);
-        // A session counts as "past" only once it has finished.
-        li.classList.toggle("is-past", end < now);
-        // Pick the earliest session that hasn't ended yet (this includes one in progress).
-        if (end > now && (!pick || start < pick.t)) pick = { t: start, end: end, li: li };
+        var old = li.querySelector(".al-session__btn");
+        if (old) old.parentNode.removeChild(old);
       });
-      return pick;
-    }
-    function tick() {
-      if (!current) {
-        current = pickNext();
-        if (current) {
-          current.li.classList.add("is-next");
-          dateEl.textContent = current.li.querySelector(".al-session__date").textContent;
-          var zb = document.querySelector(".al-zoom__btn");
-          var zl = current.li.getAttribute("data-zoom");
-          if (zb && zl) zb.setAttribute("href", zl);
-        } else {
-          var zw = document.querySelector(".al-zoom");
-          if (zw) zw.style.display = "none"; // whole widget hides when the series is over
-          return;
-        }
+      if (!next) return;
+      next.classList.add("is-next");
+      var zoom = next.getAttribute("data-zoom"), btn;
+      if (open && zoom) {
+        btn = document.createElement("a");
+        btn.className = "al-session__btn al-session__btn--join";
+        btn.href = zoom; btn.target = "_blank"; btn.rel = "noopener";
+        btn.textContent = "Join Zoom";
+      } else {
+        btn = document.createElement("span");
+        btn.className = "al-session__btn al-session__btn--join al-session__btn--waiting";
+        btn.setAttribute("aria-disabled", "true");
+        btn.title = "Opens " + JOIN_EARLY_MIN + " minutes before the call";
+        btn.textContent = "Join Zoom";
       }
-      var now = new Date();
-      if (now >= current.end) { current = null; return; } // call has finished → roll to the next one
-      if (now >= current.t) {
-        // Call is in progress — swap the countdown for the Live now badge, keep Join Zoom.
-        cdEl.style.display = "none";
-        liveEl.style.display = "";
-        return;
-      }
-      cdEl.style.display = "";
-      liveEl.style.display = "none";
-      var s = Math.floor((current.t - now) / 1000);
-      var d = Math.floor(s / 86400); s -= d * 86400;
-      var h = Math.floor(s / 3600); s -= h * 3600;
-      var m = Math.floor(s / 60); s -= m * 60;
-      dEl.textContent = d; hEl.textContent = pad(h); mEl.textContent = pad(m);
+      next.insertBefore(btn, next.querySelector(".al-session__zones"));
     }
-    tick();
-    setInterval(tick, 1000);
+    render();
+    setInterval(render, 20000);
   })();
 
   /* Build & download an .ics of the whole schedule, with the Zoom link on every event. */

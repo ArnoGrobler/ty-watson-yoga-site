@@ -124,6 +124,16 @@ img { max-width: 100%; }
 .al-content .al-session.is-past { opacity: .4; }
 .al-content .al-session.is-next .al-session__date { color: #8fe6b0; }
 .al-content .al-session.is-next .al-session__title::after { color: #8fe6b0; }
+/* Schedules with the live button: the button replaces the "Next" text tag. */
+.al-schedule--live .al-session.is-next .al-session__title::after { content: none; }
+.al-session__btn { margin-left: auto; align-self: center; font-family: var(--body); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; line-height: 1; padding: 5px 14px; margin-top: -4px; margin-bottom: -4px; border-radius: 999px; white-space: nowrap; text-decoration: none; }
+.al-session__btn--join { border: 1px solid #2d8cff; background: #2d8cff; color: #fff; }
+a.al-session__btn--join:hover { background: #1f7ae6; border-color: #1f7ae6; }
+/* Before the call opens: same button, greyed out and inert. */
+.al-session__btn--waiting { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .22); color: rgba(255, 255, 255, .45); cursor: default; }
+/* Invisible larger tap area so the slim button is easy to hit on a phone. */
+.al-session__btn--join { position: relative; }
+.al-session__btn--join::before { content: ""; position: absolute; inset: -11px -8px; }
 .al-content .al-file { border-color: rgba(255, 255, 255, .3); color: #fff; }
 .al-content .al-file:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, .25); background: rgba(255, 255, 255, .08); }
 .al-content .al-file__icon { color: #fff; }
