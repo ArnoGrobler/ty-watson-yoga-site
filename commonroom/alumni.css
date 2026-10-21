@@ -231,12 +231,18 @@ a.al-session__btn--join:hover { background: #1f7ae6; border-color: #1f7ae6; }
 .al-content .al-note__lead, .al-content .al-note__prompt { color: #fff; }
 .al-content .al-note__label { color: rgba(255,255,255,.8); }
 .al-note__list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.al-note > .al-note__list:first-child { margin-top: 0; } /* box without a heading label */
 .al-note__item { display: flex; flex-direction: column; gap: 5px; }
 .al-note__item + .al-note__item { padding-top: 16px; border-top: 1px solid rgba(207,128,152,.22); }
 .al-note__k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #d98aa2; }
 .al-note__t { font-size: 15px; line-height: 1.55; margin: 0; }
 .al-content .al-note__t { color: #fff; }
 .al-content .al-note__t a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+.al-note__bullets { list-style: disc; margin: 2px 0 0; padding-left: 20px; font-size: 15px; line-height: 1.55; }
+.al-content .al-note__bullets { color: #fff; }
+.al-note__src { margin: 8px 0 0; font-size: 12px; opacity: .6; }
+.al-content .al-note__src, .al-content .al-note__src a { color: #fff; }
+.al-note__src a { text-decoration: underline; text-underline-offset: 2px; }
 /* minimized past-week note (collapsible) */
 .al-note-past { margin-top: 16px; }
 .al-note-past > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14); }
