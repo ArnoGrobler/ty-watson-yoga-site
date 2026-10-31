@@ -230,10 +230,13 @@ a.al-session__btn--join:hover { background: #1f7ae6; border-color: #1f7ae6; }
 .al-note__prompt { font-style: italic; font-size: 17px; line-height: 1.6; margin: 12px 0 0; }
 .al-content .al-note__lead, .al-content .al-note__prompt { color: #fff; }
 .al-content .al-note__label { color: rgba(255,255,255,.8); }
-.al-note__list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.al-note__list { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
 .al-note > .al-note__list:first-child { margin-top: 0; } /* box without a heading label */
 .al-note__item { display: flex; flex-direction: column; gap: 5px; }
-.al-note__item + .al-note__item { padding-top: 16px; border-top: 1px solid rgba(207,128,152,.22); }
+.al-note__item + .al-note__item { padding-top: 20px; border-top: 1px solid rgba(207,128,152,.22); }
+.al-note__t + .al-note__t { margin-top: 4px; } /* a second paragraph in the same note */
+.al-note__meta { margin: 0 0 4px; font-size: 13px; letter-spacing: .02em; } /* e.g. a date under a name */
+.al-content .al-note__meta { color: rgba(255, 255, 255, .6); }
 .al-note__k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #d98aa2; }
 .al-note__t { font-size: 15px; line-height: 1.55; margin: 0; }
 .al-content .al-note__t { color: #fff; }
@@ -243,6 +246,12 @@ a.al-session__btn--join:hover { background: #1f7ae6; border-color: #1f7ae6; }
   border: 1px solid rgba(255, 255, 255, .22); background: rgba(0, 0, 0, .2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .al-banner__k { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #d98aa2; margin-right: 8px; }
 .al-content .al-banner { color: #fff; }
+/* A code to copy (e.g. a recording passcode): one tap selects the whole thing. */
+.al-note__code { display: flex; align-items: center; gap: 10px; margin: 4px 0 0; font-size: 14px; }
+.al-content .al-note__code { color: rgba(255, 255, 255, .7); }
+.al-code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; letter-spacing: .04em; padding: 4px 10px; border-radius: 6px;
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18); -webkit-user-select: all; user-select: all; }
+.al-content .al-code { color: #fff; }
 .al-note__bullets { list-style: disc; margin: 2px 0 0; padding-left: 20px; font-size: 15px; line-height: 1.55; }
 .al-content .al-note__bullets { color: #fff; }
 /* minimized past-week note (collapsible) */
