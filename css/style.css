@@ -518,6 +518,9 @@ p {
   max-width: 440px;
   margin: 0 auto;
 }
+/* four or more blocks (the Past list) wrap two to a row */
+.c-upcoming-grid--wrap { flex-wrap: wrap; }
+.c-upcoming-grid--wrap .c-upcoming-block { flex: 1 1 40%; }
 .c-upcoming-block {
   flex: 1 1 0;
   border: 1px solid var(--black);

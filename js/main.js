@@ -86,7 +86,17 @@
   function initRegForm() {
     var reg = document.getElementById("reg");
     var form = document.getElementById("reg-form");
-    if (!reg || !form) return;
+    if (!reg) return;
+
+    // Between seasons there's no form, only a pre-register email link, but an
+    // outside ?register=1 link should still land on the seasonal tab.
+    if (!form) {
+      if (/(^|&)register=1(&|$)/.test(location.search.slice(1))) {
+        var tab = reg.closest(".c-panel");
+        if (tab) activate(tab.id.replace(/^panel-/, ""));
+      }
+      return;
+    }
 
     function openReg() {
       reg.classList.add("is-open");
