@@ -809,6 +809,62 @@ p {
   margin-left: .4em;
 }
 
+/* Testimonials under the register button: one row, scrolls sideways,
+   each quote a little narrower than the column so the next one peeks in */
+.c-quotes { margin-top: 3em; }
+.c-quotes__track {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1em;
+  scrollbar-width: thin;
+}
+.c-quotes__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.c-quotes__nav { display: flex; gap: .2em; }
+.c-quotes__arrow {
+  background: none;
+  border: 0;
+  padding: 4px;
+  color: var(--black);
+  opacity: .45;
+  cursor: pointer;
+  line-height: 0;
+  transition: opacity .2s;
+}
+.c-quotes__arrow svg { width: 18px; height: 18px; }
+.c-quotes__arrow:hover { opacity: .8; }
+.c-quotes__arrow:disabled { opacity: .12; cursor: default; }
+/* soft white fade on whichever edge has more quotes behind it */
+.c-quotes__frame { position: relative; }
+.c-quotes__frame::before,
+.c-quotes__frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 1em;
+  width: 14%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.c-quotes__frame::before { left: 0; background: linear-gradient(to right, var(--beige), rgba(255, 255, 255, 0)); }
+.c-quotes__frame::after { right: 0; background: linear-gradient(to left, var(--beige), rgba(255, 255, 255, 0)); }
+.c-quotes__frame.can-prev::before,
+.c-quotes__frame.can-next::after { opacity: 1; }
+.c-quotes__track .c-quote {
+  flex: 0 0 80%;
+  max-width: none;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
 /* Quotes inside a modal span the dialog width */
 .c-modal .c-quote { max-width: none; margin: 1.4em 0; font-size: 14px; }
 

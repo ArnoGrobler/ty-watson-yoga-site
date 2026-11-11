@@ -82,6 +82,43 @@
     window.addEventListener("resize", seriesSetHeight);
   }
 
+  /* ---------------- Testimonials row (sideways scroll) ---------------- */
+  function initQuotes() {
+    var track = document.querySelector(".c-quotes__track");
+    if (!track) return;
+    var frame = track.parentNode;
+    var prev = document.querySelector("[data-quotes-prev]");
+    var next = document.querySelector("[data-quotes-next]");
+
+    // Fades and arrows only show on the side that has more to see.
+    function update() {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      var atStart = track.scrollLeft <= 2;
+      var atEnd = track.scrollLeft >= max;
+      frame.classList.toggle("can-prev", !atStart);
+      frame.classList.toggle("can-next", !atEnd);
+      if (prev) prev.disabled = atStart;
+      if (next) next.disabled = atEnd;
+    }
+
+    function step(dir) {
+      var q = track.querySelector(".c-quote");
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      track.scrollBy({ left: dir * (q ? q.offsetWidth + gap : track.clientWidth), behavior: "smooth" });
+    }
+
+    if (prev) prev.addEventListener("click", function () { step(-1); });
+    if (next) next.addEventListener("click", function () { step(1); });
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    // the seasonal tab may be hidden on load, so re-check when it's opened
+    document.querySelectorAll('button[data-tab="autumn-series"]').forEach(function (b) {
+      b.addEventListener("click", function () { requestAnimationFrame(update); });
+    });
+    if (document.fonts) document.fonts.ready.then(update);
+    update();
+  }
+
   /* ---------------- Inline registration form ---------------- */
   function initRegForm() {
     var reg = document.getElementById("reg");
@@ -373,6 +410,7 @@
     initTabBar();
     initSeries();
     initRegForm();
+    initQuotes();
     initCursorHelp();
     initImagePreview();
     initModals();
