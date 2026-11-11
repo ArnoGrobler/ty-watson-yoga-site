@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/strap.png" type="image/png">
   <link rel="shortcut icon" href="assets/strap.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/strap.png">
-  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/style.css?v=20">
 
   <!-- ============================================================
        WORK-IN-PROGRESS LOCK
@@ -78,12 +78,16 @@
 
             <!-- Detail view -->
             <div class="c-series-view c-series-view--detail">
-            <div class="c-summer">
+            <!-- While "is-locked" is on, visitors only see the heading, TBA and
+                 the pre-register form. Remove "is-locked" to publish the full
+                 page. Preview the full page with /?series=full#autumn-series -->
+            <div class="c-summer is-locked">
               <h2 class="c-infos__title">Seasonal Series 2027</h2>
-              <p class="c-summer__meta">Online<br>Dates TBA</p>
+              <p class="c-summer__meta c-locked-only">TBA</p>
+              <p class="c-summer__meta c-full-only">Online every Tuesday in<br>Jan · Apr · Jul · Oct 2027</p>
               <div class="c-pill-row">
                 <button type="button" class="c-pill c-pill--view" data-series-open>MORE IN THIS SERIES</button>
-                <a href="mailto:tyrone13watson@gmail.com?subject=Seasonal%20Series%202027&amp;body=I%20would%20like%20to%20be%20part%20of%20the%20seasonal%20series%20for%202027" class="c-pill"><span class="c-pill__dot"></span>PRE-REGISTER</a>
+                <a href="/?register=1" class="c-pill" data-reg-open><span class="c-pill__dot"></span>PRE-REGISTER</a>
               </div>
 
               <blockquote class="c-quote">"This seasonal workshop makes me love my life and learning and humanity!"</blockquote>
@@ -110,10 +114,76 @@
 
               <p><strong>The dispatch</strong> is an invitation into a book, an essay, a podcast, or something where the season shows up clearly. Read all of it, some of it, or none of it — it's there to give us something to think about together.</p>
 
-              <p>This is a small, held group that gets to know each other over the month. Showing up live, with your camera on, is essential for participation and for you to get the most out of your experience. In exceptional circumstances, recordings can be made available.</p>
+              <p>This is a small group that gets to know each other over the month. Showing up live, with your camera on, is essential for participation and for you to get the most out of your experience. Only in exceptional circumstances can recordings be made available.</p>
+
+              <p class="c-summer__lead">2027 seasons</p>
+              <div class="c-upcoming-grid c-upcoming-grid--wrap c-seasons">
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">WINTER 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <div class="c-upcoming__title">Winter Series</div>
+                    <div class="c-upcoming__date">Jan 5 – 26</div>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm" data-reg-open="winter">REGISTER</a>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">SPRING 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <div class="c-upcoming__title">Spring Series</div>
+                    <div class="c-upcoming__date">Apr 6 – 27</div>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm c-pill--waitlist" data-reg-open="spring">RESERVE YOUR SPACE</a>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">SUMMER 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <div class="c-upcoming__title">Summer Series</div>
+                    <div class="c-upcoming__date">Jul 6 – 27</div>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm c-pill--waitlist" data-reg-open="summer">RESERVE YOUR SPACE</a>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">AUTUMN 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <div class="c-upcoming__title">Autumn Series</div>
+                    <div class="c-upcoming__date">Oct 5 – 26</div>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm c-pill--waitlist" data-reg-open="autumn">RESERVE YOUR SPACE</a>
+                </div>
+              </div>
+              <p class="c-summer__price">Tuesdays online · €350 per season</p>
 
               <div class="c-reg" id="reg">
-                <a href="mailto:tyrone13watson@gmail.com?subject=Seasonal%20Series%202027&amp;body=I%20would%20like%20to%20be%20part%20of%20the%20seasonal%20series%20for%202027" class="buttons c-summer__register w-button">Pre-register for 2027</a>
+                <a href="/?register=1" class="buttons c-summer__register w-button" data-reg-open="all"><span class="c-full-only">Pre-register for all four seasons</span><span class="c-locked-only">Pre-register</span></a>
+
+                <form id="reg-form" class="c-reg-form" action="https://formsubmit.co/ajax/tyrone13watson@gmail.com" method="POST">
+                  <input class="c-reg-input" type="text" name="name" placeholder="Your name" required autocomplete="name">
+                  <input class="c-reg-input" type="email" name="email" placeholder="Your email" required autocomplete="email">
+                  <fieldset class="c-reg-seasons">
+                    <legend>Which seasons?</legend>
+                    <label class="c-reg-check"><input type="checkbox" name="Winter 2027" value="Yes" data-season="winter"> Winter <span>Jan 5 – 26</span></label>
+                    <label class="c-reg-check"><input type="checkbox" name="Spring 2027" value="Yes" data-season="spring"> Spring <span>Apr 6 – 27</span></label>
+                    <label class="c-reg-check"><input type="checkbox" name="Summer 2027" value="Yes" data-season="summer"> Summer <span>Jul 6 – 27</span></label>
+                    <label class="c-reg-check"><input type="checkbox" name="Autumn 2027" value="Yes" data-season="autumn"> Autumn <span>Oct 5 – 26</span></label>
+                  </fieldset>
+                  <textarea class="c-reg-input" name="message" rows="3" placeholder="Anything you'd like me to know (optional)"></textarea>
+                  <input type="hidden" name="_subject" value="Seasonal Series 2027 registration">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input class="c-reg-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                  <button type="submit" class="buttons c-summer__register w-button c-reg-submit">Send</button>
+                  <p class="c-reg-error" id="reg-seasons-error" hidden>Please choose at least one season.</p>
+                  <p class="c-reg-error" id="reg-error" hidden>Something went wrong sending that. Please email <a class="c-help-link" href="mailto:tyrone13watson@gmail.com?subject=Seasonal%20Series%202027&amp;body=I%20would%20like%20to%20be%20part%20of%20the%20seasonal%20series%20for%202027">tyrone13watson@gmail.com</a> instead.</p>
+                </form>
+
+                <div class="c-reg-done" id="reg-done">
+                  <p><strong>Thanks, I've got your details.</strong><br>I'll be in touch soon with next steps.</p>
+                </div>
+
                 <p class="c-reg-fallback">Or write to <a class="c-help-link" href="mailto:tyrone13watson@gmail.com?subject=Seasonal%20Series%202027&amp;body=I%20would%20like%20to%20be%20part%20of%20the%20seasonal%20series%20for%202027">tyrone13watson@gmail.com</a></p>
               </div>
 
@@ -146,16 +216,42 @@
               </div>
 
               <h2 class="c-infos__title">Upcoming</h2>
-              <div class="c-upcoming-grid">
+              <div class="c-upcoming-grid c-upcoming-grid--wrap">
                 <div class="c-upcoming-block">
-                  <div class="c-upcoming__month">2027</div>
+                  <div class="c-upcoming__month">WINTER 2027</div>
                   <div class="c-upcoming__rule"></div>
                   <div class="c-upcoming__event">
-                    <p class="c-upcoming__title">Seasonal Series</p>
-                    <p class="c-upcoming__date">Dates TBA</p>
+                    <p class="c-upcoming__title">Winter Series</p>
+                    <p class="c-upcoming__date">Jan 5 – 26</p>
                   </div>
-                  <p class="c-upcoming__more"><a class="c-help-link" href="mailto:tyrone13watson@gmail.com?subject=Seasonal%20Series%202027&amp;body=I%20would%20like%20to%20be%20part%20of%20the%20seasonal%20series%20for%202027">Pre-register</a></p>
-                  <span class="c-pill c-pill--sm"><span class="c-pill__dot"></span>OPEN</span>
+                  <a href="/?register=1" class="c-pill c-pill--sm" data-reg-open="winter">REGISTER</a>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">SPRING 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Spring Series</p>
+                    <p class="c-upcoming__date">Apr 6 – 27</p>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm c-pill--waitlist" data-reg-open="spring">RESERVE YOUR SPACE</a>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">SUMMER 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Summer Series</p>
+                    <p class="c-upcoming__date">Jul 6 – 27</p>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm c-pill--waitlist" data-reg-open="summer">RESERVE YOUR SPACE</a>
+                </div>
+                <div class="c-upcoming-block">
+                  <div class="c-upcoming__month">AUTUMN 2027</div>
+                  <div class="c-upcoming__rule"></div>
+                  <div class="c-upcoming__event">
+                    <p class="c-upcoming__title">Autumn Series</p>
+                    <p class="c-upcoming__date">Oct 5 – 26</p>
+                  </div>
+                  <a href="/?register=1" class="c-pill c-pill--sm c-pill--waitlist" data-reg-open="autumn">RESERVE YOUR SPACE</a>
                 </div>
               </div>
 
@@ -228,7 +324,7 @@
                     <div class="c-upcoming__rule"></div>
                     <div class="c-upcoming__event">
                       <p class="c-upcoming__title">Seasonal Series</p>
-                      <a href="mailto:tyrone13watson@gmail.com?subject=Seasonal%20Series%202027&amp;body=I%20would%20like%20to%20be%20part%20of%20the%20seasonal%20series%20for%202027" class="c-schedule-text__link">Pre-register</a>
+                      <a href="/?register=1" class="c-schedule-text__link" data-reg-open>Pre-register</a>
                     </div>
                   </div>
                 </div>
@@ -374,6 +470,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>

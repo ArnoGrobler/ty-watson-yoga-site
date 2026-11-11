@@ -119,6 +119,21 @@
     update();
   }
 
+  /* ---------------- Seasonal Series wall ---------------- */
+  // The full page sits behind "is-locked" until it's published. Ty can see
+  // it with /?series=full. While locked, the season tick boxes are taken out
+  // so the form sends name, email and message only.
+  function initSeriesLock() {
+    var page = document.querySelector(".c-summer.is-locked");
+    if (!page) return;
+    if (/(^|&)series=full(&|$)/.test(location.search.slice(1))) {
+      page.classList.remove("is-locked");
+      return;
+    }
+    var seasons = page.querySelector(".c-reg-seasons");
+    if (seasons) seasons.remove();
+  }
+
   /* ---------------- Inline registration form ---------------- */
   function initRegForm() {
     var reg = document.getElementById("reg");
@@ -135,7 +150,18 @@
       return;
     }
 
-    function openReg() {
+    // Open the form from anywhere on the site (Teaching tab, the season
+    // boxes, the archive). data-reg-open="spring" pre-ticks that season,
+    // "all" ticks all four, and an empty value leaves the ticks alone.
+    function openReg(season) {
+      var panel = reg.closest(".c-panel");
+      if (panel && panel.hidden) activate(panel.id.replace(/^panel-/, ""));
+      seriesShow(false);
+      if (season) {
+        form.querySelectorAll("input[data-season]").forEach(function (box) {
+          if (season === "all" || box.getAttribute("data-season") === season) box.checked = true;
+        });
+      }
       reg.classList.add("is-open");
       seriesSetHeight();                   // grow the slider to fit the form
       form.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -143,11 +169,10 @@
       if (first) setTimeout(function () { first.focus(); }, 350);
     }
 
-    // "Register" button and the OPEN pill both reveal the form in place.
     document.querySelectorAll("[data-reg-open]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        openReg();
+        openReg(el.getAttribute("data-reg-open"));
       });
     });
 
@@ -178,6 +203,14 @@
       e.preventDefault();
       var honey = form.querySelector("[name='_honey']");
       if (honey && honey.value) return;    // silently drop bots
+      var seasonsErr = document.getElementById("reg-seasons-error");
+      var boxes = form.querySelectorAll("input[data-season]");
+      if (boxes.length && !form.querySelector("input[data-season]:checked")) {
+        if (seasonsErr) seasonsErr.hidden = false;
+        seriesSetHeight();
+        return;
+      }
+      if (seasonsErr) seasonsErr.hidden = true;
       var btn = form.querySelector("button[type='submit']");
       var err = document.getElementById("reg-error");
       if (err) err.hidden = true;
@@ -198,7 +231,7 @@
           }
         })
         .catch(function () {
-          if (btn) { btn.disabled = false; btn.textContent = "Send registration"; }
+          if (btn) { btn.disabled = false; btn.textContent = "Send"; }
           if (err) err.hidden = false;
         });
     });
@@ -409,6 +442,7 @@
     initLock();
     initTabBar();
     initSeries();
+    initSeriesLock();
     initRegForm();
     initQuotes();
     initCursorHelp();

@@ -983,6 +983,27 @@ textarea.c-reg-input { resize: vertical; min-height: 84px; }
 .c-reg-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .c-reg-error { color: #c0392b; text-align: center; font-size: 15px; margin-top: 12px; }
 .c-reg-done { text-align: center; line-height: 1.6; padding: 6px 0; }
+/* season tick boxes in the pre-registration form */
+.c-reg-seasons { border: 0; margin: .4em 0 1em; padding: 0; }
+.c-reg-seasons legend { padding: 0; margin-bottom: .5em; font-family: var(--body); font-size: 16px; font-weight: 700; }
+.c-reg-check {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  padding: .35em 0;
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  cursor: pointer;
+}
+.c-reg-check input { width: 16px; height: 16px; margin: 0; accent-color: var(--black); }
+.c-reg-check span { opacity: .55; }
+.c-summer .c-reg-note { margin: .4em 0 0; opacity: .55; font-size: 15px; line-height: 1.5; }
+
+/* the 2027 season boxes sit inside the text column */
+.c-summer .c-seasons { width: 100%; max-width: none; margin-bottom: 1.2em; }
+
 .c-reg-fallback { text-align: center; opacity: .55; margin-top: 16px; }
 
 /* ---------- Cursor-following help text ---------- */
@@ -1547,3 +1568,78 @@ html.is-locked .c-lock {
   .c-lock__msg { font-size: 4vw; }
   .c-lock__form { flex-direction: column; align-items: stretch; }
 }
+
+/* ============================================================
+   Seasonal Series — one type scale for the whole column.
+   Everything is sized off --fs (the body text size), so headings,
+   boxes, quotes and the form stay in proportion at every width.
+   On small screens the size is capped, so it can't balloon on a
+   wide phone or narrow window.
+   ============================================================ */
+.c-summer { --fs: min(1.62vw, 16.2px); }
+@media screen and (max-width: 767px) { .c-summer { --fs: min(4vw, 17px); } }
+
+.c-summer > .c-infos__title { font-size: calc(var(--fs) * 1.75); }
+.c-summer .c-pill { font-size: calc(var(--fs) * .8); }
+.c-summer .c-pill { white-space: nowrap; }
+.c-summer .c-pill-row { flex-wrap: wrap; }
+
+.c-summer p,
+.c-summer .c-summer__list li {
+  font-size: var(--fs);
+  line-height: 1.8em;
+  letter-spacing: .04em;
+}
+.c-summer .c-summer__list li { line-height: 1.7em; }
+.c-summer .c-quote { font-size: var(--fs); letter-spacing: .02em; max-width: none; }
+
+.c-summer .c-ask__lead { font-size: calc(var(--fs) * .92); }
+.c-summer .c-ask__q { font-size: calc(var(--fs) * 1.12); }
+
+.c-summer .c-seasons .c-upcoming__month { font-size: calc(var(--fs) * .8); }
+.c-summer .c-seasons .c-upcoming__title,
+.c-summer .c-seasons .c-upcoming__date { font-size: var(--fs); }
+/* one button per season, pinned to the bottom with room above it */
+.c-summer .c-seasons .c-upcoming__event { margin-bottom: 1.2em; }
+
+.c-summer .c-summer__register { font-size: var(--fs); }
+.c-summer .c-reg-input,
+.c-summer .c-reg-seasons legend,
+.c-summer .c-reg-check { font-size: var(--fs); }
+.c-summer .c-reg-check { letter-spacing: .04em; }
+.c-summer .c-reg-note,
+.c-summer .c-reg-fallback,
+.c-summer .c-reg-error { font-size: calc(var(--fs) * .9); }
+/* phones zoom into any field under 16px, so hold inputs at 16 there */
+@media screen and (max-width: 767px) {
+  .c-summer .c-reg-input { font-size: max(var(--fs), 16px); }
+}
+
+/* the Upcoming / Past boxes elsewhere: same caps so they don't balloon
+   between phone and tablet widths */
+@media screen and (max-width: 767px) {
+  .c-upcoming__month { font-size: min(3.31vw, 13px); }
+  .c-upcoming__title,
+  .c-upcoming__date { font-size: min(3.73vw, 16px); }
+  .c-upcoming__tba,
+  .c-upcoming-block .c-schedule-text__link { font-size: min(3.45vw, 15px); }
+  .c-upcoming__more { font-size: min(3.4vw, 15px); }
+}
+
+/* "Reserve your space" is the longest button; on phones the season boxes are
+   half-width, so tighten it to fit */
+@media screen and (max-width: 767px) {
+  .c-upcoming-block .c-pill--waitlist { letter-spacing: .02em; padding: 4px 8px; gap: 4px; }
+  .c-summer .c-seasons .c-pill { font-size: calc(var(--fs) * .62); }
+  .c-series-view--archive .c-upcoming-block .c-pill--waitlist { font-size: min(2.3vw, 10px); }
+}
+
+/* Seasonal Series wall: while locked, show only the heading, TBA and the
+   pre-register form. Remove "is-locked" from .c-summer in index.html to
+   publish the full page. */
+.c-summer .c-locked-only { display: none; }
+.c-summer.is-locked .c-locked-only { display: revert; }
+.c-summer.is-locked .c-full-only,
+.c-summer.is-locked > :not(.c-infos__title):not(.c-summer__meta):not(.c-reg),
+.c-summer.is-locked .c-reg-seasons { display: none; }
+.c-summer.is-locked .c-reg { margin-top: 1.5em; }
