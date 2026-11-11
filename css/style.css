@@ -904,6 +904,22 @@ p {
   margin-bottom: .6em !important;
 }
 
+/* the season's question: its own block on a pale tint of the text colour */
+.c-ask {
+  margin: 2.4em 0;
+  padding: 1.6em 1.8em;
+  background: rgba(51, 4, 17, .045);
+  border-radius: 6px;
+  text-align: center;
+}
+.c-summer .c-ask__lead { margin: 0 0 .3em; opacity: .6; }
+.c-summer .c-ask__q {
+  margin: 0;
+  font-size: min(1.7vw, 17px);
+  font-weight: 300;
+  line-height: 1.7em;
+}
+
 /* bold lead-in phrases within body paragraphs */
 .c-summer p strong { font-weight: 700; }
 
@@ -1320,6 +1336,11 @@ textarea.c-reg-input { resize: vertical; min-height: 84px; }
 @media screen and (max-width: 767px) {
   .c-summer { max-width: 84vw; }
   .c-summer p, .c-summer__list li { font-size: min(4vw, 40px); line-height: 1.8em; }
+}
+
+@media screen and (max-width: 767px) {
+  .c-summer .c-ask__q { font-size: min(4.2vw, 42px); }
+  .c-ask { padding: 1.4em 1.2em; }
 }
 
 /* ---------- Responsive — pill & quote ---------- */
