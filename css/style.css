@@ -732,7 +732,7 @@ p {
 }
 
 /* status pills inside archive blocks */
-.c-pill.c-pill--sm { font-size: min(0.83vw, 8.3px); padding: 5px 11px; }
+.c-pill.c-pill--sm { font-size: min(1.15vw, 11.5px); padding: 5px 11px; }
 .c-pill--waitlist .c-pill__dot { background: #e0a53a; box-shadow: none; animation: none; }
 .c-pill--closed  .c-pill__dot { background: #b3b3b3; box-shadow: none; animation: none; }
 .c-pill {
@@ -1486,7 +1486,7 @@ textarea.c-reg-input { resize: vertical; min-height: 84px; }
 /* ---------- Responsive — series archive ---------- */
 @media screen and (max-width: 767px) {
   .c-series-archive { max-width: 88vw; }
-  .c-pill.c-pill--sm { font-size: min(2.76vw, 27.6px); padding: 4px 9px; gap: 5px; }
+  .c-pill.c-pill--sm { font-size: min(2.76vw, 11px); padding: 4px 9px; gap: 5px; }
   .c-pill--sm .c-pill__dot { width: 5px; height: 5px; }
 }
 
@@ -1643,3 +1643,95 @@ html.is-locked .c-lock {
 .c-summer.is-locked > :not(.c-infos__title):not(.c-summer__meta):not(.c-reg),
 .c-summer.is-locked .c-reg-seasons { display: none; }
 .c-summer.is-locked .c-reg { margin-top: 1.5em; }
+
+/* "Registration open" scrolls here; leave a little air above the heading */
+#seasons { scroll-margin-top: 2em; }
+
+/* The big Pre-register button is only for the locked (TBA) page; on the
+   full page people register from the season boxes. */
+.c-summer:not(.is-locked) .c-reg-big { display: none; }
+
+/* the season's question: left-aligned, tighter lines */
+.c-summer .c-ask { text-align: left; padding: 1.2em 1.5em; }
+.c-summer .c-ask__lead { margin: 0 0 .5em; line-height: 1.5em; }
+.c-summer .c-ask__q { line-height: 1.5em; }
+
+
+/* practical notes (small group, camera on, recordings): smaller and quieter
+   than the body copy so they read as notes, not description */
+.c-summer .c-summer__notes {
+  list-style: none;
+  margin: 2em 0 2.8em;
+  padding: 1em 0 0;
+  border-top: 1px solid rgba(51, 4, 17, .15);
+}
+.c-summer .c-summer__notes li {
+  font-size: calc(var(--fs) * .85);
+  line-height: 1.6em;
+  letter-spacing: .03em;
+  opacity: .75;
+  margin: 0 0 .5em;
+}
+
+/* 2027 season boxes: the dates lead; the practical lines sit smaller and
+   lighter underneath in two small groups (weekly sessions / workshop) */
+.c-season-info > * { margin: 0; }
+.c-season-info > :not(:first-child) {
+  font-size: .85em;
+  line-height: 1.45em;
+  opacity: .75;
+}
+.c-season-info > :nth-child(2),
+.c-season-info > :nth-child(4) { margin-top: .6em; }
+.c-summer .c-seasons .c-season-info > :not(:first-child) { font-size: calc(var(--fs) * .85); }
+
+/* small time-zone note under the price, so the season boxes can drop
+   "Paris time" from every line */
+.c-summer .c-summer__price { margin-bottom: 0; }
+.c-summer .c-summer__tz {
+  text-align: center;
+  margin: 1.4em 0 0;
+  font-size: calc(var(--fs) * .9);
+  opacity: .55;
+}
+/* the soft lines (time note + email) sit together, apart from the price */
+.c-summer:not(.is-locked) .c-reg:not(.is-open):not(.is-done) .c-reg-fallback { margin-top: .2em; }
+.c-upcoming-tz {
+  text-align: center;
+  margin: 1em 0 0;
+  font-family: var(--body);
+  font-size: min(1.4vw, 14px);
+  opacity: .7;
+}
+@media screen and (max-width: 767px) { .c-upcoming-tz { font-size: min(3.4vw, 14px); } }
+
+/* second Back button at the foot of "More in this series" */
+.c-archive-back-row--end { margin: 5vh 0 0; }
+
+/* ---------- Readability pass (Seasonal Series) ----------
+   Raise the smallest text: secondary lines in the season boxes, the small
+   notes, the soft lines under the price and the season buttons. Less fade
+   too, so the light text has enough contrast. */
+.c-season-info > :not(:first-child) { font-size: .94em; opacity: .85; }
+.c-summer .c-seasons .c-season-info > :not(:first-child) { font-size: calc(var(--fs) * .94); }
+.c-summer .c-summer__notes li { font-size: calc(var(--fs) * .94); opacity: .85; }
+.c-summer .c-summer__tz,
+.c-summer .c-reg-fallback { opacity: .7; }
+.c-summer .c-ask__lead { opacity: .7; }
+.c-upcoming-tz { opacity: .75; }
+@media screen and (max-width: 767px) {
+  /* 2027 season boxes on phones: one per row, full width, so the text and
+     buttons can be a readable size */
+  .c-seasons.c-upcoming-grid--wrap .c-upcoming-block { flex-basis: 100%; padding: 14px 16px; }
+  .c-seasons .c-pill.c-pill--sm,
+  .c-summer .c-seasons .c-pill {
+    font-size: 12px;
+    letter-spacing: .04em;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  .c-seasons .c-pill--sm .c-pill__dot { width: 6px; height: 6px; }
+  .c-seasons .c-season-info { margin-bottom: 14px; }
+  .c-seasons .c-upcoming__month,
+  .c-summer .c-seasons .c-upcoming__month { font-size: 13px; }
+}

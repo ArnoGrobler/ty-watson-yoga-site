@@ -77,9 +77,25 @@
       b.addEventListener("click", function () { seriesShow(true); });
     });
     vp.querySelectorAll("[data-series-close]").forEach(function (b) {
-      b.addEventListener("click", function () { seriesShow(false); });
+      b.addEventListener("click", function () {
+        seriesShow(false);
+        // the Back at the foot of the archive is far down the page, so
+        // return to the top of the series as well
+        var top = vp.getBoundingClientRect().top;
+        if (top < 0) vp.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     });
     window.addEventListener("resize", seriesSetHeight);
+
+    // "Registration open" at the top glides down to the four season boxes
+    // (handled here so the #seasons link doesn't trip the tab routing)
+    vp.querySelectorAll("[data-seasons-jump]").forEach(function (b) {
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        var target = document.getElementById("seasons");
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   }
 
   /* ---------------- Testimonials row (sideways scroll) ---------------- */
