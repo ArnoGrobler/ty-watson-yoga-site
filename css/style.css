@@ -369,7 +369,7 @@ p {
 }
 .c-infos__link.is--cap {
   text-transform: uppercase;
-  font-size: min(1.38vw, 13.8px);
+  font-size: min(1.52vw, 15.2px);   /* matches the smallest body text on the Seasonal Series page */
 }
 
 /* ---------- Footer ---------- */
@@ -630,7 +630,7 @@ p {
 .c-schedule__note {
   text-align: center;
   font-family: var(--body);
-  font-size: min(1.38vw, 13.8px);
+  font-size: min(1.52vw, 15.2px);   /* matches the smallest body text on the Seasonal Series page */
   font-style: italic;
   line-height: 1.6em;
   margin: 3vh auto 3vh;
@@ -1622,7 +1622,7 @@ html.is-locked .c-lock {
   .c-upcoming__title,
   .c-upcoming__date { font-size: min(3.73vw, 16px); }
   .c-upcoming__tba,
-  .c-upcoming-block .c-schedule-text__link { font-size: min(3.45vw, 15px); }
+  .c-upcoming-block .c-schedule-text__link { font-size: min(3.73vw, 16px); }
   .c-upcoming__more { font-size: min(3.4vw, 15px); }
 }
 
